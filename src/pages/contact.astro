@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact">
+<div class="container">
+    <form action="https://formspree.io/f/xgejvblv" method="POST" enctype="multipart/form-data">
+      <label for="name">Name:
+        <input type="text" id="name" name="name" required />
+      </label>
+      <label>
+        Your Email:
+        <input id="email" type="email" name="email" required />
+      </label>
+      <label>
+        Message:
+        <textarea id="message" name="message"></textarea>
+      </label>
+      <label>
+        Relevant Files <em>(optional)</em>:
+        <input type="file" name="upload" />
+      </label>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  </Layout>
+<style>
+  /* From Form Provider  */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 400px;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:active {
+  background-color: #3e8e41;
+}
+
+/*************************************************/
+/******************* MY STYLES *******************/
+/*************************************************/
+body,
+.container {
+  background-color: black;
+}
+
+.container {
+  width: 60%;
+  max-width: 350px;
+  position: relative;
+  left: 10px;
+  border: 8px solid #2a69a1;
+  box-shadow: 3px 3px .6rem #ec5353, -1em 0 .4em #919118;
+  /*   border-image: linear-gradient(to bottom, #4277db 90%, #f6b73c00) 30;
+  border-width: 4px;
+  border-style: solid; */
+}
+
+form {
+  color: #d9d9d9;
+  /*   clear: both; */
+  overflow: hidden;
+}
+
+input,
+textarea {
+  background-color: #e1e1e1;
+  color: black;
+  width: 90%;
+}
+
+input {
+  margin-top: .3rem;
+}
+
+button {
+  float: right;
+  margin: 0 auto;
+}
+
+body,
+html {
+  background-color: black;
+}
+
+body {
+  color: white;
+  height: 100vh;
+  /* needed to take up full page height */
+  margin: 0 8px;
+}
+</style>
