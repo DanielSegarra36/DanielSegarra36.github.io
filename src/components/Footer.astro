@@ -52,13 +52,20 @@
 
 <style>
   footer {
+    display: flex;
+    text-align: center;
+    align-items: center;
     justify-content: center;
     padding: 0 2rem;
   }
-
+  
+  .socials {
+    width: fit-content;
+  }
   .socials svg {
     height: 28px;
     padding: 1rem;
+    color: white; /* the font-awesome icons will inherit this color (astro)*/
   }
   .socials path {
     fill: white;

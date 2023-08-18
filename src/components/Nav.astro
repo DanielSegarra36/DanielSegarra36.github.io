@@ -1,8 +1,8 @@
 <nav>
-  <a href="https://danielsegarra.dev/">home</a>
+  <a href="/">home</a>
   <a href="work.html">work</a>
   <!-- <div id="logo"><img src="./logo.png" alt="LOGO" /></div> -->
-  <a href="https://danielsegarra.dev/">
+  <a href="/">
     <!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
       <lottie-player src="animation.json" background="transparent" speed=".25" loop autoplay></lottie-player> -->
     <svg
@@ -40,15 +40,20 @@
   nav > a:not(a:nth-child(3)) {
     padding: 10px;
     border-radius: 1rem;
-    transition: background-color 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
     color: inherit;
     /* blue colors for links too */
     text-decoration: none;
     /* no underline */
+    background: radial-gradient(closest-side, rgb(49,46,46),rgb(49,46,46), #000);
+    background-size: 0px 0px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
   }
 
   nav > a:hover:not(a:nth-child(3)) {
-    background-color: rgb(49, 46, 46);
+    /* background-color: rgb(49, 46, 46); */
+    background-size: 100% 100%;
   }
 
   /* NAV LOGO */

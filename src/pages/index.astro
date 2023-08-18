@@ -1,10 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 import Card from "../components/Card.astro";
 import Workers from "../components/Workers.astro";
 ---
 
-<Layout title="Daniel Segarra: We Workin Here.">
+<MainLayout title="Daniel Segarra: We Workin Here.">
   <main>
     <section class="bio">
       <h2 style="font-size: 3.5rem;">Under Construction</h2>
@@ -18,23 +18,9 @@ import Workers from "../components/Workers.astro";
     </section>
     <Workers />
   </main>
-</Layout>
+</MainLayout>
 
 <style>
-  body,
-  html {
-    background-color: black;
-  }
-
-  body {
-    color: white;
-    /*! height: 100vh; */
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    /* needed to take up full page height */
-    margin: 0 8px;
-  }
-
   main {
     display: flex;
     text-align: center;
