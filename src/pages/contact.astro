@@ -3,33 +3,45 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Contact">
-  <div class="container">
-    <form
-      action="https://formspree.io/f/xgejvblv"
-      method="POST"
-      enctype="multipart/form-data"
-    >
-      <label for="name"
-        >Name:
-        <input type="text" id="name" name="name" required />
-      </label>
-      <label>
-        Your Email:
-        <input id="email" type="email" name="email" required />
-      </label>
-      <label>
-        Message:
-        <textarea id="message" name="message"></textarea>
-      </label>
-      <label>
-        Relevant Files <em>(optional)</em>:
-        <input type="file" name="upload" />
-      </label>
-      <button type="submit">Send</button>
-    </form>
+  <div class="animation-container">
+    <div class="container">
+      <form
+        action="https://formspree.io/f/xgejvblv"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <label for="name"
+          >Name:
+          <input type="text" id="name" name="name" required />
+        </label>
+        <label>
+          Your Email:
+          <input id="email" type="email" name="email" required />
+        </label>
+        <label>
+          Message:
+          <textarea id="message" name="message"></textarea>
+        </label>
+        <label>
+          Relevant Files <em>(optional)</em>:
+          <input type="file" name="upload" />
+        </label>
+        <button type="submit">Send</button>
+      </form>
+    </div>
   </div>
 </MainLayout>
 <style>
+  .animation-container {
+    /* color: red;
+    background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+  }
+  body {
+  }
   .container {
     font-family: Arial, sans-serif;
     max-width: 400px;
@@ -122,3 +134,13 @@ import MainLayout from "../layouts/MainLayout.astro";
     margin: 0 auto;
   }
 </style>
+<script>
+  //Movement Animation to happen
+  const card = document.querySelector(".container") ;
+  const container = document.querySelector(".animation-container");
+  //Moving Animation Event
+  container.addEventListener("mousemove", (e) => {
+  let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+  let yAxis = (window.innerHeight / 2 - e.pageY) / 10;
+  card.style.transform = `rotateY(${xAxis}deg) rotatex(${yAxis}deg)`});
+</script>
