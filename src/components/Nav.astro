@@ -31,6 +31,7 @@
     /* text-align: center; */
     align-items: center;
     justify-content: center;
+    padding: 1.2rem 0;
   }
 
   nav {
@@ -40,20 +41,34 @@
   nav > a:not(a:nth-child(3)) {
     padding: 10px;
     border-radius: 1rem;
-    transition: all 0.6s ease-in-out;
+    transition: all 0.3s ease-in-out;
     color: inherit;
     /* blue colors for links too */
     text-decoration: none;
     /* no underline */
-    background: radial-gradient(closest-side, rgb(49,46,46),rgb(49,46,46), #000);
+    /* background: radial-gradient(closest-side, rgb(49,46,46),rgb(49,46,46), #000); */
+    background: radial-gradient(closest-side,rgb(49,46,46),rgba(138, 127, 120, 0.6),#fff0);
     background-size: 0px 0px;
     background-position: 50% 50%;
     background-repeat: no-repeat;
+    
+    font-family: Poppins,sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    
+    font-size: 2rem;
+    text-decoration: none;
+    /* -webkit-text-fill-color: white; */
+    /* font-family: 'Annie Use Your Telescope'; */
   }
 
   nav > a:hover:not(a:nth-child(3)) {
     /* background-color: rgb(49, 46, 46); */
     background-size: 100% 100%;
+    -webkit-text-stroke: 1px white;
+    /* -webkit-text-fill-color: white; */
+    /* font-size: 1.2em; */
+    color: transparent;
   }
 
   /* NAV LOGO */
@@ -71,7 +86,7 @@
 
   @media screen and (min-width: 800px) {
     nav > a:not(a:nth-child(3)) {
-      padding: 2rem 4rem;
+      /* padding: 2rem 4rem; */
     }
   }
 
