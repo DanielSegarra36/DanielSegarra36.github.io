@@ -25,8 +25,8 @@ import Workers from "../components/Workers.astro";
     display: flex;
     text-align: center;
     align-items: center;
-    justify-content: center;
-    /*! justify-content: space-around; */
+    /* justify-content: center; */
+    justify-content: space-around;
     flex-direction: column;
   }
 
@@ -43,6 +43,7 @@ import Workers from "../components/Workers.astro";
 
   .bio > h2 {
     font-size: 3.5rem;
+    margin: revert;
   }
 
   .left-side {
@@ -57,5 +58,6 @@ import Workers from "../components/Workers.astro";
 
   p {
     max-width: 980px;
+    margin-bottom: 1.5rem;
   }
 </style>
