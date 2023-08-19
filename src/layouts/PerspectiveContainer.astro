@@ -1,0 +1,41 @@
+<article class="animation-container">
+  <section class="container">
+    <slot />
+  </section>
+</article>
+<style>
+  .animation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    height: 100%;
+  }
+  .container {
+    transform-style: preserve-3d;
+  }
+</style>
+<script>
+  // Movement Animation to happen
+  const card = document.querySelector(".container") ;
+  const container = document.querySelector(".animation-container");
+  
+  // Moving Animation Event
+  container.addEventListener("mousemove", (e) => {
+    let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+    let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+    card.style.transform = `rotateY(${xAxis}deg) rotatex(${yAxis}deg)`;
+  });
+  
+  // Animate In
+  container.addEventListener("mouseenter", (e) => {
+    card.style.transition = 'none';
+  });
+    
+  // Animate Out
+  container.addEventListener("mouseleave", (e) => {
+    card.style.transition = 'all .5s ease';
+    card.style.transform = 'rotateY(0deg) rotatex(0deg)';
+  });
+    
+</script>

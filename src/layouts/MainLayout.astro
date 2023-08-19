@@ -1,10 +1,11 @@
 ---
 interface Props {
   title: string;
+  nav?: boolean;
   footer?: boolean;
 }
 
-const { title, footer=true } = Astro.props;
+const { title, footer=true, nav=true } = Astro.props;
 
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
@@ -20,10 +21,10 @@ import Footer from "../components/Footer.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <link rel="manifest" href="../../manifest.json">
+    <!-- <meta name="color-scheme" content="dark light" /> -->
     <title>{title}</title>
   </head>
-  <body>
-    <Nav />
+    {nav ? <Nav /> : <div />}
     <slot />
     {footer ? <Footer /> : <div />}
     <script
