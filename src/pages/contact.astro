@@ -110,6 +110,7 @@ import MainLayout from "../layouts/MainLayout.astro";
     /*   border-image: linear-gradient(to bottom, #4277db 90%, #f6b73c00) 30;
   border-width: 4px;
   border-style: solid; */
+  transform-style: preserve-3d;
   }
 
   form {
@@ -135,12 +136,26 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
 </style>
 <script>
-  //Movement Animation to happen
+  // Movement Animation to happen
   const card = document.querySelector(".container") ;
   const container = document.querySelector(".animation-container");
-  //Moving Animation Event
+  
+  // Moving Animation Event
   container.addEventListener("mousemove", (e) => {
-  let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-  let yAxis = (window.innerHeight / 2 - e.pageY) / 10;
-  card.style.transform = `rotateY(${xAxis}deg) rotatex(${yAxis}deg)`});
+    let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+    let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+    card.style.transform = `rotateY(${xAxis}deg) rotatex(${yAxis}deg)`;
+  });
+  
+  // Animate In
+  container.addEventListener("mouseenter", (e) => {
+    card.style.transition = 'none';
+  });
+    
+  // Animate Out
+  container.addEventListener("mouseleave", (e) => {
+    card.style.transition = 'all .5s ease';
+    card.style.transform = 'rotateY(0deg) rotatex(0deg)';
+  });
+    
 </script>
