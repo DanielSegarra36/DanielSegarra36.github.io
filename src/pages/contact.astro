@@ -1,11 +1,19 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import ContactForm from "../components/ContactForm.astro";
-import PerspectiveContainer from "../layouts/PerspectiveContainer.astro";
 ---
 
 <MainLayout title="Contact">
-  <PerspectiveContainer id="black">
+  <div id="contact-form">
     <ContactForm />
-  </PerspectiveContainer>
+  </div>
 </MainLayout>
+
+<style>
+  #contact-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+</style>
