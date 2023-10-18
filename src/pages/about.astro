@@ -1,19 +1,26 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import PerspectiveContainer from "../layouts/PerspectiveContainer.astro";
+
+let firstColor = "#49ff6d";
+let secondColor = "#28a4ff";
+let thirdColor = "#b0f";
 ---
 
 <MainLayout title="Daniel Segarra: We Workin Here.">
-  <PerspectiveContainer id="black">
+  <PerspectiveContainer id="perspective-container">
     <main>
-      <p>My name is Daniel and I am a software engineer and educator.</p>
-      <p>
-        I've spent the last three years teaching introductory web development
-        skills, through non-profit development courses, in traditional and
-        non-traditional tech environments, to promote interdisciplinary
-        solutions while strengthening existing and complimentary skills.
-      </p>
+      <section class="bio">
+        <p>My name is Daniel and I am a software engineer and educator.</p>
+        <p>
+          I've spent the last three years teaching introductory web development
+          skills, through non-profit development courses, in traditional and
+          non-traditional tech environments, to promote interdisciplinary
+          solutions while strengthening existing and complimentary skills.
+        </p>
+      </section>
       <svg
+        class="shadow"
         width="275"
         height="352"
         viewBox="0 0 275 352"
@@ -29,12 +36,56 @@ import PerspectiveContainer from "../layouts/PerspectiveContainer.astro";
   </PerspectiveContainer>
 </MainLayout>
 
-<style>
+<style define:vars={{ firstColor, secondColor, thirdColor }}>
   main {
-    width: 450px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    /* justify-content: center; */
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .bio {
+    display: block;
+    width: 80vw;
+    margin: 0px auto;
+    font-size: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
+  .shadow {
+    -webkit-filter: drop-shadow(3px 3px 2px var(--firstColor))
+      drop-shadow(6px 6px 2px var(--secondColor))
+      drop-shadow(9px 9px 2px var(--thirdColor));
+    filter: drop-shadow(3px 3px 2px var(--firstColor))
+      drop-shadow(6px 6px 2px var(--secondColor))
+      drop-shadow(9px 9px 2px var(--thirdColor));
+
+    -webkit-svg-shadow: 0 0 2px #008000;
+  }
+  #perspective-container {
+    /* overflow: hidden; */
+  }
 </style>
+<script>
+  window.addEventListener("deviceorientation", changeSVG, true);
+
+  function changeSVG(event: {
+    absolute: any;
+    alpha: any;
+    beta: any;
+    gamma: any;
+  }) {
+    console.log("HI FROM CHANGESVG");
+    const absolute = event.absolute;
+    const alpha = event.alpha;
+    const beta = event.beta;
+    const gamma = event.gamma;
+
+    // Do stuff with the new orientation data
+    console.log(`alpha:${alpha}\nbeta:${beta}\ngamma:${gamma}`);
+  }
+</script>
