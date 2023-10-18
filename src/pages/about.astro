@@ -5,6 +5,7 @@ import PerspectiveContainer from "../layouts/PerspectiveContainer.astro";
 let firstColor = "#49ff6d";
 let secondColor = "#28a4ff";
 let thirdColor = "#b0f";
+let fourth = 132;
 ---
 
 <MainLayout title="Daniel Segarra: We Workin Here.">
@@ -20,15 +21,43 @@ let thirdColor = "#b0f";
         </p>
       </section>
       <svg
-        class="shadow"
+        class="shadow svgMe"
         width="275"
         height="352"
         viewBox="0 0 275 352"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <defs>
+          <filter id="shadow_filter">
+            <feDropShadow
+              dx="3"
+              dy="3"
+              stdDeviation="3"
+              flood-color=`hsl(${fourth}, 100%, 64%)`
+              flood-opacity="1"></feDropShadow>
+            <feDropShadow
+              dx="6"
+              dy="6"
+              stdDeviation="3"
+              flood-color=`${secondColor}`
+              flood-opacity="1"></feDropShadow>
+            <feDropShadow
+              dx="9"
+              dy="9"
+              stdDeviation="3"
+              flood-color=`${thirdColor}`
+              flood-opacity="1"></feDropShadow>
+          </filter>
+          <!-- <feMerge>
+            <feMergeNode in="shadow1"></feMergeNode>
+            <feMergeNode in="shadow2"></feMergeNode>
+            <feMergeNode in="SourceGraphic"></feMergeNode>
+          </feMerge> -->
+        </defs>
         <path
           d="M83.194 82.7846C82.4467 86.5211 81.2139 90.4142 79.6481 94.0222C74.7448 105.321 69.505 116.5 65.4647 128.171C60.7691 141.737 56.5741 158.627 64.21 171.922C75.3251 191.274 98.7243 199.054 119.307 203.207C144.415 208.274 168.542 207.369 192.297 197.07C211.987 188.534 227.425 170.699 237.275 152.01C245.472 136.457 249.694 119.555 253.286 102.45C254.887 94.8258 256.995 86.6796 256.995 78.8569M154.384 50.872C157.825 50.4418 152.188 44.9515 151.356 44.4622C140.434 38.0377 127.08 38.6202 115.052 41.7619C102.028 45.1638 89.873 51.9779 79.2663 60.2276C69.1741 68.0771 62.4086 77.6735 55.4273 88.2398C51.7026 93.8771 48.2462 99.9563 46.1808 106.405C43.3046 115.386 43.7923 125.697 45.9353 134.881C47.8229 142.971 49.1977 150.015 48.4447 158.393C47.8886 164.579 48.6045 171.237 47.0536 177.268C46.0968 180.989 41.35 184.743 38.8163 187.551C35.5588 191.161 32.1072 194.701 29.3789 198.734C24.597 205.803 19.7121 213.831 20.4598 222.709C21.3592 233.39 23.9609 244.246 23.2419 255.031C22.5261 265.767 11.7665 272.993 6.60368 281.598C3.83037 286.22 -0.0506624 288.119 1.91225 294.117C3.97549 300.422 5.62175 305.215 5.62175 311.956C5.62175 317.137 3.95154 322.374 4.74893 327.557C5.04864 329.505 5.2571 331.2 4.14886 333.067C3.10264 334.829 1.98554 334.572 1.69405 336.613M129.345 35.6522C129.345 32.8 130.947 30.6294 132.372 28.2059C138.146 18.3907 149.62 11.3638 159.893 7.39449C185.193 -2.38048 219.888 -2.59545 239.702 18.4684C251.39 30.8931 259.759 47.5223 261.305 64.6736C262.168 74.262 263.598 86.4945 260.132 95.6315C254.923 109.364 244.363 120.921 235.447 132.263C230.717 138.28 225.968 144.906 223.391 152.174C220.684 159.811 219.401 168.041 218.509 176.068C216.699 192.354 222.579 210.926 229.501 225.546C235.471 238.156 243.029 250.107 245.403 264.087C246.594 271.103 246.194 278.409 246.194 285.498C246.194 288.76 246.486 292.174 245.921 295.399C245.249 299.241 243.908 303.036 243.521 306.909C242.74 314.721 245.295 323.89 248.867 330.939C252.134 337.388 257.627 342.034 263.678 345.723C265.941 347.103 268.108 348.776 270.469 349.978C270.998 350.247 274.271 352.018 273.688 350.851M116.089 135.318C116.373 133.894 118.148 135.241 118.898 135.59C121.412 136.764 124.151 137.506 126.985 137.97M126.985 137.97C132.829 138.926 139.081 138.698 144.619 138.618C152.231 138.508 160.896 138.687 168.185 136.027C168.882 135.773 170.04 134.058 170.04 134.799C170.04 135.922 169.534 137.987 169.385 138.918C168.408 145.054 167.662 151.581 162.812 156.02C156.235 162.038 146.082 163.001 138.673 157.957C132.218 153.562 129.99 146.151 127.435 139.191C127.351 138.96 127.182 138.501 126.985 137.97ZM126.985 137.97C126.282 136.073 125.225 133.271 126.399 136.791M136.709 152.992C136.317 152.808 133.196 153.352 134.527 152.747C135.828 152.156 137.75 152.501 139.164 152.501C141.575 152.501 144.075 152.126 146.501 151.983C152.766 151.615 158.119 148.864 162.403 144.482C163.705 143.15 165.433 141.184 165.649 139.245C165.696 138.817 165.826 135.999 165.185 137.282M164.694 143.664C163.593 141.707 163.635 142.739 164.203 144.264C165.041 146.516 164.342 149.204 166.167 151.029M97.4319 98.0045C97.5543 96.0476 101.444 94.0263 102.669 93.2586C107.722 90.0925 113.159 87.5181 118.98 86.1669C125.878 84.5655 133.498 82.2937 140.637 82.2937M97.9229 100.459C109.988 102.029 123.068 100.725 132.727 92.4948C135.119 90.4565 134.745 88.0959 134.745 85.7304M168.131 85.7304C166.807 85.234 166.431 84.8222 168.24 84.503C172.297 83.7871 176.475 83.9588 180.568 84.1484C187.22 84.4566 193.129 85.0613 198.789 88.8126C200.168 89.727 201.905 91.5248 203.48 91.131M168.622 87.2033C177.882 93.1157 187.417 95.6631 198.298 91.9493C199.716 91.4653 201.025 89.0954 201.025 90.1491M149.965 100.459C148.169 98.5438 150.826 101.152 151.438 101.55C154.498 103.544 157.435 106.115 158.693 109.679C159.83 112.9 157.937 117.377 155.202 119.28C154.99 119.427 152.746 120.181 153.893 119.607"
+          style="filter:url(#shadow_filter);"
           stroke="white"
           stroke-linecap="round"></path>
       </svg>
@@ -36,7 +65,7 @@ let thirdColor = "#b0f";
   </PerspectiveContainer>
 </MainLayout>
 
-<style define:vars={{ firstColor, secondColor, thirdColor }}>
+<style define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
   main {
     display: flex;
     text-align: center;
@@ -44,6 +73,8 @@ let thirdColor = "#b0f";
     /* justify-content: center; */
     justify-content: space-around;
     flex-direction: column;
+    height: 100%;
+    width: 100%;
   }
 
   .bio {
@@ -57,35 +88,106 @@ let thirdColor = "#b0f";
     align-items: center;
   }
   .shadow {
-    -webkit-filter: drop-shadow(3px 3px 2px var(--firstColor))
+    /* -webkit-filter: drop-shadow(3px 3px 2px var(--firstColor))
       drop-shadow(6px 6px 2px var(--secondColor))
       drop-shadow(9px 9px 2px var(--thirdColor));
     filter: drop-shadow(3px 3px 2px var(--firstColor))
       drop-shadow(6px 6px 2px var(--secondColor))
       drop-shadow(9px 9px 2px var(--thirdColor));
 
-    -webkit-svg-shadow: 0 0 2px #008000;
+    -webkit-svg-shadow: 0 0 2px #008000; */
   }
   #perspective-container {
     /* overflow: hidden; */
   }
 </style>
-<script>
-  window.addEventListener("deviceorientation", changeSVG, true);
+<script define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
+window.addEventListener("deviceorientation", changeSVG, true);
 
-  function changeSVG(event: {
-    absolute: any;
-    alpha: any;
-    beta: any;
-    gamma: any;
-  }) {
-    console.log("HI FROM CHANGESVG");
-    const absolute = event.absolute;
-    const alpha = event.alpha;
-    const beta = event.beta;
-    const gamma = event.gamma;
+function changeSVG(event) {
+  console.log("HI FROM CHANGESVG");
+  const absolute = event.absolute;
+  const alpha = event.alpha;
+  const beta = event.beta;
+  const gamma = event.gamma;
 
-    // Do stuff with the new orientation data
-    console.log(`alpha:${alpha}\nbeta:${beta}\ngamma:${gamma}`);
-  }
+  // Do stuff with the new orientation data
+  console.log(`alpha:${alpha}\nbeta:${beta}\ngamma:${gamma}`);
+
+  // Access the feDropShadow elements
+  const feDropShadows = document.querySelectorAll("feDropShadow");
+
+  // Modify the parameters for each feDropShadow element
+  feDropShadows.forEach((feDropShadow, index) => {
+    // Example: Modify dx and dy
+    // feDropShadow.setAttribute('dx', (index + 1) * 3);
+    // feDropShadow.setAttribute('dy', (index + 1) * 3);
+
+    // Modify stdDeviation
+    // feDropShadow.setAttribute("stdDeviation", "5");
+
+    // Modify flood-color based on some condition
+    const newFloodColor = `hsl(${(gamma * 75 * (index + 1)) / 360
+      }, 100%, 64%)`;
+    console.log(
+      `x: ${e.pageX}, index: ${index}, hue: ${(e.pageX * 75 * (index + 1)) / 360
+      }`
+    );
+    feDropShadow.setAttribute("flood-color", newFloodColor);
+
+    // Modify flood-opacity
+    feDropShadow.setAttribute("flood-opacity", "0.8");
+  });
+}
+
+// Movement Animation to happen
+const svgMe = document.querySelector(".svgMe");
+const container = document.querySelector("main");
+
+// Moving Animation Event
+container.addEventListener("mousemove", (e) => {
+  let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+  let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+  // Access the feDropShadow elements
+  const feDropShadows = document.querySelectorAll("feDropShadow");
+
+  // Modify the parameters for each feDropShadow element
+  feDropShadows.forEach((feDropShadow, index) => {
+    // Example: Modify dx and dy
+    // feDropShadow.setAttribute('dx', (index + 1) * 3);
+    // feDropShadow.setAttribute('dy', (index + 1) * 3);
+
+    // Modify stdDeviation
+    // feDropShadow.setAttribute("stdDeviation", "5");
+
+    // Modify flood-color based on some condition
+    const newFloodColor = `hsl(${(e.pageX * 75 * (index + 1)) / 360
+      }, 100%, 64%)`;
+    console.log(
+      `x: ${e.pageX}, index: ${index}, hue: ${(e.pageX * 75 * (index + 1)) / 360
+      }`
+    );
+    feDropShadow.setAttribute("flood-color", newFloodColor);
+
+    // Modify flood-opacity
+    feDropShadow.setAttribute("flood-opacity", "0.8");
+  });
+});
+
+// Animate In
+container.addEventListener("mouseenter", (e) => {
+  svgMe.style.transition = "none";
+});
+
+// Animate Out
+container.addEventListener("mouseleave", (e) => {
+  let ogColors = ["#49ff6d", "#28a4ff", "#b0f"];
+  svgMe.style.transition = "all .5s ease";
+  const feDropShadows = document.querySelectorAll("feDropShadow");
+
+  // Modify the parameters for each feDropShadow element
+  feDropShadows.forEach((feDropShadow, index) => {
+      feDropShadow.setAttribute("flood-color", ogColors[index]);
+    });
+  });
 </script>
