@@ -121,6 +121,8 @@ function changeSVG(event) {
 
   // Access the feDropShadow elements
   const feDropShadows = document.querySelectorAll("feDropShadow");
+  const bio = document.querySelector(".bio");
+  const stats = document.createElement("p");
 
   // Modify the parameters for each feDropShadow element
   feDropShadows.forEach((feDropShadow, index) => {
@@ -132,6 +134,9 @@ function changeSVG(event) {
       }`
     );
     feDropShadow.setAttribute("flood-color", newFloodColor);
+
+    stats.innerText += `alpha: ${alpha}\nbeta: ${beta}\ngamma: ${gamma}`;
+    bio.appendChild(stats);
   });
 }
 
