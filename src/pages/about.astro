@@ -181,7 +181,7 @@ container.addEventListener("mouseleave", (e) => {
   const feDropShadows = document.querySelectorAll("feDropShadow");
 
   // Modify the parameters for each feDropShadow element
-    feDropShadows.forEach((feDropShadow, index) => {
+  feDropShadows.forEach((feDropShadow, index) => {
       feDropShadow.setAttribute("flood-color", ogColors[index]);
     });
   });
