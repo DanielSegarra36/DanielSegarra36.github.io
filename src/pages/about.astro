@@ -107,8 +107,6 @@ let fourth = 132;
   }
 </style>
 <script define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
-window.addEventListener("deviceorientation", changeSVG);
-
 function changeSVG(event) {
   console.log("HI FROM CHANGESVG");
   const absolute = event.absolute;
@@ -187,7 +185,9 @@ container.addEventListener("mouseleave", (e) => {
 
   // Modify the parameters for each feDropShadow element
   feDropShadows.forEach((feDropShadow, index) => {
-      feDropShadow.setAttribute("flood-color", ogColors[index]);
-    });
+    feDropShadow.setAttribute("flood-color", ogColors[index]);
   });
+});
+
+  window.addEventListener("deviceorientation", changeSVG);
 </script>
