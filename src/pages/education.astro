@@ -32,7 +32,7 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
 
   ul,
-  li>a {
+  li > a {
     display: flex;
     text-align: center;
     align-items: center;
@@ -72,7 +72,7 @@ import MainLayout from "../layouts/MainLayout.astro";
     /*   z-index: 100; */
   }
 
-  li>a {
+  li > a {
     height: 100%;
     padding: 0 1rem;
     text-decoration: none;
@@ -81,8 +81,8 @@ import MainLayout from "../layouts/MainLayout.astro";
     transition: all 2s ease;
   }
 
-  li>a:focus,
-  li>a:hover {
+  li > a:focus,
+  li > a:hover {
     box-shadow: -10px 0px 5px 5px #484848;
     scale: 1.2;
   }
@@ -107,19 +107,19 @@ import MainLayout from "../layouts/MainLayout.astro";
     transition: all 2s ease;
   }
 
-  li:nth-child(1)>a:focus::after,
-  li:nth-child(1)>a:hover::after {
+  li:nth-child(1) > a:focus::after,
+  li:nth-child(1) > a:hover::after {
     background: linear-gradient(to bottom right, #5b8f691c, 90%, #4d795694);
   }
 
-  li:nth-child(2)>a:focus::after,
-  li:nth-child(2)>a:hover::after {
-    background: linear-gradient(to bottom right, #a4ffd60d, 80%, #3a4442);
+  li:nth-child(2) > a:focus::after,
+  li:nth-child(2) > a:hover::after {
+    background: linear-gradient(to bottom right, #4245440d, 80%, #393939);
   }
 
   /* li:nth-child(1):before, */
-  li:nth-child(1)>a {
-    background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.edutopia.org%2Fstyles%2Fresponsive_2880px_original%2Fs3%2Fmasters%2F2018-11%2FiStock-1005285232_master.jpg&f=1&nofb=1&ipt=5299c124ebbf7cd9888f0e589459b65d3b66549803023b6f91550e03881bfdaf&ipo=images');
+  li:nth-child(1) > a {
+    background: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.edutopia.org%2Fstyles%2Fresponsive_2880px_original%2Fs3%2Fmasters%2F2018-11%2FiStock-1005285232_master.jpg&f=1&nofb=1&ipt=5299c124ebbf7cd9888f0e589459b65d3b66549803023b6f91550e03881bfdaf&ipo=images");
     background-position: center;
     color: darkgoldenrod;
   }
@@ -128,24 +128,22 @@ import MainLayout from "../layouts/MainLayout.astro";
     background-position: center top;
   }
 
-  li:nth-child(2)>a {
-    background: url('https://www.rawshorts.com/freeicons/wp-content/uploads/2017/02/svg_double_green_web-s-line-42-548x548.png');
+  li:nth-child(2) > a,
+  li:nth-child(2):before {
+    background: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.eventingnation.com%2Fwp-content%2Fuploads%2F2019%2F03%2F14160427%2FKindDizzyAbalone-size_restricted.gif&f=1&nofb=1&ipt=1db655cf45ac84f4e2d84e081e6ca4f608b56432c7665a4e81995d20757e7e25&ipo=images");
     background-position: center;
     background-repeat: no-repeat;
     background-color: black;
+    background-size: cover;
   }
 
   li:nth-child(1) {
-    background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.edutopia.org%2Fstyles%2Fresponsive_2880px_original%2Fs3%2Fmasters%2F2018-11%2FiStock-1005285232_master.jpg&f=1&nofb=1&ipt=5299c124ebbf7cd9888f0e589459b65d3b66549803023b6f91550e03881bfdaf&ipo=images');
+    background: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.edutopia.org%2Fstyles%2Fresponsive_2880px_original%2Fs3%2Fmasters%2F2018-11%2FiStock-1005285232_master.jpg&f=1&nofb=1&ipt=5299c124ebbf7cd9888f0e589459b65d3b66549803023b6f91550e03881bfdaf&ipo=images");
     background-position: center;
   }
 
-  li:nth-child(2):before {
-    background-color: black;
-  }
-
   mark {
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     background-color: white;
   }
 </style>

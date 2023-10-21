@@ -82,7 +82,7 @@ let fourth = 132;
       </svg>
     </main>
   </PerspectiveContainer>
-  <p>Hello World</p>
+  <h2>I'll talk more about myself here...</h2>
 </MainLayout>
 
 <style define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
@@ -126,6 +126,11 @@ let fourth = 132;
   #perspective-container {
     /* overflow: hidden; */
   }
+
+  h2 {
+    text-align: center;
+  }
+
   @media screen and (min-width: 800px) {
     main {
       display: flex;
@@ -223,5 +228,5 @@ container.addEventListener("mouseleave", (e) => {
   });
 });
 
-window.addEventListener("deviceorientation", changeSVG);
+  window.addEventListener("deviceorientation", changeSVG);
 </script>
