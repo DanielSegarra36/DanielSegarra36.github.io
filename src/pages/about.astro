@@ -187,7 +187,7 @@ let fourth = 132;
     display: flex;
     text-align: center;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     /* justify-content: space-around; */
     flex-direction: column;
     height: 100%;
@@ -235,18 +235,28 @@ let fourth = 132;
   }
 
   #scroll-container {
-    scroll-snap-type: y mandatory;
+    height: calc(100vh - 170px);
+    /* height: 100%; */
   }
   .scroll-item {
-    height: calc(100vh);
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+    height: 600px;
   }
-
-  #Path-1 {
-    /* fill: #100b0a; */
-    /* fill: #fefdfd; */
-    stroke: white;
+  #scroll-container {
+    overflow: auto;
+    -webkit-scroll-snap-type: y mandatory;
+    -ms-scroll-snap-type: y mandatory;
+    scroll-snap-type: y mandatory;
+    /* hide horizontal overflow */
+    overflow-x: hidden;
+    /* allow vertical overflow */
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+  }
+  .scroll-item {
+    min-height: calc(100vh - 170px);
+    height: 100%;
+    scroll-snap-align: start;
+    /* scroll-snap-stop: always; */
   }
 
   #brooklyn-map {
@@ -254,9 +264,10 @@ let fourth = 132;
   }
 
   @media screen and (min-width: 800px) {
-    .two-col {
+    #bio-intro-container {
       display: flex;
       flex-direction: row;
+      font-size: 1rem;
     }
   }
 </style>
