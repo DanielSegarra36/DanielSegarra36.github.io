@@ -132,8 +132,8 @@ let fourth = 132;
     </section>
     <section class="scroll-item two-col bio" id="cuenca-bio">
       <div>
-        <h2>some time before that</h2>
-        <p>My parents both came from cuenca</p>
+        <h2>in a land before my time</h2>
+        <p>my parents both came from cuenca</p>
       </div>
       <svg
         id="cuenca-map"
@@ -183,85 +183,71 @@ let fourth = 132;
 </MainLayout>
 
 <style define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
-  .two-col {
+  /* Common styles for .two-col and .bio */
+  .two-col,
+  .bio {
     display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    /* justify-content: space-around; */
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
-    /* max-width: 950px; */
+  }
+
+  .two-col {
+    text-align: center;
     padding: 0 10%;
   }
 
   .bio {
-    display: block;
-    width: 80%;
-    margin: 0px auto;
-    font-size: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    margin: 0 auto;
+    font-size: clamp(1rem, 0.7661rem + 1.4679vw, 1.5rem);
   }
 
   .bio svg {
-    height: 225px;
-    width: 210px;
-    /* scale: 1.5; */
-  }
-
-  .svgMe {
-    height: 250px;
-  }
-
-  .shadow {
-    /* -webkit-filter: drop-shadow(3px 3px 2px var(--firstColor))
-      drop-shadow(6px 6px 2px var(--secondColor))
-      drop-shadow(9px 9px 2px var(--thirdColor));
-    filter: drop-shadow(3px 3px 2px var(--firstColor))
-      drop-shadow(6px 6px 2px var(--secondColor))
-      drop-shadow(9px 9px 2px var(--thirdColor));
-
-    -webkit-svg-shadow: 0 0 2px #008000; */
-  }
-  #perspective-container {
-    /* overflow: hidden; */
-  }
-
-  h2 {
-    text-align: center;
+    height: 60%;
+    width: 45%;
   }
 
   #scroll-container {
     height: calc(100vh - 170px);
-    /* height: 100%; */
-  }
-  .scroll-item {
-    height: 600px;
-  }
-  #scroll-container {
     overflow: auto;
     -webkit-scroll-snap-type: y mandatory;
     -ms-scroll-snap-type: y mandatory;
     scroll-snap-type: y mandatory;
-    /* hide horizontal overflow */
     overflow-x: hidden;
-    /* allow vertical overflow */
     overflow-y: scroll;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
   }
+
   .scroll-item {
-    min-height: calc(100vh - 170px);
-    height: 100%;
+    min-height: calc(100vh - 280px);
     scroll-snap-align: start;
-    /* scroll-snap-stop: always; */
   }
 
   #brooklyn-map {
     max-width: 100%;
+  }
+
+  @media screen and (min-width: 357px) and (max-width: 606px) {
+    #scroll-container,
+    .scroll-item {
+      height: calc(100vh - 216px);
+    }
+  }
+
+  @media screen and (min-width: 607px) {
+    #scroll-container,
+    .scroll-item {
+      height: calc(100vh - 170px);
+    }
+  }
+
+  @media screen and (max-width: 356px) {
+    #scroll-container,
+    .scroll-item {
+      height: calc(100vh - 280px);
+    }
   }
 
   @media screen and (min-width: 800px) {
@@ -270,6 +256,14 @@ let fourth = 132;
       flex-direction: row;
       font-size: 1rem;
     }
+
+    .bio {
+      width: 80%;
+    }
+  }
+
+  h2 {
+    text-align: center;
   }
 </style>
 <script define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
