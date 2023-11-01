@@ -180,17 +180,49 @@ let fourth = 132;
       </svg>
     </section>
   </div>
+  <div id="scroll-arrow">
+    <svg
+      width="50px"
+      height="50px"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7 10L12 15L17 10"
+        stroke="#fff"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+  </div>
+  <div id="scroll-index">
+    <svg
+      class="index-marker"
+      width="10"
+      height="10"
+      viewBox="0 0 10 10"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="5" cy="5" r="4.5" fill="#AFAFAF" stroke="black"></circle>
+    </svg>
+  </div>
 </MainLayout>
 
 <style define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
   /* Common styles for .two-col and .bio */
+  #scroll-arrow,
+  #scroll-index {
+    position: absolute;
+  }
   .two-col,
   .bio {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
   }
 
@@ -220,6 +252,17 @@ let fourth = 132;
     scrollbar-width: none;
   }
 
+  #scroll-index {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .index-marker {
+    scale: 1.5;
+    margin: 0 0.5rem;
+  }
+
   .scroll-item {
     min-height: calc(100vh - 280px);
     scroll-snap-align: start;
@@ -234,6 +277,13 @@ let fourth = 132;
     .scroll-item {
       height: calc(100vh - 216px);
     }
+    #scroll-arrow {
+      right: 5%;
+    }
+    #scroll-arrow,
+    #scroll-index {
+      bottom: 18%;
+    }
   }
 
   @media screen and (min-width: 607px) {
@@ -241,12 +291,26 @@ let fourth = 132;
     .scroll-item {
       height: calc(100vh - 170px);
     }
+    #scroll-arrow {
+      right: 5%;
+    }
+    #scroll-arrow,
+    #scroll-index {
+      bottom: 12%;
+    }
   }
 
   @media screen and (max-width: 356px) {
     #scroll-container,
     .scroll-item {
       height: calc(100vh - 280px);
+    }
+    #scroll-arrow {
+      right: 5%;
+    }
+    #scroll-arrow,
+    #scroll-index {
+      bottom: 22%;
     }
   }
 
@@ -264,6 +328,20 @@ let fourth = 132;
     .svgMe {
       overflow: visible;
     }
+  }
+
+  @media screen and (max-width: 400px) and (orientation: portrait) {
+    #scroll-arrow {
+      right: 5%;
+    }
+    #scroll-arrow,
+    #scroll-index {
+      bottom: 8%;
+    }
+  }
+
+  .svgMe {
+    max-height: 250px;
   }
 
   h2 {
@@ -360,5 +438,43 @@ container.addEventListener("mouseleave", (e) => {
   });
 });
 
-  window.addEventListener("deviceorientation", changeSVG);
+window.addEventListener("deviceorientation", changeSVG);
+
+// SLIDE NUMBER
+const scrollContainer = document.querySelector("#scroll-container");
+const scrollItems = scrollContainer.children;
+for (let count = 1; count < scrollItems.length; count++) {
+  document
+    .querySelector("#scroll-index")
+    .appendChild(document.querySelector(".index-marker").cloneNode(true));
+}
+document.querySelector(
+  `#scroll-index > svg:nth-of-type(${1}) > circle`
+).style.fill = "white";
+
+scrollContainer.addEventListener("scroll", () => {
+  for (let i = 0; i < scrollItems.length; i++) {
+    console.log(`SCROLL ITEMMMMMM: ${i} of ${scrollItems.length}`);
+    const child = scrollItems[i];
+    const rect = child.getBoundingClientRect();
+
+    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+      document.querySelector(
+        `#scroll-index > svg:nth-of-type(${i + 1}) > circle`
+      ).style.fill = "white";
+      if (i + 1 === scrollItems.length) {
+        document.querySelector("#scroll-arrow").style.transform =
+          "rotate(180deg)";
+      }
+    } else {
+      document.querySelector(
+        `#scroll-index > svg:nth-of-type(${i + 1}) > circle`
+      ).style.fill = "#AFAFAF";
+      if (i + 1 === scrollItems.length) {
+        document.querySelector("#scroll-arrow").style.transform =
+          "rotate(0deg)";
+      }
+    }
+    }
+  });
 </script>
