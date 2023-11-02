@@ -199,8 +199,8 @@ let fourth = 132;
   <div id="scroll-index">
     <svg
       class="index-marker"
-      width="10"
-      height="10"
+      width="20"
+      height="20"
       viewBox="0 0 10 10"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -263,8 +263,11 @@ let fourth = 132;
   }
 
   .index-marker {
-    scale: 1.5;
+    /* scale: 1.5; */
     margin: 0 0.5rem;
+  }
+  .index-marker circle {
+    transform-origin: center;
   }
 
   .scroll-item {
@@ -461,22 +464,22 @@ scrollContainer.addEventListener("scroll", () => {
     console.log(`SCROLL ITEMMMMMM: ${i} of ${scrollItems.length}`);
     const child = scrollItems[i];
     const rect = child.getBoundingClientRect();
+    const circle = document.querySelector(
+      `#scroll-index > svg:nth-of-type(${i + 1}) > circle`
+    );
+    const arrow = document.querySelector("#scroll-arrow");
 
     if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-      document.querySelector(
-        `#scroll-index > svg:nth-of-type(${i + 1}) > circle`
-      ).style.fill = "white";
+      circle.style.fill = "white";
+      circle.style.transform = "scale(1.2)";
       if (i + 1 === scrollItems.length) {
-        document.querySelector("#scroll-arrow").style.transform =
-          "rotate(180deg)";
+        arrow.style.transform = "rotate(180deg)";
       }
     } else {
-      document.querySelector(
-        `#scroll-index > svg:nth-of-type(${i + 1}) > circle`
-      ).style.fill = "#AFAFAF";
+      circle.style.fill = "#AFAFAF";
+      circle.style.transform = "scale(1)";
       if (i + 1 === scrollItems.length) {
-        document.querySelector("#scroll-arrow").style.transform =
-          "rotate(0deg)";
+        arrow.style.transform = "rotate(0deg)";
       }
     }
     }
