@@ -6,15 +6,37 @@
   >
     <label for="name"
       >Name:
-      <input type="text" id="name" name="name" required />
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Janenonymous Doe"
+        required
+      />
     </label>
     <label>
       Your Email:
-      <input id="email" type="email" name="email" required />
+      <input
+        id="email"
+        type="email"
+        name="email"
+        placeholder="respondToMe@email.com"
+        required
+      />
     </label>
     <label>
       Message:
-      <textarea id="message" name="message"></textarea>
+      <textarea
+        id="message"
+        name="message"
+        rows="12"
+        placeholder="Hey,
+        I have a few questions about [specific topic / project / etc].
+        
+        I'm reaching out to inquire about your availability for [potential opportunity].
+
+Could we set up a time to chat / discuss this further?"
+      ></textarea>
     </label>
     <label>
       Relevant Files <em>(optional)</em>:
@@ -69,9 +91,9 @@
     padding-bottom: 3rem;
     border-radius: 5px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-    
+
     /* background-color: black; */
-    
+
     /* width: 60%; */
     max-width: 350px;
     /* position: relative; */
@@ -98,12 +120,57 @@
     width: 90%;
   }
 
-  input {
+  input,
+  textarea {
     margin-top: 0.3rem;
+  }
+  *::placeholder {
+    font-family: "Montserrat", sans-serif;
+    font-style: italic;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+  }
+
+  *::-webkit-input-placeholder {
+    line-height: 1.2rem;
+    font-style: italic;
+    /*   font-size: 1.5rem; */
+  }
+
+  *:-moz-placeholder {
+    line-height: 1.2rem;
+    font-style: italic;
+    /*   font-size: 1.5rem; */
+  }
+
+  *::-moz-placeholder {
+    line-height: 1.2rem;
+    font-style: italic;
+    /*   font-size: 1.5rem; */
+  }
+
+  *:-ms-input-placeholder {
+    line-height: 1.2rem;
+    font-style: italic;
+    /*   font-size: 1.5rem; */
   }
 
   button {
     float: right;
     margin: 0 auto;
+  }
+
+  textarea {
+    height: 100%;
+    max-width: 90%;
+  }
+
+  @media screen and (min-width: 750px) {
+    .container {
+      max-width: 450px;
+    }
+    textarea {
+      height: 14em;
+    }
   }
 </style>
