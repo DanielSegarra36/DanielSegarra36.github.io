@@ -1,0 +1,191 @@
+---
+interface Props {
+  label: string;
+  title_line_1: string;
+  title_line_2: string;
+  description: string;
+  link: string;
+  button_text: string;
+}
+
+const { label, title_line_1, title_line_2, description, link, button_text } =
+  Astro.props;
+
+let pr_color = "#fff";
+let second_color = "#0a0a0a";
+let color_1_1 = "burlywood";
+let color_1_2 = "black";
+let cubicbz = "cubic-bezier(0.9, 0, 0.1, 1)";
+let fz_big = "60px";
+let pd = "50px";
+---
+
+<div class="work_info">
+  <div class="work_left_bl">
+    <span class="work_num">{label}</span>
+    <h2 class="work_title">
+      {title_line_1}
+      <span class="stroke">{title_line_2}</span>
+    </h2>
+    <div class="work_desc">{description}</div>
+    <a class="work_link" href={link}>{button_text}</a>
+  </div>
+</div>
+
+<style
+  define:vars={{
+    pr_color,
+    second_color,
+    color_1_1,
+    color_1_2,
+    cubicbz,
+    fz_big,
+    pd,
+  }}
+>
+  * {
+    box-sizing: border-box;
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+    font-feature-settings:
+      "pnum" on,
+      "lnum" on;
+  }
+
+  body {
+    background-color: var(--second_color);
+  }
+
+  .wrap {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 0 20px;
+    z-index: 1;
+  }
+
+  .content {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Pinned Image */
+  .spacer {
+    width: 100%;
+    height: 50vh;
+    background-color: #ddd;
+  }
+
+  .work {
+    display: flex;
+  }
+
+  .work_left {
+    position: relative;
+    width: 54%;
+    z-index: 2;
+    /* outline: 1px solid red; */
+  }
+
+  .work_text {
+    margin: auto;
+    width: 80%;
+  }
+
+  .work_info {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* outline: 1px solid green; */
+  }
+
+  .work_num {
+    display: block;
+    line-height: 0.9;
+    text-align: right;
+    font-size: 10px;
+    transform: skew(-20deg);
+    color: var(--color_1_1);
+  }
+
+  .work_title {
+    text-align: right;
+    font-size: 70px;
+    text-transform: uppercase;
+    color: var(--pr_color);
+  }
+
+  .work_title .stroke {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--pr_color);
+  }
+
+  .work_link {
+    display: block;
+    width: 365px;
+    margin-top: 50px;
+    margin-left: auto;
+    padding: 18px 0;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--pr_color);
+    letter-spacing: 4px;
+    border: 2px solid var(--color_1_1);
+    border-radius: 30px;
+    transition: 0.4s;
+  }
+
+  .work_link:hover {
+    background: var(--color_1_1);
+    color: var(--color_1_2);
+    letter-spacing: 6px;
+    text-shadow: 1px 0 #888888;
+  }
+
+  .work_right {
+    width: 46%;
+    height: auto;
+    /* background: green; */
+  }
+
+  .work_right_bl {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: sticky;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    /* height: 80vh;
+     top: 10vh;
+  background-color:#fF6b4f */
+  }
+
+  .work_photo {
+    width: 40vw;
+    height: 30vw;
+    position: relative;
+  }
+
+  .work_photo_item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 80px;
+    overflow: hidden;
+  }
+
+  .work_photo_item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>

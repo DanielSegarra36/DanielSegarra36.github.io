@@ -1,51 +1,343 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
 import SinglePageLayout from "../layouts/SinglePageLayout.astro";
-import Project from "../components/Project.astro";
+import PerspectiveContainer from "../layouts/PerspectiveContainer.astro";
+import WorkInfo from "../components/WorkInfo.astro";
+
+let firstColor = "#49ff6d";
+let secondColor = "#28a4ff";
+let thirdColor = "#b0f";
+let fourth = 132;
+
+let pr_color = "#fff";
+let second_color = "#0a0a0a";
+let color_1_1 = "#be2518";
+let color_1_2 = "#ff6b4f";
+let cubicbz = "cubic-bezier(0.9, 0, 0.1, 1)";
+let fz_big = "60px";
+let pd = "50px";
 ---
 
-<SinglePageLayout title="Portfolio">
-  <div id="projects">
-    <!-- <Project link="" title="" /> -->
-    <Project
-      link="https://sumaryzethat.danielsegarra.dev/"
-      title="Sumaryze That!"
-    />
-    <Project link="https://danielsegarra.dev/Yahtzee" title="Yahtzee" />
-    <Project
-      link="https://danielsegarra.dev/throwingAxeMenuAnimation"
-      title="Throwing Axe Menu Animation (SVG Transformations)"
-    />
-    <Project
-      link="https://danielsegarra.dev/CFFG2PB"
-      title="Brand to App Logo (SVG Transformations)"
-    />
-    <Project link="#" title="OGalaga" />
-    <!-- <Project link="" title="" /> -->
-  </div>
-</SinglePageLayout>
+<MainLayout title="TRIAL">
+  <div class="wrap">
+    <!-- <div class="spacer"></div> -->
+    <div class="work">
+      <div class="work_left">
+        <div class="work_text">
+          <WorkInfo
+            label="01"
+            title_line_1="Auto"
+            title_line_2="Meal"
+            description="N/A"
+            link="#"
+            button_text="visit"
+          />
+          <WorkInfo
+            label="string"
+            title_line_1="string"
+            title_line_2="string"
+            description="string"
+            link="#"
+            button_text="string"
+          />
+          <WorkInfo
+            label="string"
+            title_line_1="string"
+            title_line_2="string"
+            description="string"
+            link="#"
+            button_text="string"
+          />
+          <WorkInfo
+            label="04"
+            title_line_1="Design"
+            title_line_2="span"
+            description="string"
+            link="#"
+            button_text="view more"
+          />
+        </div>
+      </div>
+      <div class="work_right">
+        <div class="work_right_bl">
+          <div class="work_photo">
+            <div class="work_photo_item" title="1">
+              <!-- placeholder image -->
+              <img
+                src="https://source.unsplash.com/random/400×400/?fruit"
+                alt=""
+              />
+            </div>
 
-<style>
-  #id {
+            <div class="work_photo_item" title="2">
+              <img
+                src="https://source.unsplash.com/random/400×400/?space"
+                alt=""
+              />
+            </div>
+
+            <div class="work_photo_item" title="3">
+              <img
+                src="https://source.unsplash.com/random/400×400/?sports"
+                alt=""
+              />
+            </div>
+
+            <div class="work_photo_item" title="4">
+              <img
+                src="https://source.unsplash.com/random/400×400/?cars"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="spacer"></div> -->
+  </div>
+</MainLayout>
+
+<style
+  define:vars={{
+    pr_color,
+    second_color,
+    color_1_1,
+    color_1_2,
+    cubicbz,
+    fz_big,
+    pd,
+  }}
+>
+  * {
+    box-sizing: border-box;
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+    font-feature-settings:
+      "pnum" on,
+      "lnum" on;
+  }
+
+  body {
+    background-color: var(--second_color);
+  }
+
+  .wrap {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 0 20px;
+    z-index: 1;
+  }
+
+  .content {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Pinned Image */
+  .spacer {
+    width: 100%;
+    height: 50vh;
+    background-color: #ddd;
+  }
+
+  .work {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* Set width and height to contain the curve */
-    width: 500px;
-    height: 200px;
-    /* Add a background color for demonstration */
-    background-color: lightgray;
-    /* Use a border-radius to create a curved effect */
-    border-radius: 50% / 100%;
-    overflow: hidden; /* Clip the curved corners */
+  }
+
+  .work_left {
+    position: relative;
+    width: 54%;
+    z-index: 2;
+    /* outline: 1px solid red; */
+  }
+
+  .work_text {
+    margin: auto;
+    width: 80%;
+  }
+
+  .work_info {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* outline: 1px solid green; */
+  }
+
+  .work_num {
+    display: block;
+    line-height: 0.9;
+    text-align: right;
+    font-size: 10px;
+    transform: skew(-20deg);
+    color: var(--color_1_1);
+  }
+
+  .work_title {
+    text-align: right;
+    font-size: 70px;
+    text-transform: uppercase;
+    color: var(--pr_color);
+  }
+
+  .work_title .stroke {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--pr_color);
+  }
+
+  .work_link {
+    display: block;
+    width: 365px;
+    margin-top: 50px;
+    margin-left: auto;
+    padding: 18px 0;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--pr_color);
+    letter-spacing: 4px;
+    border: 2px solid var(--color_1_1);
+    border-radius: 30px;
+    transition: 0.4s;
+  }
+
+  .work_link:hover {
+    background: var(--color_1_1);
+    color: var(--color_1_2);
+    letter-spacing: 6px;
+  }
+
+  .work_right {
+    width: 46%;
+    height: auto;
+    /* background: green; */
+  }
+
+  .work_right_bl {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: sticky;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    /* height: 80vh;
+     top: 10vh;
+  background-color:#fF6b4f */
+  }
+
+  .work_photo {
+    width: 40vw;
+    height: 30vw;
     position: relative;
   }
-  #projects {
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    width: 80%;
-    max-width: 650px;
-    gap: 2rem;
-    margin: 0 auto;
+
+  .work_photo_item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 80px;
+    overflow: hidden;
+  }
+
+  .work_photo_item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 </style>
+<script
+  define:vars={{
+    pr_color,
+    second_color,
+    color_1_1,
+    color_1_2,
+    cubicbz,
+    fz_big,
+    pd,
+  }}
+>
+  document.addEventListener("DOMContentLoaded", function () {
+    "use strict";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // lenis smooth scroll
+    const lenis = new Lenis({
+      duration: 1.2,
+    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Integration Lenis on GSAP ScrollTrigger
+    lenis.on("scroll", ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    let workInfoItems = document.querySelectorAll(".work_photo_item");
+    workInfoItems.forEach(function (item, index) {
+      item.style.zIndex = workInfoItems.length - index;
+    });
+
+    gsap.set(".work_photo-item", {
+      clipPath: function () {
+        return "inset(0px 0px 0px 0px)";
+      },
+    });
+
+    const animation = gsap.to(".work_photo_item:not(:last-child)", {
+      clipPath: function () {
+        return "inset(0px 0px 1000% 0px)";
+      },
+      stagger: 0.5,
+      ease: "none",
+    });
+
+    ScrollTrigger.create({
+      trigger: ".work",
+      start: "top-top",
+      end: "bottom bottom",
+      animation: animation,
+      scrub: 1,
+    });
+  });
+</script>
+
+<!-- lenis, gsap, and gsap scroll trigger -->
+<script
+  is:inline
+  src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.0/bundled/lenis.js"
+></script>
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"
+></script>
+<!-- <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollToPlugin.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/TextPlugin.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/EaselPlugin.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/MotionPathPlugin.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/DrawSVGPlugin.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/Physics2DPlugin.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/PhysicsPropsPlugin.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrambleTextPlugin.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/CustomEase.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/CustomWiggle.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/BezierPlugin.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ColorPropsPlugin.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/RoundPropsPlugin.min.js"></script> -->
