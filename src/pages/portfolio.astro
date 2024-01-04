@@ -1,24 +1,51 @@
 ---
 import SinglePageLayout from "../layouts/SinglePageLayout.astro";
+import Project from "../components/Project.astro";
 ---
 
 <SinglePageLayout title="Portfolio">
-  <h1>Previous Work</h1>
-  <h3>COMING SHORTLY...</h3>
-  <p>There's a lot of old projects/code to go through. These are only a few:</p>
-  <p>Comparing serverless solutions for Sumaryze That!</p>
-  <a href="https://sumaryzethat.danielsegarra.dev/"
-    >Sumaryze That! (Deployed w/ REPLIT)</a
-  >
-  <a href="https://summarize-these-v6uuloqjzq-ul.a.run.app/"
-    >Sumaryze That! (Deployed w/ Google Cloud Run)</a
-  >
-  <a href="https://danielsegarra.dev/Yahtzee">Yahtzee</a>
-  <a href="https://danielsegarra.dev/throwingAxeMenuAnimation"
-    >throwingAxeMenuAnimation</a
-  >
-  <a href="https://danielsegarra.dev/CFFG2PB">CFFG2PB</a>
-  <a href="#">Galaga</a>
+  <div id="projects">
+    <!-- <Project link="" title="" /> -->
+    <Project
+      link="https://sumaryzethat.danielsegarra.dev/"
+      title="Sumaryze That!"
+    />
+    <Project link="https://danielsegarra.dev/Yahtzee" title="Yahtzee" />
+    <Project
+      link="https://danielsegarra.dev/throwingAxeMenuAnimation"
+      title="Throwing Axe Menu Animation (SVG Transformations)"
+    />
+    <Project
+      link="https://danielsegarra.dev/CFFG2PB"
+      title="Brand to App Logo (SVG Transformations)"
+    />
+    <Project link="#" title="OGalaga" />
+    <!-- <Project link="" title="" /> -->
+  </div>
 </SinglePageLayout>
 
-<style></style>
+<style>
+  #id {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Set width and height to contain the curve */
+    width: 500px;
+    height: 200px;
+    /* Add a background color for demonstration */
+    background-color: lightgray;
+    /* Use a border-radius to create a curved effect */
+    border-radius: 50% / 100%;
+    overflow: hidden; /* Clip the curved corners */
+    position: relative;
+  }
+  #projects {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 80%;
+    max-width: 650px;
+    gap: 2rem;
+    margin: 0 auto;
+  }
+</style>
