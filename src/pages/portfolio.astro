@@ -4,11 +4,6 @@ import SinglePageLayout from "../layouts/SinglePageLayout.astro";
 import PerspectiveContainer from "../layouts/PerspectiveContainer.astro";
 import WorkInfo from "../components/WorkInfo.astro";
 
-let firstColor = "#49ff6d";
-let secondColor = "#28a4ff";
-let thirdColor = "#b0f";
-let fourth = 132;
-
 let pr_color = "#fff";
 let second_color = "#0a0a0a";
 let color_1_1 = "#be2518";
@@ -18,7 +13,7 @@ let fz_big = "60px";
 let pd = "50px";
 ---
 
-<MainLayout title="TRIAL">
+<MainLayout title="Daniel Segarra: Portfolio">
   <div class="wrap">
     <!-- <div class="spacer"></div> -->
     <div class="work">
@@ -28,33 +23,33 @@ let pd = "50px";
             label="01"
             title_line_1="Auto"
             title_line_2="Meal"
-            description="N/A"
-            link="#"
-            button_text="visit"
+            description="Automated food recommendations based on your pantry, wants, and needs."
+            link="https://github.com/automeal/AutoMeal"
+            button_text="try now"
           />
           <WorkInfo
-            label="string"
-            title_line_1="string"
-            title_line_2="string"
-            description="string"
-            link="#"
-            button_text="string"
+            label="02"
+            title_line_1="Sumaryze"
+            title_line_2="That!"
+            description="Leveraging OpenAI to summarize video transcripts with ease."
+            link="http://sumaryzethat.danielsegarra.dev/"
+            button_text="try now"
           />
           <WorkInfo
-            label="string"
-            title_line_1="string"
-            title_line_2="string"
-            description="string"
-            link="#"
-            button_text="string"
+            label="03"
+            title_line_1=""
+            title_line_2="OGalaga"
+            description="Classic game written in OCaml."
+            link="https://github.com/buhotech/OGalaga"
+            button_text="play now"
           />
           <WorkInfo
             label="04"
-            title_line_1="Design"
-            title_line_2="span"
-            description="string"
-            link="#"
-            button_text="view more"
+            title_line_1=""
+            title_line_2="Yahtzee"
+            description="Digitizing a classic handheld experience"
+            link="http://danielsegarra.dev/yahtzee"
+            button_text="play now"
           />
         </div>
       </div>
@@ -62,7 +57,6 @@ let pd = "50px";
         <div class="work_right_bl">
           <div class="work_photo">
             <div class="work_photo_item" title="1">
-              <!-- placeholder image -->
               <img
                 src="https://source.unsplash.com/random/400×400/?fruit"
                 alt=""
@@ -70,22 +64,27 @@ let pd = "50px";
             </div>
 
             <div class="work_photo_item" title="2">
+              <!-- <iframe
+                src="http://sumaryzethat.danielsegarra.dev/"
+                width="100%"
+                height="100%"
+                frameborder="0"></iframe> -->
               <img
-                src="https://source.unsplash.com/random/400×400/?space"
+                src="https://source.unsplash.com/random/400×400/?ai"
                 alt=""
               />
             </div>
 
             <div class="work_photo_item" title="3">
               <img
-                src="https://source.unsplash.com/random/400×400/?sports"
+                src="https://source.unsplash.com/random/400×400/?spaceship"
                 alt=""
               />
             </div>
 
             <div class="work_photo_item" title="4">
               <img
-                src="https://source.unsplash.com/random/400×400/?cars"
+                src="https://source.unsplash.com/random/400×400/?yahtzee%20dice"
                 alt=""
               />
             </div>
