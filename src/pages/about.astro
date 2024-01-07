@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import SinglePageLayout from "../layouts/SinglePageLayout.astro";
 import PerspectiveContainer from "../layouts/PerspectiveContainer.astro";
 
 let firstColor = "#49ff6d";
@@ -8,21 +9,13 @@ let thirdColor = "#b0f";
 let fourth = 132;
 ---
 
-<MainLayout title="Daniel Segarra: We Workin Here.">
+<MainLayout title="Daniel Segarra: A Lil' Story" footer={false}>
   <div id="scroll-container">
-    <section class="scroll-item">
+    <section class="scroll-item first-slide">
       <PerspectiveContainer id="perspective-container">
         <div class="two-col" id="bio-intro-container">
           <section class="bio">
-            <p>My name is Daniel and I am a software engineer and educator.</p>
-            <p>
-              I've spent the last three years teaching introductory web
-              development skills, through non-profit development courses, in
-              traditional and non-traditional tech environments, to promote
-              interdisciplinary solutions while strengthening existing and
-              complimentary skills.
-            </p>
-            <p id="stats"></p>
+            <h2 style="margin:0">Hi! I'm Daniel...</h2>
           </section>
           <svg
             class="shadow svgMe"
@@ -83,8 +76,18 @@ let fourth = 132;
               stroke="white"
               stroke-linecap="round"></path>
           </svg>
+          <p>Software Engineer and Educator.</p>
         </div>
       </PerspectiveContainer>
+    </section>
+    <section class="scroll-item first-slide">
+      <!-- <h2 style="font-size: 3.5rem;">Under Construction</h2> -->
+      <p>
+        I've spent the last three years teaching introductory web development
+        skills, through non-profit development courses, in traditional and
+        non-traditional tech environments, to promote interdisciplinary
+        solutions while strengthening existing and complimentary skills.
+      </p>
     </section>
     <section class="scroll-item two-col bio" id="brooklyn-bio">
       <svg
@@ -211,6 +214,29 @@ let fourth = 132;
 </MainLayout>
 
 <style define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
+  *::-webkit-scrollbar {
+    display: none;
+  }
+  .first-slide {
+    display: block;
+    width: 80vw;
+    margin: 0px auto;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .first-slide h2 {
+    font-size: 3.5rem;
+    margin: revert;
+  }
+
+  .first-slide p {
+    max-width: 980px;
+    margin-bottom: 1.5rem;
+  }
   /* Common styles for .two-col and .bio */
   #scroll-arrow,
   #scroll-index {
