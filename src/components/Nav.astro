@@ -1,8 +1,10 @@
 <nav>
-  <a href="/">home</a>
-  <a href="/work">work</a>
+  <div class="nav-link-container">
+    <a class="nav-link" href="/">home</a>
+    <a class="nav-link" href="/work">work</a>
+  </div>
   <!-- <div id="logo"><img src="./logo.png" alt="LOGO" /></div> -->
-  <a href="/">
+  <a class="nav-logo" href="/">
     <!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
       <lottie-player src="animation.json" background="transparent" speed=".25" loop autoplay></lottie-player> -->
     <svg
@@ -19,8 +21,10 @@
         stroke-linecap="round"></path>
     </svg>
   </a>
-  <a href="/about">about</a>
-  <a href="/contact">contact</a>
+  <div class="nav-link-container">
+    <a class="nav-link" href="/about">about</a>
+    <a class="nav-link" href="/contact">contact</a>
+  </div>
   <!-- <div>blog</div> -->
 </nav>
 
@@ -38,7 +42,7 @@
     justify-content: space-around;
   }
   /* NAV LINKS */
-  nav > a:not(a:nth-child(3)) {
+  .nav-link {
     padding: 10px;
     border-radius: 1rem;
     transition: all 0.3s ease-in-out;
@@ -47,12 +51,17 @@
     text-decoration: none;
     /* no underline */
     /* background: radial-gradient(closest-side, rgb(49,46,46),rgb(49,46,46), #000); */
-    background: radial-gradient(closest-side,rgb(49,46,46),rgba(138, 127, 120, 0.6),#fff0);
+    background: radial-gradient(
+      closest-side,
+      rgb(49, 46, 46),
+      rgba(138, 127, 120, 0.6),
+      #fff0
+    );
     background-size: 0px 0px;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    
-    font-family: Poppins,sans-serif;
+
+    font-family: Poppins, sans-serif;
     font-weight: 700;
     letter-spacing: 0.15em;
 
@@ -60,7 +69,7 @@
     /* font-family: 'Annie Use Your Telescope'; */
   }
 
-  nav > a:hover:not(a:nth-child(3)) {
+  .nav-link:hover {
     /* background-color: rgb(49, 46, 46); */
     background-size: 100% 100%;
     -webkit-text-stroke: 1px white;
@@ -70,20 +79,20 @@
   }
 
   /* NAV LOGO */
-  nav > a:nth-child(3) {
+  .nav-logo {
   }
 
-  nav > a:nth-child(3):hover {
+  .nav-logo:hover {
   }
 
   @media screen and (min-width: 500px) and (max-width: 799px) {
-    nav > a:not(a:nth-child(3)) {
+    .nav-link {
       padding: 1rem 2rem;
     }
   }
 
   @media screen and (min-width: 800px) {
-    nav > a:not(a:nth-child(3)) {
+    .nav-link {
       /* padding: 2rem 4rem; */
       font-size: 2rem;
     }
@@ -126,11 +135,28 @@
     /* Animate the drawing using the 'draw' animation */
     opacity: 0.7;
   }
-  
-  nav > a:nth-child(3):active #animatedCurve,
-  nav > a:nth-child(3):hover #animatedCurve {
+
+  .nav-logo:active #animatedCurve,
+  .nav-logo:hover #animatedCurve {
     opacity: 1;
     fill: burlywood;
-    animation: draw-on-hover 10s cubic-bezier(0.22, 0.61, 0.36, 1) forwards infinite;
+    animation: draw-on-hover 10s cubic-bezier(0.22, 0.61, 0.36, 1) forwards
+      infinite;
+  }
+
+  .nav-link-container {
+    display: flex;
+    justify-content: space-evenly;
+    /* gap: 1rem; */
+    width: 100%;
+  }
+
+  @media (max-width: 356px) {
+    .nav-link-container {
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
   }
 </style>
