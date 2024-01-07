@@ -9,10 +9,11 @@ let thirdColor = "#b0f";
 let fourth = 132;
 ---
 
-<MainLayout title="Daniel Segarra: A Lil' Story" footer={false}>
+<MainLayout title="Daniel Segarra: A Lil' Story" footer={true}>
   <div id="scroll-container">
     <section class="scroll-item first-slide">
       <PerspectiveContainer id="perspective-container">
+        <div class="first-slide-container">
         <div class="two-col" id="bio-intro-container">
           <section class="bio">
             <h2 style="margin:0">Hi! I'm Daniel...</h2>
@@ -76,6 +77,7 @@ let fourth = 132;
               stroke="white"
               stroke-linecap="round"></path>
           </svg>
+          </div>
           <p>Software Engineer and Educator.</p>
         </div>
       </PerspectiveContainer>
@@ -227,6 +229,13 @@ let fourth = 132;
     justify-content: center;
     align-items: center;
   }
+  .first-slide-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
 
   .first-slide h2 {
     font-size: 3.5rem;
@@ -236,6 +245,7 @@ let fourth = 132;
   .first-slide p {
     max-width: 980px;
     margin-bottom: 1.5rem;
+    text-align: center;
   }
   /* Common styles for .two-col and .bio */
   #scroll-arrow,
@@ -305,7 +315,7 @@ let fourth = 132;
     max-width: 100%;
   }
 
-  @media screen and (min-width: 357px) and (max-width: 606px) {
+  @media screen and (max-width: 606px) {
     #scroll-container,
     .scroll-item {
       height: calc(100vh - 216px);
@@ -315,7 +325,7 @@ let fourth = 132;
     }
     #scroll-arrow,
     #scroll-index {
-      bottom: 18%;
+      bottom: 16%;
     }
   }
 
@@ -336,18 +346,34 @@ let fourth = 132;
   @media screen and (max-width: 356px) {
     #scroll-container,
     .scroll-item {
-      height: calc(100vh - 280px);
+      height: calc(100vh - 260px);
     }
+
+    .first-slide-container {
+      gap: 0rem;
+    }
+
+    .first-slide > p {
+      font-size: 1rem;
+    }
+
+    footer {
+      padding: 1rem 2rem;
+    }
+
     #scroll-arrow {
       right: 5%;
     }
     #scroll-arrow,
     #scroll-index {
-      bottom: 22%;
+      bottom: 20%;
     }
   }
 
   @media screen and (min-width: 800px) {
+    .first-slide-container {
+      gap: 3rem;
+    }
     #bio-intro-container {
       display: flex;
       flex-direction: row;
@@ -369,12 +395,14 @@ let fourth = 132;
     }
     #scroll-arrow,
     #scroll-index {
-      bottom: 8%;
+      /* bottom: 8%; */
     }
   }
 
   .svgMe {
-    max-height: 250px;
+    max-height: 350px;
+    max-width: 100%;
+    height: fit-content;
   }
 
   h2 {
