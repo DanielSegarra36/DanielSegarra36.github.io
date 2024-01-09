@@ -20,16 +20,14 @@ let fz_big = "60px";
 let pd = "50px";
 ---
 
-<div class="work_info">
-  <div class="work_left_bl">
-    <span class="work_num">{label}</span>
-    <h2 class="work_title">
-      {title_line_1}
-      <span class="stroke">{title_line_2}</span>
-    </h2>
-    <div class="work_desc">{description}</div>
-    <a class="work_link" href={link}>{button_text}</a>
-  </div>
+<div class="scroll_item">
+  <span class="item_num">{label}</span>
+  <h2 class="item_title">
+    {title_line_1}
+    <span class="stroke">{title_line_2}</span>
+  </h2>
+  <div class="item_desc">{description}</div>
+  <a class="item_link" href={link}>{button_text}</a>
 </div>
 
 <style
@@ -54,47 +52,9 @@ let pd = "50px";
       "lnum" on;
   }
 
-  body {
-    background-color: var(--second_color);
-  }
-
-  .wrap {
-    position: relative;
-    width: 100%;
-    height: auto;
-    padding: 0 20px;
-    z-index: 1;
-  }
-
-  .content {
-    width: 100%;
-    height: auto;
-  }
-
-  /* Pinned Image */
-  .spacer {
-    width: 100%;
-    height: 50vh;
-    background-color: #ddd;
-  }
-
-  .work {
-    display: flex;
-  }
-
-  .work_left {
-    position: relative;
-    width: 54%;
-    z-index: 2;
-    /* outline: 1px solid red; */
-  }
-
-  .work_text {
+  .scroll_item {
     margin: auto;
     width: 80%;
-  }
-
-  .work_info {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -102,7 +62,7 @@ let pd = "50px";
     /* outline: 1px solid green; */
   }
 
-  .work_num {
+  .item_num {
     display: block;
     line-height: 0.9;
     text-align: right;
@@ -111,20 +71,20 @@ let pd = "50px";
     color: var(--color_1_1);
   }
 
-  .work_title {
+  .item_title {
     text-align: right;
     font-size: 70px;
     text-transform: uppercase;
     color: var(--pr_color);
   }
 
-  .work_title .stroke {
+  .item_title .stroke {
     display: block;
     color: transparent;
     -webkit-text-stroke: 1px var(--pr_color);
   }
 
-  .work_link {
+  .item_link {
     display: block;
     max-width: 365px;
     width: 150%;
@@ -142,72 +102,26 @@ let pd = "50px";
     transition: 0.4s;
   }
 
-  .work_link:hover {
+  .item_link:hover {
     background: var(--color_1_1);
     color: var(--color_1_2);
     letter-spacing: 6px;
-    text-shadow: 1px 0 #888888;
   }
-
-  .work_right {
-    width: 46%;
-    height: auto;
-    /* background: green; */
-  }
-
-  .work_right_bl {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: sticky;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    /* height: 80vh;
-     top: 10vh;
-  background-color:#fF6b4f */
-  }
-
-  .work_photo {
-    width: 40vw;
-    height: 30vw;
-    position: relative;
-  }
-
-  .work_photo_item {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    border-radius: 80px;
-    overflow: hidden;
-  }
-
-  .work_photo_item img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .work_desc {
+  .item_desc {
     text-align: right;
     max-width: 365px;
     margin-left: auto;
   }
 
   @media screen and (max-width: 500px) {
-    .work_photo {
-      width: 40vw;
-      height: 80vw;
-      position: relative;
-      top: -120px;
-      display: none;
-    }
-    .work_title {
+    .item_title {
       font-size: 50px;
     }
-
-    .work_desc {
+  }
+  @media screen and (max-width: 800px) {
+    .item_title,
+    .item_num,
+    .item_desc {
       text-align: left;
     }
   }
