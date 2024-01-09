@@ -185,8 +185,21 @@ let fourth = 132;
       </svg>
     </section>
   </div>
-  <div id="scroll-arrow">
+  <div id="scroll-controls">
+      <div id="scroll-index">
     <svg
+          class="index-marker"
+          width="20"
+          height="20"
+          viewBox="0 0 10 10"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="5" cy="5" r="4.5" fill="#AFAFAF" stroke="black"></circle>
+        </svg>
+      </div>
+      <svg
+        id="scroll-arrow"
       width="26"
       height="15"
       viewBox="0 0 26 15"
@@ -199,18 +212,6 @@ let fourth = 132;
         stroke-width="3.125"
         stroke-linecap="round"
         stroke-linejoin="round"></path>
-    </svg>
-  </div>
-  <div id="scroll-index">
-    <svg
-      class="index-marker"
-      width="20"
-      height="20"
-      viewBox="0 0 10 10"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="5" cy="5" r="4.5" fill="#AFAFAF" stroke="black"></circle>
     </svg>
   </div>
 </MainLayout>
@@ -248,9 +249,14 @@ let fourth = 132;
     text-align: center;
   }
   /* Common styles for .two-col and .bio */
+
+  #scroll-arrow {
+    position: absolute;
+  }
+
   #scroll-arrow,
   #scroll-index {
-    position: absolute;
+    /* position: absolute; */
   }
   .two-col,
   .bio {
@@ -281,8 +287,11 @@ let fourth = 132;
     width: 45%;
   }
 
-  #scroll-container {
+  #meta-container {
     height: calc(100vh - 170px);
+  }
+  #scroll-container {
+    height: calc(100vh - 200px);
     overflow: auto;
     -webkit-scroll-snap-type: y mandatory;
     -ms-scroll-snap-type: y mandatory;
@@ -316,7 +325,7 @@ let fourth = 132;
   }
 
   @media screen and (max-width: 606px) {
-    #scroll-container,
+    /* #scroll-container, */
     .scroll-item {
       height: calc(100vh - 216px);
     }
@@ -325,12 +334,12 @@ let fourth = 132;
     }
     #scroll-arrow,
     #scroll-index {
-      bottom: 16%;
+      /* bottom: 16%; */
     }
   }
 
   @media screen and (min-width: 607px) {
-    #scroll-container,
+    /* #scroll-container, */
     .scroll-item {
       height: calc(100vh - 170px);
     }
@@ -344,7 +353,7 @@ let fourth = 132;
   }
 
   @media screen and (max-width: 356px) {
-    #scroll-container,
+    /* #scroll-container, */
     .scroll-item {
       height: calc(100vh - 260px);
     }
@@ -395,7 +404,11 @@ let fourth = 132;
     }
     #scroll-arrow,
     #scroll-index {
-      /* bottom: 8%; */
+      /* bottom: 1em; */
+    }
+    .svgMe {
+      /* height: 300px !important; */
+      max-height: 250px !important;
     }
   }
 
@@ -407,6 +420,12 @@ let fourth = 132;
 
   h2 {
     text-align: center;
+  }
+
+  #scroll-controls {
+    display: flex;
+    align-items: center;
+    position: relative;
   }
 </style>
 <script define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
