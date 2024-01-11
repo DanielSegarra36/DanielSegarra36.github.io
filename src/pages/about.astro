@@ -27,7 +27,12 @@ let fourth = 132;
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
-              <filter id="shadow_filter">
+                <filter
+                  id="shadow_filter"
+                  filterUnits="userSpaceOnUse"
+                  height="1600px"
+                  width="1600px"
+                >
                 <feDropShadow
                   dx="3"
                   dy="3"
@@ -236,6 +241,7 @@ let fourth = 132;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
+    height: 100%;
   }
 
   .first-slide h2 {
@@ -274,7 +280,8 @@ let fourth = 132;
   }
 
   #bio-intro-container {
-    justify-content: space-around;
+    justify-content: center;
+    height: auto;
   }
 
   .bio {
@@ -392,12 +399,11 @@ let fourth = 132;
     .bio {
       width: 80%;
     }
+    }
 
     .svgMe {
       overflow: visible;
     }
-  }
-
   @media screen and (max-width: 400px) and (orientation: portrait) {
     #scroll-arrow {
       right: 5%;
@@ -426,6 +432,9 @@ let fourth = 132;
     display: flex;
     align-items: center;
     position: relative;
+  }
+  .scroll-item:first-of-type {
+    width: 100% !important;
   }
 </style>
 <script define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
@@ -460,7 +469,7 @@ function changeSVG(event) {
 
 // Movement Animation to happen
 const svgMe = document.querySelector(".svgMe");
-const container = document.querySelector("#bio-intro-container");
+  const container = document.querySelector(".scroll-item:first-of-type");
 
 // Moving Animation Event
 container.addEventListener("mousemove", (e) => {
