@@ -18,6 +18,9 @@ let fourth = 132;
           <section class="bio">
             <h2 style="margin:0">Hi! I'm Daniel...</h2>
           </section>
+            <!-- input to toggle toggleGyro -->
+            <button type="button" id="toggleGyro">toggleGyro</button>
+
           <svg
             class="shadow svgMe"
             width="275"
@@ -86,6 +89,7 @@ let fourth = 132;
           </svg>
           </div>
           <p>Software Engineer and Educator.</p>
+          <p id="stats"></p>
         </div>
       </PerspectiveContainer>
     </section>
@@ -456,6 +460,10 @@ function changeSVG(event) {
 
   // Modify the parameters for each feDropShadow element
   feDropShadows.forEach((feDropShadow, index) => {
+      // feDropShadow.setAttribute("dx", (window.innerWidth / 2 - e.pageX) / 25);
+      // feDropShadow.setAttribute("dy", (window.innerWidth / 2 - e.pageX) / 25);
+      feDropShadow.setAttribute("dx", alpha / 25);
+      feDropShadow.setAttribute("dy", beta / 25);
     // Modify flood-color based on some condition
     const newFloodColor = `hsl(${((beta + gamma) * 3 * (index + 1)) % 360
       }, 100%, 64%)`;
@@ -468,6 +476,52 @@ function changeSVG(event) {
     stats.innerText = `alpha: ${alpha}\nbeta: ${beta}\ngamma: ${gamma}`;
   });
 }
+
+  document.querySelector("#toggleGyro").addEventListener("click", toggleGyro);
+  async function toggleGyro() {
+    console.log("HI FROM TOGGLEGYRO");
+    document.querySelector("#toggleGyro").style.backgroundColor = "black";
+    if (
+      typeof DeviceMotionEvent != "undefined" &&
+      typeof DeviceMotionEvent.requestPermission === "function"
+    ) {
+      // Handle iOS 13+ devices.
+      // DeviceMotionEvent.requestPermission()
+      //   .then((state) => {
+      //     if (state === "granted") {
+      //       window.addEventListener("devicemotion", changeSVG);
+      //       window.addEventListener("deviceorientation", changeSVG);
+      //     } else {
+      //       console.error("Request to access the orientation was rejected");
+      //     }
+      //   })
+      //   .catch(console.error);
+      // alert("ios 13+");
+      let permissionState = null;
+      try {
+        permissionState = await DeviceMotionEvent.requestPermission(absolute);
+        if (permissionState === "granted") {
+          window.addEventListener("devicemotion", changeSVG);
+          window.addEventListener("deviceorientation", changeSVG);
+          alert("granted");
+        } else {
+          window.addEventListener("devicemotion", changeSVG);
+          window.addEventListener("deviceorientation", changeSVG);
+          alert(`permissionState: "${permissionState}"`);
+          console.error("Request to access the orientation was rejected");
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    } else if ("DeviceOrientationEvent" in window) {
+      // Handle regular non iOS 13+ devices.
+      // window.addEventListener("devicemotion", changeSVG);
+      window.addEventListener("deviceorientation", changeSVG);
+      alert("regular non ios 13+");
+    } else {
+      alert("Sorry, your browser doesn't support Device Orientation");
+    }
+  }
 
 // Movement Animation to happen
 const svgMe = document.querySelector(".svgMe");
@@ -529,7 +583,7 @@ container.addEventListener("mouseleave", (e) => {
   });
 });
 
-window.addEventListener("deviceorientation", changeSVG);
+  // window.addEventListener("deviceorientation", changeSVG);
 
 // SLIDE NUMBER
 const scrollContainer = document.querySelector("#scroll-container");
