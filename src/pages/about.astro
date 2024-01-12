@@ -482,11 +482,11 @@ function changeSVG(event) {
     console.log("HI FROM TOGGLEGYRO");
     document.querySelector("#toggleGyro").style.backgroundColor = "black";
     if (
-      typeof DeviceMotionEvent != "undefined" &&
-      typeof DeviceMotionEvent.requestPermission === "function"
+      typeof DeviceOrientationEvent != "undefined" &&
+      typeof DeviceOrientationEvent.requestPermission === "function"
     ) {
       // Handle iOS 13+ devices.
-      // DeviceMotionEvent.requestPermission()
+      // DeviceOrientationEvent.requestPermission()
       //   .then((state) => {
       //     if (state === "granted") {
       //       window.addEventListener("devicemotion", changeSVG);
@@ -499,7 +499,8 @@ function changeSVG(event) {
       // alert("ios 13+");
       let permissionState = null;
       try {
-        permissionState = await DeviceMotionEvent.requestPermission(absolute);
+        permissionState =
+          await DeviceOrientationEvent.requestPermission(absolute);
         if (permissionState === "granted") {
           window.addEventListener("devicemotion", changeSVG);
           window.addEventListener("deviceorientation", changeSVG);
