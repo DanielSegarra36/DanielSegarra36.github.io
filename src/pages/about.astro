@@ -499,8 +499,7 @@ function changeSVG(event) {
       // alert("ios 13+");
       let permissionState = null;
       try {
-        permissionState =
-          await DeviceOrientationEvent.requestPermission(absolute);
+        permissionState = await DeviceOrientationEvent.requestPermission();
         if (permissionState === "granted") {
           window.addEventListener("devicemotion", changeSVG);
           window.addEventListener("deviceorientation", changeSVG);
