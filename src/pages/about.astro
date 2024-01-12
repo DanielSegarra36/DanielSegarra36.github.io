@@ -513,6 +513,7 @@ function changeSVG(event) {
         }
       } catch (err) {
         console.error(err);
+        alert(`error: "${err}"`);
       }
     } else if ("DeviceOrientationEvent" in window) {
       // Handle regular non iOS 13+ devices.
