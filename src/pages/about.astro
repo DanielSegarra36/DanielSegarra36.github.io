@@ -12,14 +12,15 @@ let fourth = 132;
 <MainLayout title="Daniel Segarra: A Lil' Story" footer={true}>
   <div id="scroll-container">
     <section class="scroll-item first-slide">
-      <PerspectiveContainer id="perspective-container">
+      <article class="animation-container">
+        <section class="container">
         <div class="first-slide-container">
         <div class="two-col" id="bio-intro-container">
           <section class="bio">
             <h2 style="margin:0">Hi! I'm Daniel...</h2>
           </section>
             <!-- input to toggle toggleGyro -->
-            <button type="button" id="toggleGyro">toggleGyro</button>
+              <button type="button" id="toggleGyro"> toggleGyro</button>
 
           <svg
             class="shadow svgMe"
@@ -89,9 +90,10 @@ let fourth = 132;
           </svg>
           </div>
           <p>Software Engineer and Educator.</p>
-          <p id="stats"></p>
+            <!-- <p id="stats"></p> -->
         </div>
-      </PerspectiveContainer>
+        </section>
+      </article>
     </section>
     <section class="scroll-item first-slide">
       <!-- <h2 style="font-size: 3.5rem;">Under Construction</h2> -->
@@ -231,6 +233,34 @@ let fourth = 132;
   *::-webkit-scrollbar {
     display: none;
   }
+
+  @media screen and (min-height: 570px) {
+    .animation-container {
+      overflow: hidden;
+      /* height: calc(100vh); */
+      height: 100%;
+    }
+  }
+  .animation-container {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    perspective: 1000px;
+    height: 100%;
+    width: 100%;
+    /* overflow-x: hidden; */
+    display: flex;
+    justify-content: center;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+  }
+
   .first-slide {
     display: block;
     width: 80vw;
@@ -444,9 +474,39 @@ let fourth = 132;
   }
 </style>
 <script define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
+  // Movement Animation to happen
+  const card = document.querySelector(".container");
+  const animationContainer = document.querySelector(".animation-container");
+
+  // Moving Animation Event
+  animationContainer.addEventListener("mousemove", (e) => {
+    let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+    let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+    card.style.transform = `rotateY(${xAxis}deg) rotatex(${yAxis}deg)`;
+  });
+
+  // Animate In
+  animationContainer.addEventListener("mouseenter", (e) => {
+    card.style.transition = "none";
+  });
+
+  // Animate Out
+  animationContainer.addEventListener("mouseleave", (e) => {
+    card.style.transition = "all .5s ease";
+    card.style.transform = "rotateY(0deg) rotatex(0deg)";
+  });
+  function tiltScreen(event) {
+    const animationContainer = document.querySelector(".animation-container");
+    const card = document.querySelector(".container");
+    const xAxis = event.beta;
+    const yAxis = event.gamma;
+    card.style.transform = `rotateY(${xAxis / 2}deg) rotatex(${yAxis / 2}deg)`;
+
+    // Do stuff with the new orientation data
+    // console.log(`alpha:${alpha}\nbeta:${beta}\ngamma:${gamma}`);
+  }
 function changeSVG(event) {
-  console.log("HI FROM CHANGESVG");
-    // const absolute = event.absolute;
+    const absolute = event.absolute;
   const alpha = event.alpha;
   const beta = event.beta;
   const gamma = event.gamma;
@@ -456,69 +516,58 @@ function changeSVG(event) {
 
   // Access the feDropShadow elements
   const feDropShadows = document.querySelectorAll("feDropShadow");
-  const stats = document.querySelector("#stats");
+    // const stats = document.querySelector("#stats");
 
   // Modify the parameters for each feDropShadow element
   feDropShadows.forEach((feDropShadow, index) => {
       // feDropShadow.setAttribute("dx", (window.innerWidth / 2 - e.pageX) / 25);
       // feDropShadow.setAttribute("dy", (window.innerWidth / 2 - e.pageX) / 25);
+      currX = feDropShadow.getAttribute("dx");
+      currY = feDropShadow.getAttribute("dy");
       feDropShadow.setAttribute("dx", alpha / 25);
       feDropShadow.setAttribute("dy", beta / 25);
     // Modify flood-color based on some condition
-    const newFloodColor = `hsl(${((beta + gamma) * 3 * (index + 1)) % 360
+      const newFloodColor = `hsl(${
+        ((beta + gamma) * 3 * (index + 1)) % 360
       }, 100%, 64%)`;
     console.log(
-      `x: ${e.pageX}, index: ${index}, hue: ${(e.pageX * 75 * (index + 1)) / 360
+        `x: ${e.pageX}, index: ${index}, hue: ${
+          (e.pageX * 75 * (index + 1)) / 360
       }`
     );
     feDropShadow.setAttribute("flood-color", newFloodColor);
 
-    stats.innerText = `alpha: ${alpha}\nbeta: ${beta}\ngamma: ${gamma}`;
+      // stats.innerText = `alpha: ${alpha}\nbeta: ${beta}\ngamma: ${gamma}`;
   });
 }
 
+  function gyroEffects(event) {
+    changeSVG(event);
+    tiltScreen(event);
+  }
+
   document.querySelector("#toggleGyro").addEventListener("click", toggleGyro);
   async function toggleGyro() {
-    console.log("HI FROM TOGGLEGYRO");
     document.querySelector("#toggleGyro").style.backgroundColor = "black";
     if (
       typeof DeviceOrientationEvent != "undefined" &&
       typeof DeviceOrientationEvent.requestPermission === "function"
     ) {
-      // Handle iOS 13+ devices.
-      // DeviceOrientationEvent.requestPermission()
-      //   .then((state) => {
-      //     if (state === "granted") {
-      //       window.addEventListener("devicemotion", changeSVG);
-      //       window.addEventListener("deviceorientation", changeSVG);
-      //     } else {
-      //       console.error("Request to access the orientation was rejected");
-      //     }
-      //   })
-      //   .catch(console.error);
-      // alert("ios 13+");
       let permissionState = null;
       try {
         permissionState = await DeviceOrientationEvent.requestPermission();
         if (permissionState === "granted") {
-          window.addEventListener("devicemotion", changeSVG);
-          window.addEventListener("deviceorientation", changeSVG);
-          alert("granted");
+          window.addEventListener("devicemotion", gyroEffects);
+          window.addEventListener("deviceorientation", gyroEffects);
         } else {
-          window.addEventListener("devicemotion", changeSVG);
-          window.addEventListener("deviceorientation", changeSVG);
-          alert(`permissionState: "${permissionState}"`);
-          console.error("Request to access the orientation was rejected");
+          window.addEventListener("devicemotion", gyroEffects);
+          window.addEventListener("deviceorientation", gyroEffects);
         }
       } catch (err) {
         console.error(err);
-        alert(`error: "${err}"`);
       }
     } else if ("DeviceOrientationEvent" in window) {
-      // Handle regular non iOS 13+ devices.
-      // window.addEventListener("devicemotion", changeSVG);
-      window.addEventListener("deviceorientation", changeSVG);
-      alert("regular non ios 13+");
+      window.addEventListener("deviceorientation", gyroEffects);
     } else {
       alert("Sorry, your browser doesn't support Device Orientation");
     }
@@ -555,7 +604,8 @@ container.addEventListener("mousemove", (e) => {
     // Modify flood-color based on some condition
     const newFloodColor = `hsl(${Math.random() * 360}, 100%, 64%)`;
     console.log(
-      `x: ${e.pageX}, index: ${index}, hue: ${(e.pageX * 75 * (index + 1)) / 360
+        `x: ${e.pageX}, index: ${index}, hue: ${
+          (e.pageX * 75 * (index + 1)) / 360
       }`
     );
     feDropShadow.setAttribute("flood-color", newFloodColor);
@@ -583,8 +633,6 @@ container.addEventListener("mouseleave", (e) => {
     feDropShadow.setAttribute("dy", (index + 1) * 3);
   });
 });
-
-  // window.addEventListener("deviceorientation", changeSVG);
 
 // SLIDE NUMBER
 const scrollContainer = document.querySelector("#scroll-container");
