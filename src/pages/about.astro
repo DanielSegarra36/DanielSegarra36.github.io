@@ -1,7 +1,5 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import SinglePageLayout from "../layouts/SinglePageLayout.astro";
-import PerspectiveContainer from "../layouts/PerspectiveContainer.astro";
 
 let firstColor = "#49ff6d";
 let secondColor = "#28a4ff";
@@ -19,8 +17,6 @@ let fourth = 132;
           <section class="bio">
             <h2 style="margin:0">Hi! I'm Daniel...</h2>
           </section>
-            <!-- input to toggle toggleGyro -->
-              <button type="button" id="toggleGyro"> toggleGyro</button>
 
           <svg
             class="shadow svgMe"
@@ -90,10 +86,14 @@ let fourth = 132;
           </svg>
           </div>
           <p>Software Engineer and Educator.</p>
-            <!-- <p id="stats"></p> -->
         </div>
         </section>
       </article>
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider round"></span>
+      </label>
+      <p id="stats"></p>
     </section>
     <section class="scroll-item first-slide">
       <!-- <h2 style="font-size: 3.5rem;">Under Construction</h2> -->
@@ -471,6 +471,93 @@ let fourth = 132;
   }
   .scroll-item:first-of-type {
     width: 100% !important;
+    position: relative;
+  }
+  #stats {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    color: white;
+    background-color: hsla(0, 0%, 0%, 0);
+    padding: 1rem;
+    z-index: 100;
+    font-size: 0.8rem;
+  }
+
+  #toggleGyro {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: hsla(0, 0%, 0%, 0);
+    color: white;
+    padding: 1rem;
+    z-index: 100;
+    font-size: 0.8rem;
+  }
+  /* The switch - the box around the slider */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    position: absolute;
+    top: 0;
+    right: 3%;
+  }
+
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  input:checked + .slider {
+    background-color: rgb(135, 177, 222);
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px rgb(135, 177, 222);
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
   }
 </style>
 <script define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
@@ -546,9 +633,34 @@ function changeSVG(event) {
     tiltScreen(event);
   }
 
-  document.querySelector("#toggleGyro").addEventListener("click", toggleGyro);
-  async function toggleGyro() {
-    document.querySelector("#toggleGyro").style.backgroundColor = "black";
+  document
+    .querySelector(".switch input")
+    .addEventListener("click", gyroToggleHandler);
+
+  function gyroToggleHandler() {
+    // Toggle the 'checked' class on the switch element
+    document.querySelector(".switch").classList.toggle("checked");
+
+    // Call different functions based on the checkbox state
+    if (document.querySelector(".switch input").checked) {
+      requestGyroPosition();
+    } else {
+      document.querySelector(".container").style.transform = `initial`;
+      window.removeEventListener("devicemotion", gyroEffects);
+      window.removeEventListener("deviceorientation", gyroEffects);
+    }
+  }
+
+  if (
+    typeof DeviceOrientationEvent != "undefined" &&
+    typeof DeviceOrientationEvent.requestPermission === "function"
+  ) {
+    document.querySelector(".switch").style.display = "inline-block";
+  } else {
+    document.querySelector(".switch").style.display = "none";
+  }
+
+  async function requestGyroPosition() {
     if (
       typeof DeviceOrientationEvent != "undefined" &&
       typeof DeviceOrientationEvent.requestPermission === "function"
