@@ -34,22 +34,22 @@
 <script>
   // Movement Animation to happen
   const card = document.querySelector(".container");
-  const container = document.querySelector(".animation-container");
+  const animationContainer = document.querySelector(".animation-container");
 
   // Moving Animation Event
-  container.addEventListener("mousemove", (e) => {
+  animationContainer.addEventListener("mousemove", (e) => {
     let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
     let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
     card.style.transform = `rotateY(${xAxis}deg) rotatex(${yAxis}deg)`;
   });
 
   // Animate In
-  container.addEventListener("mouseenter", (e) => {
+  animationContainer.addEventListener("mouseenter", (e) => {
     card.style.transition = "none";
   });
 
   // Animate Out
-  container.addEventListener("mouseleave", (e) => {
+  animationContainer.addEventListener("mouseleave", (e) => {
     card.style.transition = "all .5s ease";
     card.style.transform = "rotateY(0deg) rotatex(0deg)";
   });
