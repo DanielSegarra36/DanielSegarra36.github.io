@@ -8,6 +8,7 @@ let fourth = 132;
 ---
 
 <MainLayout title="Daniel Segarra: A Lil' Story" footer={true}>
+  <div id="scroll-wrapper">
   <div id="scroll-container">
     <section class="scroll-item first-slide">
       <article class="animation-container">
@@ -226,6 +227,7 @@ let fourth = 132;
         stroke-linecap="round"
         stroke-linejoin="round"></path>
     </svg>
+    </div>
   </div>
 </MainLayout>
 
@@ -330,11 +332,8 @@ let fourth = 132;
     width: 45%;
   }
 
-  #meta-container {
-    height: calc(100vh - 170px);
-  }
   #scroll-container {
-    height: calc(100vh - 200px);
+    /* height: calc(100vh - 190px); */
     overflow: auto;
     -webkit-scroll-snap-type: y mandatory;
     -ms-scroll-snap-type: y mandatory;
@@ -359,18 +358,19 @@ let fourth = 132;
   }
 
   .scroll-item {
-    min-height: calc(100vh - 280px);
+    /* min-height: calc(100vh - 280px); */
     scroll-snap-align: start;
   }
 
-  #brooklyn-map {
-    max-width: 100%;
+  #brooklyn-map,
+  #cuenca-map {
+    width: 100%;
   }
 
   @media screen and (max-width: 606px) {
     /* #scroll-container, */
     .scroll-item {
-      height: calc(100vh - 216px);
+      /* height: calc(100vh - 216px); */
     }
     #scroll-arrow {
       right: 5%;
@@ -384,7 +384,7 @@ let fourth = 132;
   @media screen and (min-width: 607px) {
     /* #scroll-container, */
     .scroll-item {
-      height: calc(100vh - 170px);
+      /* height: calc(100vh - 170px); */
     }
     #scroll-arrow {
       right: 5%;
@@ -398,7 +398,7 @@ let fourth = 132;
   @media screen and (max-width: 356px) {
     /* #scroll-container, */
     .scroll-item {
-      height: calc(100vh - 260px);
+      /* height: calc(100vh - 260px); */
     }
 
     .first-slide-container {
@@ -561,6 +561,37 @@ let fourth = 132;
   }
 </style>
 <script define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
+  // on load
+  window.addEventListener("load", () => {
+
+    // make content full height - header height - footer height
+    const headerHeight = document.querySelector("header").offsetHeight;
+    const footerHeight = document.querySelector("footer").offsetHeight;
+    // make content full height - header height - footer height
+    const content = document.querySelector("#scroll-wrapper");
+    content.style.height = `calc(100vh - ${headerHeight + footerHeight}px)`;
+
+    // make scroll container full height - header height - footer height
+    const scrollContainer = document.querySelector("#scroll-container");
+    scrollContainer.style.height = `calc(100vh - ${headerHeight + footerHeight}px)`;
+
+    // make scroll item full height - header height - footer height
+    const scrollItems = document.querySelectorAll(".scroll-item");
+    scrollItems.forEach((item) => {
+      item.style.height = `calc(100vh - ${headerHeight + footerHeight}px)`;
+    });
+
+    // make scroll index bottom - footer height
+    // const scrollIndex = document.querySelector("#scroll-index");
+    // scrollIndex.style.bottom = `${footerHeight + 20}px`;
+
+
+    // make scroll arrow bottom - footer height
+    // const scrollArrow = document.querySelector("#scroll-arrow");
+    // scrollArrow.style.bottom = `${footerHeight + 20}px`;
+    
+  });
+
   // Movement Animation to happen
   const card = document.querySelector(".container");
   const animationContainer = document.querySelector(".animation-container");
