@@ -333,7 +333,7 @@ let fourth = 132;
   }
 
   #scroll-container {
-    /* height: calc(100vh - 190px); */
+    height: calc(100vh - 200px);
     overflow: auto;
     -webkit-scroll-snap-type: y mandatory;
     -ms-scroll-snap-type: y mandatory;
@@ -358,7 +358,7 @@ let fourth = 132;
   }
 
   .scroll-item {
-    /* min-height: calc(100vh - 280px); */
+    min-/* height: calc(100vh - 200px); */
     scroll-snap-align: start;
   }
 
@@ -370,7 +370,7 @@ let fourth = 132;
   @media screen and (max-width: 606px) {
     /* #scroll-container, */
     .scroll-item {
-      /* height: calc(100vh - 216px); */
+      /* height: calc(100vh - 200px); */
     }
     #scroll-arrow {
       right: 5%;
@@ -384,7 +384,7 @@ let fourth = 132;
   @media screen and (min-width: 607px) {
     /* #scroll-container, */
     .scroll-item {
-      /* height: calc(100vh - 170px); */
+      /* height: calc(100vh - 200px); */
     }
     #scroll-arrow {
       right: 5%;
@@ -398,7 +398,7 @@ let fourth = 132;
   @media screen and (max-width: 356px) {
     /* #scroll-container, */
     .scroll-item {
-      /* height: calc(100vh - 260px); */
+      /* height: calc(100vh - 200px); */
     }
 
     .first-slide-container {
@@ -568,18 +568,19 @@ let fourth = 132;
     // make content full height - header height - footer height
     const headerHeight = document.querySelector("nav").offsetHeight;
     const footerHeight = document.querySelector("footer").offsetHeight;
+    const scrollControlsHeight = document.querySelector("#scroll-controls").offsetHeight;
     // make content full height - header height - footer height
     const content = document.querySelector("#scroll-wrapper");
     content.style.height = `calc(100vh - ${headerHeight + footerHeight}px)`;
 
     // make scroll container full height - header height - footer height
     const scrollContainer = document.querySelector("#scroll-container");
-    scrollContainer.style.height = `calc(100vh - ${headerHeight + footerHeight}px)`;
+    scrollContainer.style.height = `calc(100vh - ${headerHeight + footerHeight + scrollControlsHeight}px)`;
 
     // make scroll item full height - header height - footer height
     const scrollItems = document.querySelectorAll(".scroll-item");
     scrollItems.forEach((item) => {
-      item.style.height = `calc(100vh - ${headerHeight + footerHeight}px)`;
+      item.style.height = `calc(100vh - ${headerHeight + footerHeight + scrollControlsHeight}px)`;
     });
 
     // make scroll index bottom - footer height
