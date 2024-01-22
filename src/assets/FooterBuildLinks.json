@@ -1,0 +1,48 @@
+[
+  [
+    { "text": "" },
+    { "link": { "text": "", "href": "#" } },
+    { "emoji": "&nbsp;&#;" }
+  ],
+  [
+    { "text": "100% " },
+    { "link": { "text": "indie built", "href": "#" } },
+    { "text": ", for better or worse!" },
+    { "emoji": "&nbsp;&#x1F60B;" }
+  ],
+  [
+    { "link": { "text": "Homegrown", "href": "#" } },
+    { "text": " website - don't mind the" },
+    { "link": { "text": "bugs", "href": "#" } },
+    { "text": "!" },
+    { "emoji": "&nbsp;&#x1F41B;&nbsp;&#x1F41B;&nbsp;&#x1F41B;" }
+  ],
+  [
+    { "text": "issa" },
+    { "link": { "text": " website", "href": "#" } },
+    { "emoji": "&nbsp;&#x1F30E;" }
+  ],
+  [
+    { "text": "made with " },
+    { "link": { "text": "my busted a** hands", "href": "#" } },
+    { "emoji": "&nbsp;&#x1F972;" }
+  ],
+  [
+    { "text": "hecho con " },
+    { "link": { "text": "orgullo", "href": "#" } },
+    { "emoji": "&nbsp;&#127752;" }
+  ],
+  [
+    { "text": "made in " },
+    { "link": { "text": "cyberspace", "href": "#" } },
+    { "emoji": "&nbsp;&#x1F60B;" }
+  ],
+  [{}]
+]
+// <div>
+//   Made&nbsp;<span class="strike">by</span>&nbsp;<span class="strike wavy"
+//     >with AI</span
+//   >&nbsp;<a href="#" class="build-link">ME</a><span class="emoji"
+//     >&nbsp;&#x1F913;</span
+//   >
+// </div>

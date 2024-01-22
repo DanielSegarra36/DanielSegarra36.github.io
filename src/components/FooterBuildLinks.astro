@@ -1,0 +1,108 @@
+<div id="build-links-container">
+  <div>
+    100% <a href="#" class="build-link">indie built</a>, for better or worse!<span
+      class="emoji">&nbsp;&#x1F60B;</span
+    >
+  </div>
+  <div>
+    Made&nbsp;<span class="strike">by</span>&nbsp;<span class="strike wavy"
+      >with AI</span
+    >&nbsp;<a href="#" class="build-link">ME</a><span class="emoji"
+      >&nbsp;&#x1F913;</span
+    >
+  </div>
+  <div>
+    <a href="#" class="build-link">Homegrown</a> website - don't mind the
+    <a
+      href="https://github.com/danielSegarra36/danielSegarra36.github.io/issues"
+      class="build-link">bugs</a
+    >!<span class="emoji">&nbsp;&#x1F41B;&nbsp;&#x1F41B;&nbsp;&#x1F41B;</span>
+  </div>
+  <div>
+    issa
+    <a href="#" class="build-link"> website</a><span class="emoji"
+      >&nbsp;&#x1F30E;</span
+    >
+  </div>
+  <div>
+    made with <a href="#" class="build-link">my busted a** hands</a><span
+      class="emoji">&nbsp;&#x1F972;</span
+    >
+  </div>
+  <div>
+    hecho con <a href="#" class="build-link"> orgullo</a>
+    <span class="emoji">&nbsp;&#127752;</span>
+  </div>
+  <div>
+    made in <a href="#" class="build-link">cyberspace</a><span class="emoji"
+      >&nbsp;&#x1F60B;</span
+    >
+  </div>
+</div>
+<style is:inline>
+  #build-links-container a {
+    color: #727272;
+  }
+
+  #build-links-container a:hover,
+  #build-links-container a:focus,
+  #build-links-container a:active {
+    color: burlywood;
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;
+    font-weight: bolder;
+  }
+
+  #build-links-container > * {
+    display: none;
+    font-style: italic;
+  }
+
+  .strike {
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    text-decoration-color: burlywood;
+  }
+  .wavy {
+    -moz-text-decoration-style: wavy;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 2px;
+  }
+
+  .flip {
+    display: inline-block;
+    transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+  }
+
+  .emoji {
+    /* font-size: 1.5rem; */
+    font-style: normal;
+    /* display: none; */
+  }
+</style>
+
+<script>
+  const buildLink = document.getElementById("build-links-container");
+  const buildLinkChildren = buildLink.children;
+  const randomBuildLinkIndex = Math.floor(
+    Math.random() * buildLinkChildren.length
+  );
+
+  // console.log(`commentChildren: ${commentChildren}`);
+  // print commentChildren to console
+  // for (let i = 0; i < commentChildren.length; i++) {
+  //   console.log(commentChildren[i]);
+  // }
+  // console.log(
+  //   `randomCommentIndex: ${randomCommentIndex}, randomBuildLinkIndex: ${randomBuildLinkIndex}`
+  // );
+  // const randomComment =
+  buildLinkChildren[randomBuildLinkIndex].setAttribute(
+    "style",
+    "display: block"
+  );
+</script>

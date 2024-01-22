@@ -1,0 +1,101 @@
+---
+import footerComments from "../assets/FooterComments.json";
+import footerBuildLinks from "../assets/FooterBuildLinks.json";
+import FooterComments from "./FooterComments.astro";
+import FooterBuildLinks from "./FooterBuildLinks.astro";
+
+// get current year
+const currentYear = new Date().getFullYear();
+---
+
+<div id="footer-stamp-container">
+  <!-- https://unicode.org/Public/emoji/15.1/emoji-sequences.txt -->
+  <!-- <div id="build-links-container"></div> -->
+  <!-- <div id="comment-container"></div> -->
+  <FooterComments />
+  <FooterBuildLinks />
+  <div class="copyright">&copy; {currentYear} Daniel Segarra Corps.</div>
+</div>
+
+<style is:inline>
+  #footer-stamp-container {
+    color: #727272;
+  }
+  .copyright {
+    color: #979797;
+  }
+</style>
+
+<!-- 
+<script define:vars={{ footerComments }}>
+  // Function to create HTML nodes
+  function createCommentNode(comment) {
+    let fullComment = document.createElement("p");
+    fullComment.classList.add("comment");
+
+    comment.forEach((line) => {
+      // read through each of line's properties and add them to the fullComment
+      for (const [key, value] of Object.entries(line)) {
+        // console.log(`${key}: ${value}`);
+        if (key === "text") {
+          fullComment.appendChild(document.createTextNode(value));
+        } else if (key === "emoji") {
+          const emojiSpan = document.createElement("span");
+          emojiSpan.classList.add("emoji");
+          emojiSpan.innerHTML = line.emoji;
+          fullComment.appendChild(emojiSpan);
+        } else if (key === "html") {
+          fullComment.innerHTML += value;
+        }
+      }
+
+      // fullComment.textContent += line.text;
+
+      // if (line.emoji) {
+      //   const emojiSpan = document.createElement("span");
+      //   emojiSpan.classList.add("emoji");
+      //   emojiSpan.innerHTML = line.emoji;
+      //   fullComment.appendChild(emojiSpan);
+      // }
+    });
+
+    return fullComment;
+  }
+
+  // Function to append nodes to the document
+  function appendNodesToContainer(nodes) {
+    const commentContainer = document.querySelector("#comment-container");
+    nodes.forEach((node) => commentContainer.appendChild(node));
+  }
+
+  // Create HTML nodes for each comment in the JSON data
+  const nodes = footerComments.map(createCommentNode);
+
+  // Append the nodes to the document
+  appendNodesToContainer(nodes);
+  
+  // randomly select a comment
+  const comment = document.getElementById("comment-container");
+  const buildLink = document.getElementById("build-links-container");
+  const commentChildren = comment.children;
+  const buildLinkChildren = buildLink.children;
+  const randomCommentIndex = Math.floor(Math.random() * commentChildren.length);
+  const randomBuildLinkIndex = Math.floor(
+    Math.random() * buildLinkChildren.length
+  );
+
+  // console.log(`commentChildren: ${commentChildren}`);
+  // print commentChildren to console
+  // for (let i = 0; i < commentChildren.length; i++) {
+  //   console.log(commentChildren[i]);
+  // }
+  // console.log(
+  //   `randomCommentIndex: ${randomCommentIndex}, randomBuildLinkIndex: ${randomBuildLinkIndex}`
+  // );
+  // const randomComment =
+  commentChildren[randomCommentIndex].setAttribute("style", "display: block");
+  buildLinkChildren[randomBuildLinkIndex].setAttribute(
+    "style",
+    "display: block"
+  );
+</script> -->

@@ -1,3 +1,7 @@
+---
+import FooterStamp from "./FooterStamp.astro";
+---
+
 <footer>
   <!-- <div>&copy;2021 Daniel Segarra Corps.</div> -->
   <!-- <div>contact</div>
@@ -43,11 +47,13 @@
       ><i class="fa-solid fa-cat"></i></a
     >
   </div>
+  <FooterStamp />
 </footer>
 
 <style>
   footer {
     display: flex;
+    flex-direction: column;
     text-align: center;
     align-items: center;
     justify-content: center;
