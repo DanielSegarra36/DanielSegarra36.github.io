@@ -42,7 +42,9 @@
     .socials::-webkit-scrollbar {
     display: none;
   }
+
     .socials {
+      position: relative;
     width: fit-content;
     display: flex;
     /* overflow: scroll; */
@@ -54,6 +56,12 @@
     overflow-y: hidden;
     scrollbar-width: none;
     justify-content: center;
+  }
+  @media (overflow-block: scroll) {
+    .socials {
+      justify-content: start;
+      position: relative;
+    }
   }
   .socials a {
     display: inline-block;
