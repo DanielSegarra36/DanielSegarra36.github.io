@@ -209,7 +209,7 @@ let fourth = 132;
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <circle cx="5" cy="5" r="4.5" fill="#AFAFAF" stroke="black"></circle>
+          <circle cx="5" cy="5" r="4.5" fill="#AFAFAF"></circle>
         </svg>
       </div>
       <svg
@@ -352,9 +352,11 @@ let fourth = 132;
   .index-marker {
     /* scale: 1.5; */
     margin: 0 0.5rem;
+    transition: all 1s ease 0s;
   }
   .index-marker circle {
     transform-origin: center;
+    transition: stroke 1s ease;
   }
 
   .scroll-item {
@@ -579,8 +581,12 @@ let fourth = 132;
 
     // make scroll item full height - header height - footer height
     const scrollItems = document.querySelectorAll(".scroll-item");
-    scrollItems.forEach((item) => {
+    scrollItems.forEach((item, index) => {
       item.style.height = `calc(100vh - ${headerHeight + footerHeight + scrollControlsHeight}px)`;
+      if (index < scrollItems.length - 1)
+        document
+          .querySelector("#scroll-index")
+          .appendChild(document.querySelector(".index-marker").cloneNode(true));
     });
 
     // make scroll index bottom - footer height
@@ -592,6 +598,23 @@ let fourth = 132;
     // const scrollArrow = document.querySelector("#scroll-arrow");
     // scrollArrow.style.bottom = `${footerHeight + 20}px`;
     
+    // SLIDE NUMBER
+    // for (let count = 1; count < scrollItems.length; count++) {
+
+    // }
+    let initCircle = document.querySelector(
+      `#scroll-index > svg:nth-of-type(${1}) > circle`
+    )
+    let initSVG = document.querySelector(
+      `#scroll-index > svg:nth-of-type(${1})`
+    )
+    initCircle.style.fill = "burlywood";
+    initCircle.style.stroke = "#fdf6ed";
+    initCircle.style.strokeWidth = "1px";
+    initSVG.style.transform = "scale(1.2)";
+    document.querySelectorAll('#scroll-wrapper > #scroll-container > .scroll-item:not(:first-of-type)').forEach((item) => {
+      item.style.opacity = 1;
+    })
   });
 
   // Movement Animation to happen
@@ -782,20 +805,15 @@ container.addEventListener("mouseleave", (e) => {
 // SLIDE NUMBER
 const scrollContainer = document.querySelector("#scroll-container");
 const scrollItems = scrollContainer.children;
-for (let count = 1; count < scrollItems.length; count++) {
-  document
-    .querySelector("#scroll-index")
-    .appendChild(document.querySelector(".index-marker").cloneNode(true));
-}
-document.querySelector(
-  `#scroll-index > svg:nth-of-type(${1}) > circle`
-  ).style.fill = "burlywood";
 
 scrollContainer.addEventListener("scroll", () => {
   for (let i = 0; i < scrollItems.length; i++) {
     console.log(`SCROLL ITEMMMMMM: ${i} of ${scrollItems.length}`);
     const child = scrollItems[i];
     const rect = child.getBoundingClientRect();
+      const currSVG = document.querySelector(
+        `#scroll-index > svg:nth-of-type(${i + 1})`
+      );
     const circle = document.querySelector(
       `#scroll-index > svg:nth-of-type(${i + 1}) > circle`
     );
@@ -803,13 +821,17 @@ scrollContainer.addEventListener("scroll", () => {
 
     if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
         circle.style.fill = "burlywood";
-      circle.style.transform = "scale(1.2)";
+        circle.style.stroke = "#fdf6ed";
+        circle.style.strokeWidth = "1px";
+        currSVG.style.transform = "scale(1.2)";
       if (i + 1 === scrollItems.length) {
         arrow.style.transform = "rotate(180deg)";
       }
     } else {
+        circle.style.stroke = "none";
+        circle.style.strokeWidth = "0px";
+        currSVG.style.transform = "scale(1)";
       circle.style.fill = "#AFAFAF";
-      circle.style.transform = "scale(1)";
       if (i + 1 === scrollItems.length) {
         arrow.style.transform = "rotate(0deg)";
       }
