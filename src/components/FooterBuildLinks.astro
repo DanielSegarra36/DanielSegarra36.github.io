@@ -87,7 +87,7 @@
 
 <script>
   const buildLink = document.getElementById("build-links-container");
-  const buildLinkChildren = buildLink.children;
+  const buildLinkChildren = buildLink!.children;
   const randomBuildLinkIndex = Math.floor(
     Math.random() * buildLinkChildren.length
   );

@@ -307,7 +307,7 @@
 <script>
   // randomly select a comment
   const comment = document.getElementById("comment-container");
-  const commentChildren = comment.children;
+  const commentChildren = comment!.children;
   const randomCommentIndex = Math.floor(Math.random() * commentChildren.length);
 
   // console.log(`commentChildren: ${commentChildren}`);
