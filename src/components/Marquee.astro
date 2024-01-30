@@ -1,0 +1,62 @@
+<div id="marquee">
+  <div class="message">
+    Currently unemployed so like... let's change that <span class="emoji">
+      &#x1F440;</span
+    >
+  </div>
+  <!-- <div class="message">Second Message</div> -->
+  <!-- <div class="message">Third Message</div> -->
+</div>
+
+<style>
+  #marquee::-webkit-scrollbar {
+    display: none;
+  }
+  #marquee {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* basics */
+  #marquee > .message {
+    font-weight: 600;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    /* margin: 2rem 0; */
+  }
+
+  /* item dimensions */
+  #marquee > * {
+    flex: 0 0 100vw;
+    height: 100%;
+    scroll-snap-align: start;
+  }
+
+  .emoji {
+    font-style: normal;
+  }
+</style>
+
+<script>
+  window.onload = function () {
+    const marquee = document.getElementById("marquee");
+    let currentIndex = 0;
+    const children = marquee!.children;
+    const totalChildren = children.length;
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalChildren;
+      const offset = currentIndex * children[0].clientWidth;
+      marquee!.scroll({
+        left: offset,
+        behavior: "smooth",
+      });
+    }, 5000); // Change 3000 to adjust the speed of cycling (in milliseconds)
+  };
+</script>

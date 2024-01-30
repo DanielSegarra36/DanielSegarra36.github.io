@@ -3,9 +3,10 @@ interface Props {
   title: string;
   footer?: boolean;
   navCheck?: boolean;
+  marquee?: boolean;
 }
 
-const { title, footer = true, navCheck = true } = Astro.props;
+const { title, footer = true, navCheck = true, marquee = false } = Astro.props;
 
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
@@ -30,7 +31,7 @@ import Footer from "../components/Footer.astro";
     <title>{title}</title>
   </head>
   <body>
-    {navCheck ? <Nav /> : <div />}
+    {navCheck ? marquee ? <Nav marquee={true} /> : <Nav /> : <div />}
     <slot />
     {footer ? <Footer /> : <div />}
     <script
