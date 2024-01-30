@@ -146,7 +146,9 @@ import SinglePageLayout from "../layouts/SinglePageLayout.astro";
     background-repeat: no-repeat;
   }
 </style>
-
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
 <script>
   gsap.from("mark", {
     opacity: 0,
@@ -167,6 +169,3 @@ import SinglePageLayout from "../layouts/SinglePageLayout.astro";
     ease: "power4.out",
   });
 </script>
-<script
-  is:inline
-  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
