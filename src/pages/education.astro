@@ -145,5 +145,30 @@ import SinglePageLayout from "../layouts/SinglePageLayout.astro";
   mark {
     padding: 0.5rem 1rem;
     background-color: white;
+    opacity: 0;
   }
 </style>
+
+<script>
+  gsap.to("nav > ul > li > a > mark", {
+    opacity: 1,
+    duration: 5,
+    ease: "power4.out",
+  });
+  // Use GSAP to animate the initial position of the <li> elements
+  gsap.from("nav ul li:nth-child(1)", {
+    x: -100,
+    opacity: 0,
+    duration: 1.6,
+    ease: "power4.out",
+  });
+  gsap.from("nav ul li:last-child", {
+    x: 100,
+    opacity: 0,
+    duration: 1.6,
+    ease: "power4.out",
+  });
+</script>
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
