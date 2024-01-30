@@ -34,11 +34,13 @@ import Workers from "../components/Workers.astro";
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    perspective: 1000px;
   }
 
   .bio > h2 {
     font-size: 3.5rem;
     margin: revert;
+    transform-style: preserve-3d;
   }
 
   .left-side {
@@ -56,3 +58,20 @@ import Workers from "../components/Workers.astro";
     margin-bottom: 1.5rem;
   }
 </style>
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+<script>
+  // make h2 slam toward the screen using gsap
+  gsap.from("h2", {
+    duration: 1,
+    y: "-50px",
+    z: "-100px",
+    ease: "elastic.out(1, 0.3)",
+  });
+  gsap.from("svg, p", {
+    duration: 2,
+    opacity: 0,
+    ease: "ease-in",
+  });
+</script>
