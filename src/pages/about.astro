@@ -582,6 +582,9 @@ let fourth = 132;
     border-radius: 50%;
   }
 </style>
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
 <script define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
   // on load
   window.addEventListener("load", () => {
@@ -641,6 +644,12 @@ let fourth = 132;
       .forEach((item) => {
       item.style.opacity = 1;
       });
+  });
+
+  gsap.from("#scroll-container", {
+    opacity: 0,
+    duration: 3,
+    ease: "ease-in",
   });
 
   // Movement Animation to happen
