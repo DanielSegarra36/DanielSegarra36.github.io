@@ -62,6 +62,20 @@ let pd = "50px";
     /* outline: 1px solid green; */
   }
 
+  .scroll_item_animation {
+    animation: anima 1s ease-in forwards;
+  }
+  @keyframes anima {
+    from {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   .item_num {
     display: block;
     line-height: 0.9;
@@ -126,3 +140,91 @@ let pd = "50px";
     }
   }
 </style>
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"
+></script>
+
+<script
+  define:vars={{
+    pr_color,
+    second_color,
+    color_1_1,
+    color_1_2,
+    cubicbz,
+    fz_big,
+    pd,
+  }}
+>
+  const items = document.querySelectorAll(".scroll_item");
+
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5,
+  };
+
+  const observer = new IntersectionObserver(function (entries, observer) {
+    entries.forEach((entry) => {
+      // Use GSAP to animate the item
+      gsap.to(entry.target, {
+        opacity: entry.isIntersecting ? 1 : 0,
+        y: entry.isIntersecting
+          ? 0
+          : entry.boundingClientRect.y < 0
+            ? -100
+            : 100,
+        duration: 1, // Adjust duration as needed
+        ease: "ease-in", // Adjust easing as needed
+      });
+    });
+  }, options);
+
+  items.forEach((item) => {
+    observer.observe(item);
+  });
+
+  // on load
+  // window.addEventListener("load", () => {
+  //   // fade in title
+  //   const item = document.querySelector(".scroll_item");
+  //   item.style.transition = "opacity 1s,transform 1s";
+  //   item.style.opacity = 1;
+  //   item.style.transform = "translateY(0)";
+  // });
+
+  // using intersection observer, fade in when item is within window
+  // const items = document.querySelectorAll(".scroll_item");
+
+  // const options = {
+  //   root: null,
+  //   rootMargin: "0px",
+  //   threshold: 0.5,
+  // };
+
+  // const observer = new IntersectionObserver(function (entries, observer) {
+  //   entries.forEach((entry) => {
+  //     entry.target.style.transition = "opacity 1s,transform 1s";
+  //     if (entry.isIntersecting) {
+  //       entry.target.style.opacity = 1;
+  //       entry.target.style.transform = "translateY(0)";
+  //     } else {
+  //       entry.target.style.opacity = 0;
+  //       // if scroll down, move item up
+  //       if (entry.boundingClientRect.y < 0) {
+  //         entry.target.style.transform = "translateY(-100px)";
+  //       } else {
+  //         // if scroll up, move item down
+  //         entry.target.style.transform = "translateY(100px)";
+  //       }
+  //     }
+  //   });
+  // }, options);
+
+  // items.forEach((item) => {
+  //   observer.observe(item);
+  // });
+</script>

@@ -588,6 +588,11 @@ let fourth = 132;
 <script define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
   // on load
   window.addEventListener("load", () => {
+    gsap.from("#scroll-container", {
+      opacity: 0,
+      duration: 3,
+      ease: "ease-in",
+    });
     // make content full height - header height - footer height
     const headerHeight = document.querySelector("nav").offsetHeight;
     const footerHeight = document.querySelector("footer").offsetHeight;
@@ -644,12 +649,6 @@ let fourth = 132;
       .forEach((item) => {
       item.style.opacity = 1;
       });
-  });
-
-  gsap.from("#scroll-container", {
-    opacity: 0,
-    duration: 3,
-    ease: "ease-in",
   });
 
   // Movement Animation to happen
