@@ -138,7 +138,6 @@ import SinglePageLayout from "../layouts/SinglePageLayout.astro";
   mark {
     padding: 0.5rem 1rem;
     background-color: white;
-    opacity: 0;
   }
 
   li:hover {
@@ -149,8 +148,8 @@ import SinglePageLayout from "../layouts/SinglePageLayout.astro";
 </style>
 
 <script>
-  gsap.to("nav > ul > li > a > mark", {
-    opacity: 1,
+  gsap.from("mark", {
+    opacity: 0,
     duration: 5,
     ease: "power4.out",
   });
