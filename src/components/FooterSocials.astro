@@ -228,54 +228,58 @@
 
 <script>
   const socials = document.querySelector(".socials");
-  // const socialsScroll = () => {
-  //   socials.scrollBy(1, 0);
-  // };
-  // setInterval(socialsScroll, 10);
+  if (socials) {
+    // const socialsScroll = () => {
+    //   socials.scrollBy(1, 0);
+    // };
+    // setInterval(socialsScroll, 10);
 
-  // if socials is visible on screen, start animation
-  const socialsObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // const socials = document.querySelector(".socials");
-        const socials = document.querySelectorAll(".socials > a");
+    // if socials is visible on screen, start animation
+    const socialsObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // const socials = document.querySelector(".socials");
+          const socials = document.querySelectorAll(".socials > a");
 
-        socials.forEach((social) => {
-          social.classList.add("socials-animation");
-        });
+          socials.forEach((social) => {
+            social.classList.add("socials-animation");
+          });
 
-        // // toggle animation
-        // socials.classList.toggle("socials-animation");
+          // // toggle animation
+          // socials.classList.toggle("socials-animation");
 
-        // if scroll detected stop animation
-        // socials.addEventListener("scroll", () => {
-        //   socials.classList.toggle("socials-animation");
-        // });
-      }
+          // if scroll detected stop animation
+          // socials.addEventListener("scroll", () => {
+          //   socials.classList.toggle("socials-animation");
+          // });
+        }
+      });
     });
-  });
 
-  socialsObserver.observe(document.querySelector(".socials")!);
+    socialsObserver.observe(document.querySelector(".socials")!);
 
-  // if scroll detected stop animation
-  socials!.addEventListener("scroll", () => {
-    // clearInterval(socialsScroll);
+    // if scroll detected stop animation
+    socials!.addEventListener("scroll", () => {
+      // clearInterval(socialsScroll);
 
-    // if animation is running, stop it
-    const socials = document.querySelectorAll(".socials > a");
-    const style = window.getComputedStyle(document.querySelector(".socials")!);
-    const animationPlayState = style.getPropertyValue("animation-play-state");
+      // if animation is running, stop it
+      const socials = document.querySelectorAll(".socials > a");
+      const style = window.getComputedStyle(
+        document.querySelector(".socials")!
+      );
+      const animationPlayState = style.getPropertyValue("animation-play-state");
 
-    socials.forEach((social) => {
-      // check play state
+      socials.forEach((social) => {
+        // check play state
 
-      if (animationPlayState === "running") {
-        // remove class
-        social.classList.remove("socials-animation");
+        if (animationPlayState === "running") {
+          // remove class
+          social.classList.remove("socials-animation");
 
-        // set translateX(0);
-        // social.style.transform = "translateX(0)";
-      }
+          // set translateX(0);
+          // social.style.transform = "translateX(0)";
+        }
+      });
     });
-  });
+  }
 </script>

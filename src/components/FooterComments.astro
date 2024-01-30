@@ -307,17 +307,21 @@
 <script>
   // randomly select a comment
   const comment = document.getElementById("comment-container");
-  const commentChildren = comment!.children;
-  const randomCommentIndex = Math.floor(Math.random() * commentChildren.length);
+  if (comment) {
+    const commentChildren = comment.children;
+    const randomCommentIndex = Math.floor(
+      Math.random() * commentChildren.length
+    );
 
-  // console.log(`commentChildren: ${commentChildren}`);
-  // print commentChildren to console
-  // for (let i = 0; i < commentChildren.length; i++) {
-  //   console.log(commentChildren[i]);
-  // }
-  // console.log(
-  //   `randomCommentIndex: ${randomCommentIndex}, randomBuildLinkIndex: ${randomBuildLinkIndex}`
-  // );
-  // const randomComment =
-  commentChildren[randomCommentIndex].setAttribute("style", "display: block");
+    // console.log(`commentChildren: ${commentChildren}`);
+    // print commentChildren to console
+    // for (let i = 0; i < commentChildren.length; i++) {
+    //   console.log(commentChildren[i]);
+    // }
+    // console.log(
+    //   `randomCommentIndex: ${randomCommentIndex}, randomBuildLinkIndex: ${randomBuildLinkIndex}`
+    // );
+    // const randomComment =
+    commentChildren[randomCommentIndex].setAttribute("style", "display: block");
+  }
 </script>

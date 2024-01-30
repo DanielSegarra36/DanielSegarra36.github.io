@@ -87,22 +87,24 @@
 
 <script>
   const buildLink = document.getElementById("build-links-container");
-  const buildLinkChildren = buildLink!.children;
-  const randomBuildLinkIndex = Math.floor(
-    Math.random() * buildLinkChildren.length
-  );
+  if (buildLink) {
+    const buildLinkChildren = buildLink.children;
+    const randomBuildLinkIndex = Math.floor(
+      Math.random() * buildLinkChildren.length
+    );
 
-  // console.log(`commentChildren: ${commentChildren}`);
-  // print commentChildren to console
-  // for (let i = 0; i < commentChildren.length; i++) {
-  //   console.log(commentChildren[i]);
-  // }
-  // console.log(
-  //   `randomCommentIndex: ${randomCommentIndex}, randomBuildLinkIndex: ${randomBuildLinkIndex}`
-  // );
-  // const randomComment =
-  buildLinkChildren[randomBuildLinkIndex].setAttribute(
-    "style",
-    "display: block"
-  );
+    // console.log(`commentChildren: ${commentChildren}`);
+    // print commentChildren to console
+    // for (let i = 0; i < commentChildren.length; i++) {
+    //   console.log(commentChildren[i]);
+    // }
+    // console.log(
+    //   `randomCommentIndex: ${randomCommentIndex}, randomBuildLinkIndex: ${randomBuildLinkIndex}`
+    // );
+    // const randomComment =
+    buildLinkChildren[randomBuildLinkIndex].setAttribute(
+      "style",
+      "display: block"
+    );
+  }
 </script>

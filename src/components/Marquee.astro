@@ -46,17 +46,18 @@
 <script>
   // window.onload = function () {
   const marquee = document.getElementById("marquee");
-  let currentIndex = 0;
-  const children = marquee!.children;
-  const totalChildren = children.length;
+  if (marquee) {
+    let currentIndex = 0;
+    const children = marquee.children;
+    const totalChildren = children.length;
 
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % totalChildren;
-    const offset = currentIndex * children[0].clientWidth;
-    marquee!.scroll({
-      left: offset,
-      behavior: "smooth",
-    });
-  }, 5000); // Change 3000 to adjust the speed of cycling (in milliseconds)
-  // };
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalChildren;
+      const offset = currentIndex * children[0].clientWidth;
+      marquee!.scroll({
+        left: offset,
+        behavior: "smooth",
+      });
+    }, 5000); // Change 3000 to adjust the speed of cycling (in milliseconds)
+  }
 </script>
