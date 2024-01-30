@@ -153,19 +153,19 @@ import SinglePageLayout from "../layouts/SinglePageLayout.astro";
   gsap.from("mark", {
     opacity: 0,
     duration: 5,
-    ease: "power4.out",
+    ease: "ease-in",
   });
   // Use GSAP to animate the initial position of the <li> elements
   gsap.from("nav ul li:nth-child(1)", {
     x: -100,
     opacity: 0,
     duration: 1.6,
-    ease: "power4.out",
+    ease: "ease-in",
   });
   gsap.from("nav ul li:last-child", {
     x: 100,
     opacity: 0,
     duration: 1.6,
-    ease: "power4.out",
+    ease: "ease-in",
   });
 </script>
