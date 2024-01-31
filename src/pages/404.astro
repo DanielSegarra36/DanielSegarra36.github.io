@@ -1,13 +1,17 @@
 ---
-import SinglePageLayout from "../layouts/SinglePageLayout.astro";
+import Workers from "../components/Workers.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<SinglePageLayout title="Daniel Segarra: We Workin Here.">
+<MainLayout title="Daniel Segarra: We Workin Here.">
   <main>
     <h1>404</h1>
     <p>Yeah that's not a thing...</p>
+    <p>But hey, you can always go back <a href="/">home</a>.</p>
+
+    <Workers />
   </main>
-</SinglePageLayout>
+</MainLayout>
 
 <style>
   main {
@@ -23,3 +27,20 @@ import SinglePageLayout from "../layouts/SinglePageLayout.astro";
     font-size: 1.5rem;
   }
 </style>
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+<script>
+  // make h2 slam toward the screen using gsap
+  gsap.from("h1", {
+    duration: 1,
+    y: "-50px",
+    z: "-100px",
+    ease: "elastic.out(1, 0.3)",
+  });
+  gsap.from("svg, p", {
+    duration: 2,
+    opacity: 0,
+    ease: "ease-in",
+  });
+</script>
