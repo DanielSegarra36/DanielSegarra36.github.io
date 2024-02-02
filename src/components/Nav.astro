@@ -87,6 +87,9 @@ let navPadding = marquee ? "0 0 1.2rem 0;" : "1.2rem 0;";
     /* font-family: 'Annie Use Your Telescope'; */
   }
 
+  .nav-link:focus {
+    outline: 3px solid rgb(222, 184, 135);
+  }
   .nav-link:hover {
     /* background-color: rgb(49, 46, 46); */
     background-size: 100% 100%;
@@ -154,6 +157,7 @@ let navPadding = marquee ? "0 0 1.2rem 0;" : "1.2rem 0;";
     opacity: 0.7;
   }
 
+  .nav-logo:focus #animatedCurve,
   .nav-logo:active #animatedCurve,
   .nav-logo:hover #animatedCurve {
     opacity: 1;

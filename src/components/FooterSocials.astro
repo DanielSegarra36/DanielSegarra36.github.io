@@ -157,6 +157,9 @@
   .socials::-webkit-scrollbar {
     display: none;
   }
+  .socials > a:focus {
+    outline: 3px solid rgb(222, 184, 135);
+  }
 
   .socials {
     position: relative;
@@ -187,11 +190,12 @@
     /* margin: 1rem; */
     color: white; /* the font-awesome icons will inherit this color (astro)*/
     opacity: 0.7;
+    padding: 0.2rem;
   }
   .socials path {
     fill: white;
   }
-  .socials svg:hover {
+  .socials a:hover svg {
     opacity: 1;
   }
 
