@@ -1,5 +1,5 @@
 ---
-import SSLayout from "../layouts/SSLayout.astro";
+import ScrollLayout from "../layouts/ScrollLayout.astro";
 import SinglePageLayout from "../layouts/SinglePageLayout.astro";
 import PerspectiveContainer from "../layouts/PerspectiveContainer.astro";
 import WorkInfo from "../components/WorkInfo.astro";
@@ -13,7 +13,7 @@ let fz_big = "60px";
 let pd = "50px";
 ---
 
-<SSLayout title="Daniel Segarra: Portfolio">
+<ScrollLayout title="Daniel Segarra: Portfolio">
   <div class="window_split_sticky_scroll">
     <div class="scroll_window">
           <WorkInfo
@@ -81,7 +81,7 @@ let pd = "50px";
               />
     </div>
   </div>
-</SSLayout>
+</ScrollLayout>
 
 <style
   define:vars={{
