@@ -236,6 +236,14 @@ let fourth = 132;
     display: none;
   }
 
+  #scroll-container:focus {
+    outline: none;
+  }
+  #scroll-container:focus-visible {
+    outline: none;
+    box-shadow: 0 0 5px rgb(222, 184, 135);
+  }
+
   @media screen and (min-height: 570px) {
     .animation-container {
       overflow: hidden;
@@ -588,6 +596,7 @@ let fourth = 132;
 <script define:vars={{ firstColor, secondColor, thirdColor, fourth }}>
   // on load
   window.addEventListener("load", () => {
+    document.getElementById("scroll-container").focus();
     gsap.from("#scroll-container", {
       opacity: 0,
       duration: 3,
@@ -678,9 +687,6 @@ let fourth = 132;
     const xAxis = event.beta;
     const yAxis = event.gamma;
     card.style.transform = `rotateY(${yAxis / 2}deg) rotatex(${xAxis / 2}deg)`;
-
-    // Do stuff with the new orientation data
-    // console.log(`alpha:${alpha}\nbeta:${beta}\ngamma:${gamma}`);
   }
 function changeSVG(event) {
     const absolute = event.absolute;
@@ -688,30 +694,18 @@ function changeSVG(event) {
   const beta = event.beta;
   const gamma = event.gamma;
 
-  // Do stuff with the new orientation data
-  console.log(`alpha:${alpha}\nbeta:${beta}\ngamma:${gamma}`);
-
   // Access the feDropShadow elements
   const feDropShadows = document.querySelectorAll("feDropShadow");
     // const stats = document.querySelector("#stats");
 
   // Modify the parameters for each feDropShadow element
   feDropShadows.forEach((feDropShadow, index) => {
-      // feDropShadow.setAttribute("dx", (window.innerWidth / 2 - e.pageX) / 25);
-      // feDropShadow.setAttribute("dy", (window.innerWidth / 2 - e.pageX) / 25);
-      currX = feDropShadow.getAttribute("dx");
-      currY = feDropShadow.getAttribute("dy");
       feDropShadow.setAttribute("dx", alpha / 25);
       feDropShadow.setAttribute("dy", beta / 25);
     // Modify flood-color based on some condition
       const newFloodColor = `hsl(${
         ((beta + gamma) * 3 * (index + 1)) % 360
       }, 100%, 64%)`;
-    console.log(
-        `x: ${e.pageX}, index: ${index}, hue: ${
-          (e.pageX * 75 * (index + 1)) / 360
-      }`
-    );
     feDropShadow.setAttribute("flood-color", newFloodColor);
 
       // stats.innerText = `alpha: ${alpha}\nbeta: ${beta}\ngamma: ${gamma}`;
@@ -792,24 +786,20 @@ container.addEventListener("mousemove", (e) => {
     feDropShadow.setAttribute("dx", (window.innerWidth / 2 - e.pageX) / 25);
     feDropShadow.setAttribute("dy", (window.innerWidth / 2 - e.pageX) / 25);
     const currentColor = feDropShadow.getAttribute("flood-color");
-    console.log(`COLOR: ${currentColor}!!!!!!!!!!!!!!!!!!!!!!!!!!`);
 
     // Modify stdDeviation
     // feDropShadow.setAttribute(
     //   "stdDeviation",
     //   (Math.floor(Math.random() * 365) + 8) % 10
     // );
-    console.log(
-      `std deviation: ${(Math.floor(Math.random() * 365) + 8) % 10}`
-    );
 
     // Modify flood-color based on some condition
     const newFloodColor = `hsl(${Math.random() * 360}, 100%, 64%)`;
-    console.log(
-        `x: ${e.pageX}, index: ${index}, hue: ${
-          (e.pageX * 75 * (index + 1)) / 360
-      }`
-    );
+      // console.log(
+      //   `x: ${e.pageX}, index: ${index}, hue: ${
+      //     (e.pageX * 75 * (index + 1)) / 360
+      //   }`
+      // );
     feDropShadow.setAttribute("flood-color", newFloodColor);
 
     // Modify flood-opacity
@@ -842,7 +832,6 @@ const scrollItems = scrollContainer.children;
 
 scrollContainer.addEventListener("scroll", () => {
   for (let i = 0; i < scrollItems.length; i++) {
-    console.log(`SCROLL ITEMMMMMM: ${i} of ${scrollItems.length}`);
     const child = scrollItems[i];
     const rect = child.getBoundingClientRect();
       const currSVG = document.querySelector(

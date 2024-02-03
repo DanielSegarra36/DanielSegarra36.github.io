@@ -87,7 +87,7 @@ let navPadding = marquee ? "0 0 1.2rem 0;" : "1.2rem 0;";
     /* font-family: 'Annie Use Your Telescope'; */
   }
 
-  .nav-link:focus {
+  .nav-link:focus-visible {
     outline: 3px solid rgb(222, 184, 135);
   }
   .nav-link:hover {
@@ -157,7 +157,7 @@ let navPadding = marquee ? "0 0 1.2rem 0;" : "1.2rem 0;";
     opacity: 0.7;
   }
 
-  .nav-logo:focus #animatedCurve,
+  .nav-logo:focus-visible #animatedCurve,
   .nav-logo:active #animatedCurve,
   .nav-logo:hover #animatedCurve {
     opacity: 1;
@@ -165,10 +165,10 @@ let navPadding = marquee ? "0 0 1.2rem 0;" : "1.2rem 0;";
     animation: draw-on-hover 10s cubic-bezier(0.22, 0.61, 0.36, 1) forwards
       infinite;
   }
-  .nav-logo:focus > svg {
+  .nav-logo:focus-visible > svg {
     filter: drop-shadow(3px 5px 2px rgba(222, 184, 135, 0.692));
   }
-  .nav-logo:focus {
+  .nav-logo:focus-visible {
     outline: none;
     border-radius: 5px;
     /* box-shadow: 0 -10px 5px -5px burlywood inset; */

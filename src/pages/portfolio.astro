@@ -2,7 +2,7 @@
 import ScrollLayout from "../layouts/ScrollLayout.astro";
 import SinglePageLayout from "../layouts/SinglePageLayout.astro";
 import PerspectiveContainer from "../layouts/PerspectiveContainer.astro";
-import WorkInfo from "../components/WorkInfo.astro";
+import ScrollItem from "../components/ScrollItem.astro";
 
 let pr_color = "#fff";
 let second_color = "#0a0a0a";
@@ -16,7 +16,7 @@ let pd = "50px";
 <ScrollLayout title="Daniel Segarra: Portfolio">
   <div class="window_split_sticky_scroll">
     <div class="scroll_window">
-          <WorkInfo
+      <ScrollItem
             label="01"
             title_line_1="Auto"
             title_line_2="Meal"
@@ -24,7 +24,7 @@ let pd = "50px";
             link="https://github.com/automeal/AutoMeal"
             button_text="try now"
           />
-          <WorkInfo
+      <ScrollItem
             label="02"
             title_line_1="Sumaryze"
             title_line_2="That!"
@@ -32,7 +32,7 @@ let pd = "50px";
             link="http://sumaryzethat.danielsegarra.dev/"
             button_text="try now"
           />
-          <WorkInfo
+      <ScrollItem
             label="03"
             title_line_1=""
             title_line_2="OGalaga"
@@ -40,7 +40,7 @@ let pd = "50px";
             link="https://github.com/buhotech/OGalaga"
             button_text="play now"
           />
-          <WorkInfo
+      <ScrollItem
             label="04"
             title_line_1=""
             title_line_2="Yahtzee"
