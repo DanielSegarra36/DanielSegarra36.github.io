@@ -4,9 +4,18 @@ interface Props {
   footer?: boolean;
   navCheck?: boolean;
   marquee?: boolean;
+  hideOverflowX?: boolean;
 }
 
-const { title, footer = true, navCheck = true, marquee = false } = Astro.props;
+const {
+  title,
+  footer = true,
+  navCheck = true,
+  marquee = false,
+  hideOverflowX = false,
+} = Astro.props;
+
+let overflowX = hideOverflowX ? "hidden" : "auto";
 
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
@@ -37,7 +46,7 @@ import Footer from "../components/Footer.astro";
     <script
       src="https://kit.fontawesome.com/d947b584dc.js"
       crossorigin="anonymous"></script>
-  </body><style is:global>
+  </body><style is:global define:vars={{ overflowX }}>
     * {
       margin: 0;
       padding: 0;
@@ -71,6 +80,7 @@ import Footer from "../components/Footer.astro";
     body,
     html {
       background-color: black;
+      overflow-x: var(--overflowX);
     }
 
     body {

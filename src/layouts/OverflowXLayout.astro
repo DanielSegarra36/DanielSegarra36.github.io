@@ -1,9 +1,11 @@
 ---
 interface Props {
   title: string;
+  navCheck?: boolean;
+  marquee?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, navCheck = true, marquee = false } = Astro.props;
 
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
@@ -27,7 +29,7 @@ import Nav from "../components/Nav.astro";
   </head>
 
   <body>
-    <Nav />
+    {navCheck ? <Nav marquee={marquee} /> : <div />}
     <slot />
     <Footer />
   </body>
