@@ -1,14 +1,22 @@
 <article id="experience-description">
-  <h1>Technical Instructor</h1>
   <section>
+    <blockquote>
+      "Tell me and I forget, teach me and I may remember, involve me and I
+      learn."
+      <span>- Benjamin Franklin</span>
+    </blockquote>
+  </section>
+  <h1>Technical Instructor</h1>
+  <section id="overview">
     I have been teaching software development for over 5 years. I have
     experience teaching in-person and online. I have taught at the college level
     and have also taught at coding bootcamps. I have experience teaching front
-    to back Web Development, graphic design, and .
+    to back Web Development, graphic design, and software development best
+    practices.
   </section>
 
   <section>
-    <h2>I have taught at the following institutions:</h2>
+    <h2>I have worked with the following institutions:</h2>
     <ul>
       <li>Brooklyn Public Library, Coding for Kids</li>
       <li>Columbia University, Double Discovery Program</li>
@@ -18,10 +26,7 @@
   </section>
 
   <section id="responsibilities">
-    <h2>
-      I have provided guidance through several key software development
-      practices and skillsets:
-    </h2>
+    <h2>Taught key software development practices and skillsets:</h2>
     <div id="skills">
       <div id="hard-skills">
         <h3>Hard Skills:</h3>
@@ -60,6 +65,15 @@
 </article>
 
 <style>
+  blockquote {
+    font-size: 1.5rem;
+    font-style: italic;
+    /* margin-bottom: 1rem; */
+  }
+  blockquote span {
+    display: block;
+    font-size: 1rem;
+  }
   #experience-description {
     /* min-height: 100dvh; */
     height: auto;
@@ -72,6 +86,10 @@
   #experience-description h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
+  }
+
+  #overview {
+    max-width: 50em;
   }
   #experience-description ul {
     list-style-position: inside;
@@ -92,8 +110,11 @@
     gap: 1rem;
   }
   #experience-description a {
+    transition: all 0.3s ease-in-out;
+  }
+  #experience-description a:hover {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
   }
 
   /* make flex container where first item, h2 take up full width while rest share a row */
@@ -109,7 +130,7 @@
     width: 100%;
   }
 
-  #resume-link {
+  #experience-description #resume-link {
     display: block;
   }
 </style>

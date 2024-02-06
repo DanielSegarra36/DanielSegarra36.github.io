@@ -1,17 +1,17 @@
 ---
-import ExperienceDescription from "../components/ExperienceDescription.astro";
-import ScrollLayout from "../layouts/ScrollLayout.astro";
+import TeachingGoals from "../../components/TeachingGoals.astro";
+import ScrollLayout from "../../layouts/ScrollLayout.astro";
 ---
 
 <ScrollLayout title="Professional Work" snapScroll={true}>
-  <ExperienceDescription />
+  <TeachingGoals />
   <nav id="xp-nav">
     <ul>
       <li>
-        <a href="/education"><mark>Technical Instructor</mark></a>
+        <a href="/work/education"><mark>Technical Instructor</mark></a>
       </li>
       <li>
-        <a href="/portfolio"><mark>Software Engineer</mark></a>
+        <a href="/work/portfolio"><mark>Software Engineer</mark></a>
       </li>
     </ul>
   </nav>
@@ -114,7 +114,7 @@ import ScrollLayout from "../layouts/ScrollLayout.astro";
   #xp-nav li:nth-child(1),
   #xp-nav li:nth-child(1):before,
   #xp-nav li:nth-child(1) > a {
-    background: url("../assets/DanielTeachingCropped1.jpg");
+    background: url("../../assets/DanielTeachingCropped1.jpg");
     background-position: right;
     color: darkgoldenrod;
     background-repeat: no-repeat;
