@@ -80,6 +80,7 @@
     flex-direction: column;
     gap: 3rem;
     justify-content: center;
+    margin: 3rem auto;
   }
   #line {
     background-color: burlywood;
@@ -93,6 +94,7 @@
     border-radius: 20px;
   }
   .item {
+    position: relative;
     background-color: azure;
     color: black;
     padding: 1rem;
@@ -112,6 +114,28 @@
     width: 50%; /* Set the width to 50% */
     margin-left: 52%; /* Push it to the right */
   }
+  .item.left::after {
+    content: ""; /* Create the pseudo-element */
+    position: absolute;
+    top: 50%; /* Position it vertically in the middle */
+    right: -10px; /* Adjust as needed to control the distance from the right edge */
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid azure; /* Color of the callout arrow */
+  }
+  .item.right::before {
+    content: ""; /* Create the pseudo-element */
+    position: absolute;
+    top: 50%; /* Position it vertically in the middle */
+    left: -10px; /* Adjust as needed to control the distance from the right edge */
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid azure; /* Color of the callout arrow */
+  }
 </style>
 <script
   is:inline
@@ -120,4 +144,34 @@
   is:inline
   src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"
 ></script>
-<script></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // GSAP fade in all .right items from right
+  gsap.utils.toArray(".right").forEach((right) => {
+    gsap.from(right, {
+      scrollTrigger: {
+        trigger: right,
+        start: "top 100%",
+        end: "bottom bottom",
+        toggleActions: "restart none none none", // Restart the animation when the trigger enters the viewport
+      },
+      x: 100,
+      opacity: 0,
+      duration: 1,
+    });
+  });
+  gsap.utils.toArray(".left").forEach((left) => {
+    gsap.from(left, {
+      scrollTrigger: {
+        trigger: left,
+        start: "top 100%",
+        end: "bottom bottom",
+        toggleActions: "restart none none none", // Restart the animation when the trigger enters the viewport
+      },
+      x: -100,
+      opacity: 0,
+      duration: 1,
+    });
+  });
+</script>
