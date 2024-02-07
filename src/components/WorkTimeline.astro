@@ -1,58 +1,64 @@
 <div id="timeline">
-  <!-- <div id="left">
-    <div class="item">side</div>
-    <div class="null"></div>
-    <div class="item">side</div>
-    <div class="null"></div>
-  </div> -->
   <div id="line"></div>
-  <!-- <div id="xxx"> -->
-  <!-- <div class="row">
-      <div class="item">item</div>
-      <div class="null">null</div>
-    </div>
-    <div class="row">
-      <div class="item">item</div>
-      <div class="null">null</div>
-    </div>
-    <div class="row">
-      <div class="item">item</div>
-      <div class="null">null</div>
-    </div>
-    <div class="row">
-      <div class="item left">Left Content</div>
-    </div>
-    <div class="row"> -->
-  <!-- work experience timeline -->
   <div class="item left">
     2017 - 2018
     <h3>Frontend Developer</h3>
     <p>Company Name</p>
     <p>Location</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos numquam
+      eligendi deleniti ipsa minus, vel perspiciatis, beatae voluptate et
+      provident, fugit odio repellendus hic facere laborum mollitia? Eligendi,
+      nobis illum!
+    </p>
   </div>
   <div class="item right">
     2018 - 2019
     <h3>Frontend Developer</h3>
     <p>Company Name</p>
     <p>Location</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos numquam
+      eligendi deleniti ipsa minus, vel perspiciatis, beatae voluptate et
+      provident, fugit odio repellendus hic facere laborum mollitia? Eligendi,
+      nobis illum!
+    </p>
   </div>
   <div class="item left">
     2019 - 2020
     <h3>Frontend Developer</h3>
     <p>Company Name</p>
     <p>Location</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos numquam
+      eligendi deleniti ipsa minus, vel perspiciatis, beatae voluptate et
+      provident, fugit odio repellendus hic facere laborum mollitia? Eligendi,
+      nobis illum!
+    </p>
   </div>
   <div class="item right">
     2020 - 2021
     <h3>Frontend Developer</h3>
     <p>Company Name</p>
     <p>Location</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos numquam
+      eligendi deleniti ipsa minus, vel perspiciatis, beatae voluptate et
+      provident, fugit odio repellendus hic facere laborum mollitia? Eligendi,
+      nobis illum!
+    </p>
   </div>
   <div class="item left">
     2021 - 2022
     <h3>Frontend Developer</h3>
     <p>Company Name</p>
     <p>Location</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos numquam
+      eligendi deleniti ipsa minus, vel perspiciatis, beatae voluptate et
+      provident, fugit odio repellendus hic facere laborum mollitia? Eligendi,
+      nobis illum!
+    </p>
   </div>
   <div class="item right">
     2022 - 2023
@@ -66,29 +72,7 @@
       nobis illum!
     </p>
   </div>
-
-  <!-- education timeline -->
-  <div class="item left">
-    2017 - 2018
-    <h3>Frontend Developer</h3>
-    <p>Company Name</p>
-    <p>Location</p>
-  </div>
-  <div class="item right">
-    2018 - 2019
-    <h3>Frontend Developer</h3>
-    <p>Company Name</p>
-    <p>Location</p>
-  </div>
-  <!-- </div> -->
 </div>
-<!-- <div id="right">
-    <div class="null"></div>
-    <div class="item">side</div>
-    <div class="null"></div>
-    <div class="item">side</div>
-  </div> -->
-<!-- </div> -->
 <style>
   #timeline {
     position: relative;
@@ -108,38 +92,25 @@
     transform: translateX(-50%);
     border-radius: 20px;
   }
-
   .item {
     background-color: azure;
     color: black;
     padding: 1rem;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  .row {
-    display: flex;
-  }
-
-  .item,
-  .null {
-    /* flex: 1; */
-  }
-
-  .null {
-    /* width: 10px; */
-    /* height: 10px; */
-  }
-  .item {
     flex-grow: 1; /* This item will take up remaining space */
+    max-width: 250px;
   }
   .item.left {
     flex-grow: 0; /* This item will only take up its content width */
     width: 50%; /* Set the width to 50% */
+    margin-right: 52%; /* Push it to the right */
+    margin-left: auto; /* Push it to the right */
   }
   .item.right {
     flex-grow: 0; /* This item will only take up its content width */
     width: 50%; /* Set the width to 50% */
-    margin-left: auto; /* Push it to the right */
+    margin-left: 52%; /* Push it to the right */
   }
 </style>
 <script
