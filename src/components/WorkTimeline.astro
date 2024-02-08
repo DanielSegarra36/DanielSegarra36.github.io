@@ -1,19 +1,21 @@
 <div id="timeline">
-  <!-- <div tabindex="0" class="item">
+  <div tabindex="0" class="item">
     <span class="year">2012 - 2016</span>
     <h3 class="job-title">Secretary</h3>
     <p class="company">Divine Mercy Parish</p>
     <p class="location">Brooklyn, NY</p>
     <div class="description">
       <ul>
-        <li>
+        <li class="responsibilities">
           Translated membership paperwork to ~20 Spanish-speaking members from
           Spanish to English
         </li>
-        <li>Managed the budget for 6 events within the Parish</li>
+        <li class="responsibilities">
+          Managed the budget for 6 events within the Parish
+        </li>
       </ul>
-    </p>
-  </div> -->
+    </div>
+  </div>
   <div tabindex="0" class="item">
     <span class="year">2011 - 2017</span>
     <h3 class="job-title">Deckhand</h3>
@@ -40,12 +42,12 @@
     <p class="location">Bronx, NY</p>
     <div class="description">
       <ul>
-        <li>
+        <li class="responsibilities">
           Managed large datasets of company and client information, regarding
           daily operations and on-site visits, in the Bronx, Manhattan, Queens,
           and Westchester.
         </li>
-        <li>
+        <li class="responsibilities">
           Automated orders and pick-up notifications for natural gas regulators
           to be installed at a client's property by company personnel.
         </li>
@@ -88,17 +90,19 @@
     <p class="company">Change Food for Good</p>
     <p class="location">Remote (NY)</p>
     <div class="description">
-      <p>
-        Change Food for Good is a non-profit organization that provides
-        technology education to underserved communities in New York City. I
-        taught a 6-week web development course to high school students in the
-        Columbia University DDC program.
-      </p>
-      <p>
-        I taught students how to build a website using HTML, CSS, and JavaScript
-        and how to deploy their website using GitHub Pages. I also taught them
-        how to use the command line, Git, and GitHub.
-      </p>
+      <ul>
+        <li class="responsibilities">
+          Change Food for Good is a non-profit organization that provides
+          technology education to underserved communities in New York City. I
+          taught a 6-week web development course to high school students in the
+          Columbia University DDC program.
+        </li>
+        <li class="responsibilities">
+          I taught students how to build a website using HTML, CSS, and
+          JavaScript and how to deploy their website using GitHub Pages. I also
+          taught them how to use the command line, Git, and GitHub.
+        </li>
+      </ul>
       <p>You can view their work <a href="#" target="_blank">HERE</a>!</p>
     </div>
   </div>
@@ -109,17 +113,19 @@
     <p class="location">Columbia University</p>
     <!-- Columbia DDC program description-->
     <div class="description">
-      <p>
-        The Knowledge House is a non-profit organization that provides
-        technology education to underserved communities in New York City. I
-        taught a 6-week web development course to high school students in the
-        Columbia University DDC program.
-      </p>
-      <p>
-        I taught students how to build a website using HTML, CSS, and JavaScript
-        and how to deploy their website using GitHub Pages. I also taught them
-        how to use the command line, Git, and GitHub.
-      </p>
+      <ul>
+        <li class="responsibilities">
+          The Knowledge House is a non-profit organization that provides
+          technology education to underserved communities in New York City. I
+          taught a 6-week web development course to high school students in the
+          Columbia University DDC program.
+        </li>
+        <li class="responsibilities">
+          I taught students how to build a website using HTML, CSS, and
+          JavaScript and how to deploy their website using GitHub Pages. I also
+          taught them how to use the command line, Git, and GitHub.
+        </li>
+      </ul>
       <p>You can view their work <a href="#" target="_blank">HERE</a>!</p>
     </div>
   </div>
@@ -159,12 +165,12 @@
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     flex-grow: 1; /* This item will take up remaining space */
-    max-width: 250px;
+    max-width: 350px;
     transition: max-width 0.5s ease-in-out;
   }
   @media (max-width: 600px) {
     .item {
-      max-width: 150px;
+      /* max-width: 150px; */
     }
   }
   .item.right,
@@ -181,7 +187,7 @@
   .item.right,
   .item:nth-of-type(even) {
     flex-grow: 0; /* This item will only take up its content width */
-    width: 50%; /* Set the width to 50% */
+    width: 48%; /* Set the width to 50% */
     margin-left: 52%; /* Push it to the right */
   }
   .item.left::after,
