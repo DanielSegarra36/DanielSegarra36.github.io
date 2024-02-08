@@ -21,11 +21,11 @@
     <p class="location">Bronx, NY</p>
     <div class="description">
       <ul>
-        <li class="ressponsibilities">
+        <li class="responsibilities">
           Contracted by the DOT as maritime transport, workspace, and emergency
           response for routine maintenance under bridges.
         </li>
-        <li class="ressponsibilities">
+        <li class="responsibilities">
           Delegated tasks to work crew, maintained strict safety conditions for
           on-site work barges, and facilitated communication between DOT Bridge
           & Tunnel inspectors and barge crew & captains.
@@ -136,7 +136,8 @@
     flex-direction: column;
     gap: 3rem;
     justify-content: center;
-    margin: 3rem auto;
+    margin: 2rem auto;
+    padding: 2rem 0;
     overflow-x: hidden;
   }
   #line {
@@ -193,7 +194,7 @@
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-left: 10px solid azure; /* Color of the callout arrow */
+    border-left: 10px solid #ae9370; /* Color of the callout arrow */
   }
   .item.right::before,
   .item:nth-of-type(even)::before {
@@ -205,7 +206,7 @@
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-right: 10px solid azure; /* Color of the callout arrow */
+    border-right: 10px solid #ae9370; /* Color of the callout arrow */
   }
   ul {
     list-style: none;
@@ -214,11 +215,90 @@
   .year {
     font-style: italic;
   }
+  .job-title {
+    font-size: 1.5rem;
+    color: burlywood;
+  }
+  .company {
+    font-weight: bold;
+    color: #e6dfd6;
+  }
   .location {
     font-style: italic;
   }
   .description {
     margin-top: 1rem;
+  }
+  .responsibilities {
+    margin-bottom: 1rem;
+  }
+  a {
+    color: blue;
+  }
+  a:hover {
+    color: darkblue;
+  }
+
+  .item {
+    /* fancy burlywood border */
+    border: 2px solid #aa8d68a3;
+    /* max-height: 90svh;
+    overflow-y: scroll;
+    overflow-x: hidden; */
+  }
+
+  .item .year,
+  .item .location,
+  .item .description {
+    color: #bdb9b4;
+  }
+  .item .description {
+    color: #998974;
+  }
+  .item:nth-of-type(odd) {
+    /* background-color: lightblue; */
+    box-shadow: 15px 15px 10px -10px rgba(222, 184, 135, 0.772);
+    /* box-shadow: 15px 15px 10px -10px #394549; */
+    /* background-color: #253237; */
+    /* background: linear-gradient(to bottom right, #8fa0a7, #253237, #253237); */
+    /* background: linear-gradient(135deg, #839da896, #253237, #0c252f); */
+    background: radial-gradient(
+      circle at top left,
+      #839da896,
+      #253237,
+      #0c252f
+    );
+    color: azure;
+  }
+  .item:nth-of-type(even) {
+    /* background-color: #253237; */
+    /* background with linear gradient smoothly transitioning from #253237 to black */
+    /* background: linear-gradient(180deg, #253237 0%, #000000 100%); */
+    /* background-color: lightgreen; */
+    /* background-color: #82755f; */
+    /* background-color: #210335; */
+    /* background-color: #1c1a2b; */
+    /* background: linear-gradient(
+      to bottom left,
+      rgba(255, 255, 255, 0),
+      #1c1a2b,
+      rgba(0, 0, 0, 0.8)
+    ); */
+    /* background: linear-gradient(
+      to bottom left,
+      rgba(151, 0, 255, 0.35),
+      rgba(151, 0, 255, 0.35),
+      rgb(31, 22, 38)
+    ); */
+    background: radial-gradient(
+      circle at top right,
+      rgba(151, 0, 255, 0.35),
+      rgba(41, 18, 58, 0.73),
+      rgb(26, 22, 30)
+    );
+    color: azure;
+    box-shadow: -15px 15px 10px -10px rgba(222, 184, 135, 0.772);
+    /* box-shadow: -15px 15px 10px -10px #394549; */
   }
 </style>
 <script
