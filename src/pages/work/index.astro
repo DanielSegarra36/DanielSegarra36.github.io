@@ -5,7 +5,7 @@ import ScrollLayout from "../../layouts/ScrollLayout.astro";
 ---
 
 <ScrollLayout title="Professional Work" snapScroll={true}>
-  <TeachingGoals />
+  <!-- <TeachingGoals /> -->
   <nav id="xp-nav">
     <ul>
       <li>
@@ -16,11 +16,34 @@ import ScrollLayout from "../../layouts/ScrollLayout.astro";
       </li>
     </ul>
   </nav>
+  <blockquote>
+    "Tell me and I forget, teach me and I may remember, involve me and I learn."
+    <span>- Benjamin Franklin</span>
+  </blockquote>
   <WorkTimeline />
 </ScrollLayout>
 
 <style>
   @import url(https://fonts.googleapis.com/css?family=Exo+2:400,900,800,700,600,500,300,200,100);
+  blockquote {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 2rem auto;
+    width: 80%;
+    /* color: #97938f; */
+    color: #c7b59ea8;
+    width: fit-content;
+    /* text-align: center; */
+    max-width: 80%;
+  }
+  blockquote span {
+    display: block;
+    font-size: 1rem;
+    /* width: fit-content; */
+    text-align: left;
+    /* width: 80%; */
+    margin: 0 auto;
+  }
   #xp-nav,
   #xp-nav ul,
   #xp-nav ul li a {
