@@ -254,6 +254,9 @@ import CoOpTechSVG from "./CoOpTechSVG.astro";
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Rampart+One&display=swap");
+  #DMP img {
+    border-radius: 0;
+  }
   #NYC-SYEP-Logo {
     /* max-height: 50%; */
     /* align-items: center; */
@@ -312,10 +315,18 @@ import CoOpTechSVG from "./CoOpTechSVG.astro";
   @media screen and (max-width: 600px) {
     #DMP .image {
       flex-direction: column;
+      justify-content: center;
     }
     #DMP .image img {
-      max-width: unset;
+      /* max-width: unset; */
+      max-width: 100%;
       max-height: 33%;
+    }
+    #DMP img:first-of-type {
+      align-self: start;
+    }
+    #DMP img:last-of-type {
+      align-self: end;
     }
   }
   #DMP .image,
@@ -540,6 +551,9 @@ import CoOpTechSVG from "./CoOpTechSVG.astro";
     right: 0;
   } */
   /* pasted */
+  .item-container .item {
+    overflow: hidden;
+  }
   .item-container .image {
     position: absolute;
     height: 100%;
