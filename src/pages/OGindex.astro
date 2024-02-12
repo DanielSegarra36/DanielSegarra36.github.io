@@ -1,0 +1,81 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Card from "../components/Card.astro";
+import Workers from "../components/Workers.astro";
+---
+
+<MainLayout
+  title="Daniel Segarra: We Workin Here."
+  marquee={true}
+  hideOverflowX={true}
+>
+  <main>
+    <section class="bio">
+      <h2 style="font-size: 3.5rem;">Under Construction</h2>
+      <p>Pardon...<br />we working some things out here.....</p>
+      <p>Feel free to look around though!</p>
+    </section>
+    <Workers />
+  </main>
+</MainLayout>
+
+<style>
+  main {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    /* justify-content: center; */
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .bio {
+    display: block;
+    width: 80vw;
+    margin: 0px auto;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+  }
+
+  .bio > h2 {
+    font-size: 3.5rem;
+    margin: revert;
+    transform-style: preserve-3d;
+  }
+
+  .left-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .right-side {
+    font-size: 3rem;
+  }
+
+  p {
+    max-width: 980px;
+    margin-bottom: 1.5rem;
+  }
+</style>
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+<script>
+  // make h2 slam toward the screen using gsap
+  gsap.from("h2", {
+    duration: 1,
+    y: "-50px",
+    z: "-100px",
+    ease: "elastic.out(1, 0.3)",
+  });
+  gsap.from("svg, p", {
+    duration: 2,
+    opacity: 0,
+    ease: "ease-in",
+  });
+</script>
