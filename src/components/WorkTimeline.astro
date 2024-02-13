@@ -1,5 +1,6 @@
 ---
 import barge from "../assets/barge.jpeg";
+import IMG_4486 from "../assets/IMG_4486.jpg";
 import ddc from "../assets/DDC.jpg";
 import dmpLocation1 from "../assets/dmpLocation1.png";
 import dmpLocation2 from "../assets/dmpLocation2.png";
@@ -69,7 +70,8 @@ import CoOpTechSVG from "./CoOpTechSVG.astro";
       </div>
     </div>
     <div class="image">
-      <img src={barge.src} />
+      <img class="" src={barge.src} />
+      <img src={IMG_4486.src} />
     </div>
   </div>
   <div class="item-container" id="ConEd">
@@ -254,6 +256,40 @@ import CoOpTechSVG from "./CoOpTechSVG.astro";
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Rampart+One&display=swap");
+  #metro-marine .image {
+    /* position: relative; */
+  }
+  #metro-marine .image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  #metro-marine .image.active img {
+    /* Show active image */
+    /* opacity: 1; */
+    animation: fade 10s infinite;
+  }
+  @keyframes fade {
+    0% {
+      opacity: 1;
+    }
+    33% {
+      opacity: 0;
+    }
+    66% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  #metro-marine .image img:first-of-type {
+    z-index: 2;
+  }
+  #metro-marine .image img:last-of-type {
+    z-index: 1;
+    animation-delay: 5s;
+  }
   #DMP img {
     border-radius: 0;
   }
@@ -634,8 +670,42 @@ import CoOpTechSVG from "./CoOpTechSVG.astro";
         opacity: 0,
         rotation: 90,
         transformOrigin: "right bottom",
-        stagger: 3,
+        // if item's parent has id of metro-marine then stagger = 0 else stagger = 3
+        stagger: right.parentElement.id === "metro-marine" ? 0 : 3,
       });
+      right.classList.add("active");
+      // if(right.parentElement.id === "metro-marine"){
+      // gsap.set(right.querySelectorAll("img"), {
+      //   clipPath: function () {
+      //     return "inset(0px 0px 0px 0px)";
+      //   },
+      // });
+      // let metroMarineIMGs = gsap.utils.toArray(right.querySelectorAll(".image > *"));
+      // metroMarineIMGs.forEach((img) => {
+      //   gsap.to(img, {
+      //     clipPath: function () {
+      //       return "inset(0px 0px 100% 0px)";
+      //     },
+      //     duration: 10,
+      //   });
+      // });
+      // gsap.to(right.querySelectorAll("img"), {
+      //   duration: 0.5,
+      //   opacity: 1,
+      //   delay: 1, // Delay before starting animation
+      //   stagger: {
+      //     each: 3, // Interval between image transitions
+      //     onComplete: function () {
+      //       // After animation completion, swap images
+      //       const activeImg = right.querySelector('img.active');
+      //       const nextImg = activeImg.nextElementSibling || right.querySelector('.image img:first-child');
+      //       activeImg.classList.remove('active');
+      //       nextImg.classList.add('active');
+      //     }
+      //   },
+      //   repeat: -1 // Repeat indefinitely
+      // });
+      // }
     });
   gsap.utils.toArray(".item-container:nth-of-type(odd) > *").forEach((left) => {
     gsap.from(left, {
