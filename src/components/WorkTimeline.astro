@@ -673,7 +673,9 @@ import CoOpTechSVG from "./CoOpTechSVG.astro";
         // if item's parent has id of metro-marine then stagger = 0 else stagger = 3
         stagger: right.parentElement.id === "metro-marine" ? 0 : 3,
       });
+      if (right.parentElement.id === "metro-marine") {
       right.classList.add("active");
+      }
       // if(right.parentElement.id === "metro-marine"){
       // gsap.set(right.querySelectorAll("img"), {
       //   clipPath: function () {
