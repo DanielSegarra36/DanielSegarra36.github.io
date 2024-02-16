@@ -24,7 +24,7 @@ import ScrollLayout from "../../layouts/ScrollLayout.astro";
 </ScrollLayout>
 
 <style>
-  @import url(https://fonts.googleapis.com/css?family=Exo+2:400,900,800,700,600,500,300,200,100);
+  @import url("https://fonts.googleapis.com/css?family=Exo+2:400,900,800,700,600,500,300,200,100");
   blockquote {
     font-size: 1.5rem;
     font-style: italic;
@@ -213,23 +213,23 @@ import ScrollLayout from "../../layouts/ScrollLayout.astro";
     opacity: 0,
     duration: 1.6,
     ease: "ease-in",
-    scrollTrigger: {
-      trigger: "#xp-nav",
-      start: "top 100%",
-      end: "bottom bottom",
-      scrub: 1,
-    },
+    // scrollTrigger: {
+    //   trigger: "#xp-nav",
+    //   start: "top 100%",
+    //   end: "bottom bottom",
+    //   scrub: 1,
+    // },
   });
   gsap.from("#xp-nav ul li:last-child", {
     x: 100,
     opacity: 0,
     duration: 1.6,
     ease: "ease-in",
-    scrollTrigger: {
-      trigger: "#xp-nav",
-      start: "top 100%",
-      end: "bottom bottom",
-      scrub: 1,
-    },
+    // scrollTrigger: {
+    //   trigger: "#xp-nav",
+    //   start: "top 100%",
+    //   end: "bottom bottom",
+    //   scrub: 1,
+    // },
   });
 </script>
