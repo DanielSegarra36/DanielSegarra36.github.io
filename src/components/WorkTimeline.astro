@@ -5,18 +5,11 @@ import ddc from "../assets/DDC.jpg";
 import dmpLocation1 from "../assets/dmpLocation1.png";
 import dmpLocation2 from "../assets/dmpLocation2.png";
 import dmpLocation3 from "../assets/dmpLocation3.png";
-// import SF01 from "../assets/SF01.png";
-// import SF02 from "../assets/SF02.png";
-// import SN from "../assets/SN.png";
-// import CFFG from "../assets/CFFG.jpg";
-// import NYCLogo from "../assets/NYCLogo.png";
 import CFFG from "./CFFGSVG.astro";
 import CFFG_ITAG_CH4 from "./CFFG_ITAG_CH4.astro";
 import CFFG_ITAG_CH5 from "./CFFG_ITAG_CH5.astro";
 import CFFG_SYEP from "./CFFG_SYEP.astro";
 import CoOpTechSVG from "./CoOpTechSVG.astro";
-// https://cfg-staging.fly.dev/img/changefoodhrz.png
-// https://media.licdn.com/dms/image/C4E0BAQHQkiO1xxW0rw/company-logo_200_200/0/1677125105518/the_urban_wild_us_logo?e=2147483647&v=beta&t=9V9_qhaV28sInMLvkBR9uabbyovXDD2yNtPjAZkkWyE
 ---
 
 <div id="timeline">
@@ -72,6 +65,9 @@ import CoOpTechSVG from "./CoOpTechSVG.astro";
     <div class="image">
       <img class="" src={barge.src} />
       <img src={IMG_4486.src} />
+      <video autoplay loop muted>
+        <source src="/IMG_7643.mov" type="video/quicktime" />
+      </video>
     </div>
   </div>
   <div class="item-container" id="ConEd">
@@ -130,6 +126,8 @@ import CoOpTechSVG from "./CoOpTechSVG.astro";
         /> -->
         <!-- <p id="NYC">NYC</p> -->
         <!-- <p id="SYEP">SYEP</p> -->
+        <!-- https://cfg-staging.fly.dev/img/changefoodhrz.png -->
+        <!-- https://media.licdn.com/dms/image/C4E0BAQHQkiO1xxW0rw/company-logo_200_200/0/1677125105518/the_urban_wild_us_logo?e=2147483647&v=beta&t=9V9_qhaV28sInMLvkBR9uabbyovXDD2yNtPjAZkkWyE -->
         <CFFG_SYEP />
       </div>
       <!-- <img src="https://cfg-staging.fly.dev/img/changefoodhrz.png" /> -->
@@ -259,15 +257,15 @@ import CoOpTechSVG from "./CoOpTechSVG.astro";
   #metro-marine .image {
     /* position: relative; */
   }
-  #metro-marine .image img {
+  #metro-marine .image > * {
     position: absolute;
     width: 100%;
     height: 100%;
   }
-  #metro-marine .image.active img {
+  #metro-marine .image.active > * {
     /* Show active image */
     /* opacity: 1; */
-    animation: fade 10s infinite;
+    animation: fade 15s infinite;
   }
   @keyframes fade {
     0% {
@@ -283,12 +281,17 @@ import CoOpTechSVG from "./CoOpTechSVG.astro";
       opacity: 1;
     }
   }
-  #metro-marine .image img:first-of-type {
-    z-index: 2;
+  #metro-marine .image > *:nth-child(1) {
+    z-index: 3;
   }
-  #metro-marine .image img:last-of-type {
-    z-index: 1;
+  #metro-marine .image > *:nth-child(2) {
+    z-index: 2;
     animation-delay: 5s;
+  }
+  #metro-marine .image > *:nth-child(3) {
+    z-index: 1;
+    animation-delay: 10s;
+    object-position: top;
   }
   #DMP img {
     border-radius: 0;
@@ -611,7 +614,7 @@ import CoOpTechSVG from "./CoOpTechSVG.astro";
     justify-content: flex-start;
     align-items: center;
   }
-  .image img {
+  .image > * {
     height: 100%;
     border-radius: 20px;
     /* width: 100%; */
@@ -672,42 +675,12 @@ import CoOpTechSVG from "./CoOpTechSVG.astro";
         transformOrigin: "right bottom",
         // if item's parent has id of metro-marine then stagger = 0 else stagger = 3
         stagger: right.parentElement.id === "metro-marine" ? 0 : 3,
+        onComplete: function () {
+          if (right.parentElement.id === "metro-marine") {
+            right.classList.add("active");
+          }
+        },
       });
-      if (right.parentElement.id === "metro-marine") {
-      right.classList.add("active");
-      }
-      // if(right.parentElement.id === "metro-marine"){
-      // gsap.set(right.querySelectorAll("img"), {
-      //   clipPath: function () {
-      //     return "inset(0px 0px 0px 0px)";
-      //   },
-      // });
-      // let metroMarineIMGs = gsap.utils.toArray(right.querySelectorAll(".image > *"));
-      // metroMarineIMGs.forEach((img) => {
-      //   gsap.to(img, {
-      //     clipPath: function () {
-      //       return "inset(0px 0px 100% 0px)";
-      //     },
-      //     duration: 10,
-      //   });
-      // });
-      // gsap.to(right.querySelectorAll("img"), {
-      //   duration: 0.5,
-      //   opacity: 1,
-      //   delay: 1, // Delay before starting animation
-      //   stagger: {
-      //     each: 3, // Interval between image transitions
-      //     onComplete: function () {
-      //       // After animation completion, swap images
-      //       const activeImg = right.querySelector('img.active');
-      //       const nextImg = activeImg.nextElementSibling || right.querySelector('.image img:first-child');
-      //       activeImg.classList.remove('active');
-      //       nextImg.classList.add('active');
-      //     }
-      //   },
-      //   repeat: -1 // Repeat indefinitely
-      // });
-      // }
     });
   gsap.utils.toArray(".item-container:nth-of-type(odd) > *").forEach((left) => {
     gsap.from(left, {
@@ -735,12 +708,4 @@ import CoOpTechSVG from "./CoOpTechSVG.astro";
       stagger: 3,
     });
   });
-  // const tl = new TimelineMax();
-
-  // tl.add(TweenMax.from(".event", 1, { x: -100, opacity: 0 })).add(
-  //   TweenMax.from(".image img", 0.5, {
-  //     rotation: -90,
-  //     transformOrigin: "left bottom",
-  //   })
-  // );
 </script>
