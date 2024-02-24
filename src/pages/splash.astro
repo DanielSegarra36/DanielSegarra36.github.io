@@ -1,0 +1,1316 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+// let splashText = "anything beyond function is art";
+let splashTextLine1 = "anything beyond";
+let splashTextLine2 = "function is art";
+let fonts = [
+  `"Courier New", monospace`,
+  `"Times New Roman", serif`,
+  `"Arial", sans-serif`,
+  `"Impact", sans-serif`,
+  `"Comic Sans MS", cursive`,
+  `"Brush Script", cursive`,
+  `"Old English Text MT", cursive`,
+  `"Lucida Handwriting", cursive`,
+  `"Papyrus", fantasy`,
+  `"Rockwell", serif`,
+  `"Franklin Gothic Medium", sans-serif`,
+  `"Algerian", cursive`,
+  `"Garamond", serif`,
+  `"Bauhaus 93", sans-serif`,
+  `"Wingdings", fantasy`,
+  `"Jokerman", cursive`,
+  `"Elephant", sans-serif`,
+  `"Stencil", fantasy`,
+  `"Curlz MT", cursive`,
+  `"Bodoni MT", serif`,
+  `"Copperplate Gothic Bold", sans-serif`,
+];
+
+let randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+let textTransform = Math.random() > 0.5 ? "uppercase" : "lowercase";
+let hue = Math.random() * 360;
+let color = `hsl(${hue}, 100%, 50%)`;
+let backgroundColor = `hsl(${(hue + 180) % 360}, 100%, 50%)`;
+let transform = `skewX(${Math.random() * 30}deg) `;
+let boxShadow = `0 0 ${Math.random() * 10}px hsl(${Math.random() * 360}, 100%, 50%)`;
+let textShadow = `0 0 ${Math.random() * 10}px hsl(${Math.random() * 360}, 100%, 50%)`;
+let waaaat = "black";
+---
+
+<MainLayout
+  title="Daniel Segarra: We Workin Here."
+  marquee={true}
+  hideOverflowX={true}
+>
+  <main>
+    <section id="splash">
+      <div id="splash-text">
+        <p>
+          {
+            // create a div for each word and create a span for each character
+            splashTextLine1.split(" ").map((word, i) => (
+              <>
+                <span class={word + " word"}>
+                  {word.split("").map((char, i) => (
+                    // check if char is a letter or a space
+                    <span
+                      class={`${char} ${char === " " ? "" : "character"}`}
+                      key={i}
+                    >
+                      {char}
+                    </span>
+                  ))}{" "}
+                </span>
+                <span> </span>
+              </>
+            ))
+          }
+        </p>
+        <p>
+          {
+            // create a div for each word and create a span for each character
+            splashTextLine2.split(" ").map((word, i) => (
+              <>
+                <span class={word + " word"}>
+                  {word.split("").map((char, i) => (
+                    // check if char is a letter or a space
+                    <span
+                      class={`${char} ${char === " " ? "" : "character"}`}
+                      key={i}
+                    >
+                      {char}
+                    </span>
+                  ))}{" "}
+                </span>
+                <span> </span>
+              </>
+            ))
+          }
+        </p>
+      </div>
+      <div class="image">
+        <svg
+          width="800"
+          height="800"
+          viewBox="0 0 800 800"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="400" cy="400" r="400" fill="#F2F4F8"></circle>
+          <mask
+            id="mask0_13_247"
+            style="mask-type:alpha"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="800"
+            height="800"
+          >
+            <circle cx="400" cy="400" r="400" fill="#FAFCFF"></circle>
+          </mask>
+          <g mask="url(#mask0_13_247)">
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 204.8 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 102.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 716.8 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 51.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 153.6 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 768 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 25.5999 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 128 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 742.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 76.7999 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 691.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 179.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 793.6 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 12.7999 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 115.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 729.6 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 63.9999 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 678.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 166.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 780.8 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 38.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 140.8 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 755.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 89.5999 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 704 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 192 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 6.39996 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 416 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 211.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 620.8 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 108.8 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 518.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 313.6 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 723.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 57.5999 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 467.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 262.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 672 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 160 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 569.6 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 364.8 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 774.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 31.9999 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 441.6 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 236.8 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 646.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 134.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 544 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 339.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 748.8 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 83.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 492.8 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 288 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 697.6 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 185.6 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 595.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 390.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 800 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 19.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 428.8 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 224 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 633.6 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 121.6 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 531.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 326.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 736 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 70.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 480 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 275.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 684.8 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 172.8 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 582.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 377.6 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 787.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 44.7999 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 454.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 249.6 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 659.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 147.2 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 556.8 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 352 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 761.6 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 95.9999 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 505.6 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 300.8 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 710.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 198.4 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 608 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(-1 0 0 1 403.2 0)"
+              fill="#94C0D2"></rect>
+          </g>
+          <mask
+            id="mask1_13_247"
+            style="mask-type:alpha"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="800"
+            height="800"
+          >
+            <circle
+              cx="400"
+              cy="400"
+              r="400"
+              transform="rotate(-90 400 400)"
+              fill="#FAFCFF"></circle>
+          </mask>
+          <g mask="url(#mask1_13_247)">
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 774.4)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 6.40002)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 787.2)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 19.2)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 761.6)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 793.6)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 384)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 588.8)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 179.2)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 691.2)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 281.6)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 486.4)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 76.8)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 742.4)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 332.8)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 537.6)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 128)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 640)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 230.4)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 435.2)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 25.6)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 768)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 358.4)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 563.2)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 153.6)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 665.6)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 256)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 460.8)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 51.2)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 716.8)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 307.2)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 512)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 102.4)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 614.4)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 204.8)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 409.6)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 0)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 780.8)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 371.2)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 576)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 166.4)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 678.4)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 268.8)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 473.6)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 64)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 729.6)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 320)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 524.8)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 115.2)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 627.2)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 217.6)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 422.4)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 12.8)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 755.2)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 345.6)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 550.4)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 140.8)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 652.8)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 243.2)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 448)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 38.4)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 704)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 294.4)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 499.2)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 89.6)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 601.6)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 192)"
+              fill="#94C0D2"></rect>
+            <rect
+              width="3.2"
+              height="800"
+              transform="matrix(0 1 1 0 0 396.8)"
+              fill="#94C0D2"></rect>
+          </g>
+          <mask
+            id="mask2_13_247"
+            style="mask-type:alpha"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="800"
+            height="800"
+          >
+            <circle cx="400" cy="400" r="400" fill="#FFFAF1"></circle>
+          </mask>
+          <g mask="url(#mask2_13_247)">
+            <path
+              d="M419.676 366.047C462.152 47.7314 558.492 -0.356644 601.353 15.3888C459.2 -163.2 -9.6002 -163.2 -140.8 145.6C-266.377 441.166 -260.8 641.6 144.393 773.643C218.456 770.41 377.2 684.363 419.676 366.047Z"
+              fill="#54718B"></path>
+          </g>
+          <mask
+            id="mask3_13_247"
+            style="mask-type:alpha"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="800"
+            height="800"
+          >
+            <circle cx="400" cy="400" r="400" fill="#FFFAF1"></circle>
+          </mask>
+          <g mask="url(#mask3_13_247)">
+            <path
+              d="M727.039 102.486C684.178 86.7403 938.877 352.457 896.402 670.773C856.025 973.356 275.448 782.695 154.541 765.886C149.183 765.806 144.171 765.418 139.55 764.768C143.211 764.609 148.255 765.013 154.541 765.886C234.303 767.087 391.01 700.194 484.502 414.164C584.275 108.919 687.766 79.1932 727.039 102.486Z"
+              fill="#548B70"></path>
+          </g>
+          <circle cx="400" cy="400" r="400" fill="url(#paint0_radial_13_247)"
+          ></circle>
+          <defs>
+            <radialGradient
+              id="paint0_radial_13_247"
+              cx="0"
+              cy="0"
+              r="1"
+              gradientUnits="userSpaceOnUse"
+              gradientTransform="translate(400 400) rotate(93.2355) scale(513.819 509.989)"
+            >
+              <stop offset="0.706296" stop-color="#FFF2F1" stop-opacity="0"
+              ></stop>
+              <stop offset="1" stop-color="#FFF2F1"></stop>
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+    </section>
+    <section class="full">
+      <p>so let your work</p>
+      <p>stand out</p>
+      <p>
+        imagine paint splatter coming in from both sides. maybe some text
+        masking. idk
+      </p>
+    </section>
+    <section class="full">
+      <p>with custom tailored experiences</p>
+      <p>that are as unique as you are</p>
+      <p>icons for programming langs/tools</p>
+    </section>
+  </main>
+</MainLayout>
+
+<style
+  define:vars={{
+    fonts,
+    randomFont,
+    textTransform,
+    hue,
+    color,
+    backgroundColor,
+    transform,
+    boxShadow,
+    textShadow,
+    waaaat,
+  }}
+>
+  /* @import url("https://fonts.googleapis.com/css2?family=Courier+New&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Arial&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Impact&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Brush+Script&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Old+English+Text+MT&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Lucida+Handwriting&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Papyrus&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Rockwell&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Franklin+Gothic+Medium&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Algerian&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Chiller&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Harlow+Solid+Italic&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Garamond&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Bauhaus+93&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Wingdings&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Jokerman&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Elephant&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Stencil&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Curlz+MT&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Bodoni+MT&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Copperplate+Gothic+Bold&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Segoe+Print&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Bookman+Old+Style&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Kristen+ITC&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Snap+ITC&display=swap"); */
+
+  .image {
+    position: absolute;
+    /* center */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    index: 1;
+  }
+  .image svg {
+    opacity: 0.5;
+    width: 500px;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .full {
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .word:not(:last-child) {
+    margin-right: 1rem;
+  }
+  #splash {
+    display: flex;
+    padding: 0 2rem;
+    /* height: 100svh; */
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  }
+  #splash > * {
+    /* width: 50%; */
+    height: 90svh;
+  }
+  #splash-text {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+  /* assign a font for each letter in "anything beyond function is art" with each letter as a class */
+  /* .a {
+    font-family: "Courier New", monospace;
+  }
+  .n {
+    font-family: "Times New Roman", serif;
+  }
+  .y {
+    font-family: "Arial", sans-serif;
+  }
+  .t {
+    font-family: "Impact", sans-serif;
+  }
+  .h {
+    font-family: "Comic Sans MS", cursive;
+  }
+  .i {
+    font-family: "Brush Script", cursive;
+  }
+  .g {
+    font-family: "Old English Text MT", cursive;
+  }
+  .b {
+    font-family: "Lucida Handwriting", cursive;
+  }
+  .e {
+    font-family: "Papyrus", fantasy;
+  }
+  .o {
+    font-family: "Rockwell", serif;
+  }
+  .r {
+    font-family: "Franklin Gothic Medium", sans-serif;
+  }
+  .d {
+    font-family: "Algerian", cursive;
+  }
+  .f {
+    font-family: "Chiller", cursive;
+  }
+  .u {
+    font-family: "Harlow Solid Italic", cursive;
+  }
+  .c {
+    font-family: "Garamond", serif;
+  }
+  .n {
+    font-family: "Bauhaus 93", sans-serif;
+  }
+  .t {
+    font-family: "Wingdings", fantasy;
+  }
+  .i {
+    font-family: "Jokerman", cursive;
+  }
+  .o {
+    font-family: "Elephant", sans-serif;
+  }
+  .n {
+    font-family: "Stencil", fantasy;
+  }
+  .b {
+    font-family: "Curlz MT", cursive;
+  }
+  .e {
+    font-family: "Bodoni MT", serif;
+  }
+  .y {
+    font-family: "Copperplate Gothic Bold", sans-serif;
+  } */
+  span {
+    transition: all 0.3s ease-in-out;
+    /* color: #fff9f1; */
+    line-height: 3rem;
+    height: 3rem;
+  }
+  .word,
+  .character {
+    display: inline-block;
+  }
+  /* span:hover {
+    color: burlywood;
+    font-size: 3.2rem;
+  } */
+  @media screen and (min-width: 1000px) {
+    #splash-text {
+      font-size: 5rem;
+    }
+    span {
+      line-height: 5rem;
+      height: 5rem;
+    }
+    /* make all .word display: block except the last two */
+    #splash-text .word {
+      display: block;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    #splash {
+      flex-direction: column;
+    }
+    #splash > * {
+      width: 100%;
+      /* height: 100svh; */
+    }
+    #splash-text {
+      font-size: 3rem;
+    }
+    span {
+      line-height: 3rem;
+      height: 3rem;
+    }
+  }
+  @media screen and (max-width: 356px) {
+    #splash-text {
+      font-size: 1.5rem !important;
+    }
+    span {
+      line-height: 1.5rem !important;
+      height: 1.5rem !important;
+    }
+    .word:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+  /* if no hover detected */
+  :root:not(:hover) {
+    fontfamily: var(--randomFont);
+    texttransform: var(--textTransform);
+    color: var(--color);
+    backgroundcolor: var(--backgroundColor);
+    transform: var(--transform);
+    boxshadow: var(--boxShadow);
+    textshadow: var(--textShadow);
+    background: linear-gradient(
+      45deg,
+      violet,
+      indigo,
+      blue,
+      green,
+      yellow,
+      orange,
+      red,
+      violet
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  #splash-text .word.is,
+  #splash-text .word.art {
+    display: inline-block;
+  }
+</style>
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"
+></script>
+<script define:vars={{ fonts }}>
+  // fade in the splash text
+  gsap.from("#splash-text span", {
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#splash",
+      start: "top 80%",
+    },
+    stagger: 0.1,
+  });
+
+  // gsap as user scrolls the characters change font, color, text-transform, background color, skew, and shadow
+  // // Iterate over each character span
+  gsap.utils.toArray("#splash-text span.character").forEach((span) => {
+    // Create a ScrollTrigger for each span
+    gsap.to(span, {
+      scrollTrigger: {
+        trigger: "#splash-text", // The trigger element
+        start: "top top", // When to start the animation
+        end: "bottom 0%", // When to end the animation
+        scrub: true, // Smooth scrolling
+      },
+      onUpdate: () => {
+        splashTextAnimation(span);
+      },
+    });
+  });
+
+  // when user hovers over a letter change the font to a random font from fonts array
+  document.querySelectorAll("#splash-text span.character").forEach((span) => {
+    // if whitespace, return
+    if (span.textContent === " ") return;
+
+    span.addEventListener("mouseover", () => {
+      splashTextAnimation(span);
+    });
+  });
+
+  function splashTextAnimation(span) {
+    // randomly change the font of the letter
+    let randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+    span.style.fontFamily = randomFont;
+
+    // randomly uppercase or lowercase the letter
+    span.style.textTransform = Math.random() > 0.5 ? "uppercase" : "lowercase";
+
+    // randomly change the color of the letter
+    let hue = Math.random() * 360;
+    span.style.color = `hsl(${hue}, 100%, 50%)`;
+    // make background color of the letter complementary to the color of the letter, hue
+    span.style.backgroundColor = `hsl(${(hue + 180) % 360}, 100%, 50%)`;
+    // span.style.backgroundColor = `hsl(${(Math.random() * 360 + 180) % 360}, 100%, 50%)`;
+
+    // randomly change the size of the letter between 1rem and 3rem
+    // span.style.fontSize = `${Math.random() * 2 + 2}rem`;
+
+    let transform = "";
+    // randomly rotate the letter
+    // transform += `rotate(${Math.random() * 360}deg) `;
+
+    // randomly skew the letter positively or negatively
+    transform += `skewX(${Math.random() * 30}deg) `;
+    // transform += `skewX(${Math.random() > 0.5 ? Math.random() * 30 : -1 * (Math.random() * 30)}deg) `;
+
+    // randomly translate the letter
+    // transform += `translate(${Math.random() * 30}px, ${Math.random() * 30}px) `;
+    span.style.transform = transform;
+
+    // randomly change the border radius of the letter
+    // span.style.borderRadius = `${Math.random() * 50}%`;
+
+    // randomly change the border of the letter
+    // span.style.border = `${Math.random() * 10}px solid hsl(${Math.random() * 360}, 100%, 50%)`;
+
+    // randomly change the box shadow of the letter
+    span.style.boxShadow = `0 0 ${Math.random() * 10}px hsl(${Math.random() * 360}, 100%, 50%)`;
+
+    // randomly change the text shadow of the letter
+    span.style.textShadow = `0 0 ${Math.random() * 10}px hsl(${Math.random() * 360}, 100%, 50%)`;
+  }
+</script>
