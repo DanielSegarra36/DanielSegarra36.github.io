@@ -987,8 +987,10 @@ let waaaat = "black";
         </svg>
       </div>
       <!-- <Splatter3 /> -->
-      <p>so let your work</p>
-      <p>stand out</p>
+      <div class="splatter-text">
+        <p>so let your work</p>
+        <p>stand out</p>
+      </div>
       <!-- <p>
         imagine paint splatter coming in from both sides. maybe some text
         masking. idk
@@ -1044,6 +1046,18 @@ let waaaat = "black";
   @import url("https://fonts.googleapis.com/css2?family=Kristen+ITC&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Snap+ITC&display=swap"); */
 
+  .splatter-text {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #fbefe0;
+    font-size: 2rem;
+    text-align: center; */
+    padding-bottom: 40%;
+    z-index: 2;
+  }
   .image {
     position: absolute;
     /* center */
@@ -1058,13 +1072,17 @@ let waaaat = "black";
     max-width: 100%;
     max-height: 100%;
   }
+  .full.splatter-wrapper {
+    justify-content: end;
+  }
   .full .splatter {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
     width: 100%;
     height: 70%;
     z-index: 1;
+    transform: translate(-50%, -50%);
   }
   .full p {
     color: #fbefe0;
@@ -1270,16 +1288,30 @@ let waaaat = "black";
   src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"
 ></script>
 <script define:vars={{ fonts }}>
+  // fade in splatter-text using gsap when it scrolls into view rapidly inwward like being flung against a wall
+  gsap.from(".splatter-text", {
+    opacity: 0,
+    scale: 0,
+    rotate: 30,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".splatter-wrapper",
+      end: "top top",
+      scrub: 1,
+    },
+  });
   // fade in svg using gsap when it scrolls into view
   gsap.fromTo(
     ".splatter svg",
-    { autoAlpha: 0 },
+    { autoAlpha: 0, x: "-100%" },
     {
       autoAlpha: 1,
       duration: 1,
+      x: 0,
       scrollTrigger: {
         trigger: ".splatter-wrapper",
-        end: "top top",
+        end: "top 80%",
         scrub: 1,
       },
     }
@@ -1287,6 +1319,8 @@ let waaaat = "black";
   // fade in the splash text
   gsap.from("#splash .image", {
     opacity: 0,
+    scale: 0,
+    rotate: 30,
     duration: 1,
     ease: "power2.out",
   });
@@ -1294,7 +1328,7 @@ let waaaat = "black";
     opacity: 0,
     duration: 0.5,
     ease: "power2.out",
-    mask: document.querySelector(".splatter-wrapper svg"),
+    // mask: document.querySelector(".splatter-wrapper svg"),
     scrollTrigger: {
       trigger: "#splash",
       start: "top 80%",
