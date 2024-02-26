@@ -971,7 +971,6 @@ let waaaat = "black";
       <div class="splatter">
         <!-- <Splatter2 /> -->
         <svg
-          style="max-height: 100%; position: absolute;"
           width="1269"
           height="931"
           viewBox="0 0 1269 931"
@@ -1057,9 +1056,9 @@ let waaaat = "black";
     text-align: center; */
     /* padding-bottom: 40%; */
     z-index: 2;
-    position: relative;
+    /* position: relative;
     z-index: 2;
-    bottom: 20%;
+    bottom: 20%; */
   }
   .image {
     position: absolute;
@@ -1077,7 +1076,7 @@ let waaaat = "black";
     height: 100%;
   }
   .full.splatter-wrapper {
-    justify-content: end;
+    justify-content: center;
   }
   .full .splatter {
     position: absolute;
@@ -1094,6 +1093,9 @@ let waaaat = "black";
     justify-content: center;
     align-items: center;
   }
+  .splatter svg {
+    position: absolute;
+  }
   .full p {
     color: #fbefe0;
     text-align: center;
@@ -1101,6 +1103,7 @@ let waaaat = "black";
     z-index: 2;
   }
   .full {
+    min-height: 500px;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -1118,10 +1121,12 @@ let waaaat = "black";
     position: relative;
     align-items: center;
     justify-content: center;
+    min-height: 300px;
   }
   #splash > * {
     /* width: 50%; */
-    height: 90svh;
+    height: 90%;
+    min-height: 90svh;
   }
   #splash-text {
     text-align: center;
@@ -1249,7 +1254,7 @@ let waaaat = "black";
       height: 3rem;
     }
   }
-  @media screen and (max-width: 356px) {
+  @media screen and (max-width: 356px), screen and (max-height: 550px) {
     #splash-text {
       font-size: 1.5rem !important;
     }
@@ -1259,6 +1264,18 @@ let waaaat = "black";
     }
     .word:not(:last-child) {
       margin-right: 0.5rem;
+    }
+  }
+  @media screen and (orientation: landscape) {
+    .splatter svg {
+      max-width: 100%;
+      max-height: unset;
+    }
+  }
+  @media screen and (orientation: portrait) {
+    .splatter svg {
+      max-height: 100%;
+      max-width: unset;
     }
   }
   /* if no hover detected */
@@ -1288,6 +1305,10 @@ let waaaat = "black";
   #splash-text .word.is,
   #splash-text .word.art {
     display: inline-block;
+  }
+  .splatter-wrapper,
+  .splatter {
+    overflow: hidden;
   }
 </style>
 <script
