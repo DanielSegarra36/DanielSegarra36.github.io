@@ -2,6 +2,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Splatter2 from "../components/Splatter2.astro";
 import Splatter3 from "../components/Splatter3.astro";
+import Workers from "../components/Workers.astro";
 // let splashText = "anything beyond function is art";
 let splashTextLine1 = "anything beyond";
 let splashTextLine2 = "function is art";
@@ -1000,6 +1001,14 @@ let waaaat = "black";
       <p>as unique as you are</p>
       <!-- <p>icons for programming langs/tools</p> -->
     </section>
+    <section class="under-construction">
+      <div class="bio">
+        <h2 style="font-size: 3.5rem;">Under Construction</h2>
+        <p>Pardon...<br />we working some things out here.....</p>
+        <p>Feel free to look around though!</p>
+      </div>
+      <Workers />
+    </section>
   </main>
 </MainLayout>
 
@@ -1045,6 +1054,35 @@ let waaaat = "black";
   @import url("https://fonts.googleapis.com/css2?family=Kristen+ITC&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Snap+ITC&display=swap"); */
 
+  .under-construction {
+    min-height: 500px;
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    /* justify-content: center; */
+    /* justify-content: space-around; */
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  .bio {
+    display: block;
+    width: 80vw;
+    margin: 0px auto;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+  }
+
+  .bio > h2 {
+    font-size: 3.5rem;
+    margin: revert;
+    transform-style: preserve-3d;
+  }
   .splatter-text {
     /* position: absolute;
     top: 50%;
@@ -1436,4 +1474,16 @@ let waaaat = "black";
     // randomly change the text shadow of the letter
     span.style.textShadow = `0 0 ${Math.random() * 10}px hsl(${Math.random() * 360}, 100%, 50%)`;
   }
+  // make h2 slam toward the screen using gsap
+  gsap.from("h2", {
+    duration: 1,
+    y: "-50px",
+    z: "-100px",
+    ease: "elastic.out(1, 0.3)",
+  });
+  gsap.from("svg, p", {
+    duration: 2,
+    opacity: 0,
+    ease: "ease-in",
+  });
 </script>
