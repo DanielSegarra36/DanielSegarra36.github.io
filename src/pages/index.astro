@@ -1478,16 +1478,31 @@ let waaaat = "black";
     // randomly change the text shadow of the letter
     span.style.textShadow = `0 0 ${Math.random() * 10}px hsl(${Math.random() * 360}, 100%, 50%)`;
   }
+
   // make h2 slam toward the screen using gsap
-  gsap.from("h2", {
+  gsap.from(".under-construction h2", {
     duration: 1,
     y: "-50px",
     z: "-100px",
     ease: "elastic.out(1, 0.3)",
+    scrollTrigger: {
+      trigger: ".under-construction", // The trigger element
+      end: "top top", // When to start the animation
+      // end: "bottom 20%", // When to end the animation
+      toggleActions: "restart none none none", // Restart animation every time it comes into view
+      scrub: 1,
+    },
   });
-  gsap.from("svg, p", {
+  gsap.from(".under-construction p", {
     duration: 2,
     opacity: 0,
     ease: "ease-in",
+    scrollTrigger: {
+      trigger: ".under-construction", // The trigger element
+      end: "top top", // When to start the animation
+      // end: "bottom 20%", // When to end the animation
+      toggleActions: "restart none none none", // Restart animation every time it comes into view
+      scrub: 1,
+    },
   });
 </script>

@@ -704,12 +704,58 @@
   // working-class-cat and working-class-bird fade in from left and right respectively using gsap
   gsap.fromTo(
     "#working-class-bird",
-    { x: "-100%" },
-    { x: 0, duration: 1, ease: "power2.inOut" }
+    { x: "-100%", opacity: 0 },
+    {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power2.inOut",
+      scrollTrigger: {
+        trigger: "#workers", // The trigger element
+        end: "top top", // When to start the animation
+        onEnter: () =>
+          gsap.to("#working-class-bird", {
+            x: 0,
+            duration: 1,
+            opacity: 1,
+            ease: "power2.inOut",
+          }),
+        onLeaveBack: () =>
+          gsap.to("#working-class-bird", {
+            x: "-100%",
+            opacity: 0,
+            duration: .1,
+            ease: "power2.inOut",
+          }),
+      },
+    }
   );
   gsap.fromTo(
     "#working-class-cat",
-    { x: "100%" },
-    { x: 0, duration: 1, ease: "power2.inOut" }
+    { x: "100%", opacity: 0 },
+    {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power2.inOut",
+      scrollTrigger: {
+        trigger: "#workers", // The trigger element
+        end: "top top", // When to start the animation
+        onEnter: () =>
+          gsap.to("#working-class-cat", {
+            x: 0,
+            duration: 1,
+            opacity: 1,
+            ease: "power2.inOut",
+          }),
+        onLeaveBack: () =>
+          gsap.to("#working-class-cat", {
+            x: "100%",
+            opacity: 0,
+            duration: .1,
+            ease: "power2.inOut",
+          }),
+      },
+    }
   );
 </script>
