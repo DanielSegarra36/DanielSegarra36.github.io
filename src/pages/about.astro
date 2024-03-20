@@ -20,7 +20,7 @@ let fourth = 132;
                 </section>
 
                 <svg
-                  class="shadow svgMe"
+                  class="svgMe shadow"
                   width="275"
                   height="352"
                   viewBox="0 0 275 352"
@@ -99,10 +99,13 @@ let fourth = 132;
       <section class="scroll-item first-slide">
         <!-- <h2 style="font-size: 3.5rem;">Under Construction</h2> -->
         <p>
-          I've spent the last three years teaching introductory web development
-          skills, through non-profit development courses, in traditional and
-          non-traditional tech environments, to promote interdisciplinary
-          solutions while strengthening existing and complimentary skills.
+          Over the past three years, I have taught introductory web development
+          skills to diverse groups through non-profit courses, working in both
+          traditional and non-traditional tech environments.
+        </p>
+        <p>
+          My aim has been to promote interdisciplinary solutions while
+          reinforcing existing complementary skills.
         </p>
       </section>
       <section class="scroll-item two-col bio" id="brooklyn-bio">
@@ -197,6 +200,15 @@ let fourth = 132;
             </clipPath>
           </defs>
         </svg>
+      </section>
+      <section class="scroll-item two-col bio" id="purpose">
+        <div class="image"></div>
+        <p>
+          I would rather spend my time messing around on random instruments,
+          writing, or cooking.
+        </p>
+        <p>family driven</p>
+        <p>love animals</p>
       </section>
     </div>
     <div id="scroll-controls">
@@ -645,10 +657,10 @@ let fourth = 132;
 
     // }
     let initCircle = document.querySelector(
-      `#scroll-index > svg:nth-of-type(${1}) > circle`
+      `#scroll-index > svg:nth-of-type(${1}) > circle`,
     );
     let initSVG = document.querySelector(
-      `#scroll-index > svg:nth-of-type(${1})`
+      `#scroll-index > svg:nth-of-type(${1})`,
     );
     initCircle.style.fill = "burlywood";
     initCircle.style.stroke = "#fdf6ed";
@@ -656,7 +668,7 @@ let fourth = 132;
     initSVG.style.transform = "scale(1.2)";
     document
       .querySelectorAll(
-        "#scroll-wrapper > #scroll-container > .scroll-item:not(:first-of-type)"
+        "#scroll-wrapper > #scroll-container > .scroll-item:not(:first-of-type)",
       )
       .forEach((item) => {
         item.style.opacity = 1;
@@ -838,10 +850,10 @@ let fourth = 132;
       const child = scrollItems[i];
       const rect = child.getBoundingClientRect();
       const currSVG = document.querySelector(
-        `#scroll-index > svg:nth-of-type(${i + 1})`
+        `#scroll-index > svg:nth-of-type(${i + 1})`,
       );
       const circle = document.querySelector(
-        `#scroll-index > svg:nth-of-type(${i + 1}) > circle`
+        `#scroll-index > svg:nth-of-type(${i + 1}) > circle`,
       );
       const arrow = document.querySelector("#scroll-arrow");
 
